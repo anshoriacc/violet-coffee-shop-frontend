@@ -7,7 +7,8 @@ import Router from "./Main";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router />
+    <Navbar />
+    {/* <Navlog /> */}
   </React.StrictMode>,
   document.getElementById("root")
 );

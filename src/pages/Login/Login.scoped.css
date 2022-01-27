@@ -214,7 +214,7 @@ input[typeof="email"] {
 
   .wrapper-form,
   .input-form {
-    margin: auto;
+    margin: auto !important;
   }
 
   .label-form,
