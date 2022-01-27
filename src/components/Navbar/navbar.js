@@ -1,6 +1,7 @@
-import React from "react";
-import "./navbar.scoped.css";
-import logo from "../../assets/icons/logo.png";
+import React from "react"
+import "./navbar.scoped.css"
+import logo from "../../assets/icons/logo.png"
+// import "bootstrap/"
 
 export default function navbar() {
   return (
@@ -52,5 +53,5 @@ export default function navbar() {
         </div>
       </div>
     </nav>
-  );
+  )
 }
