@@ -3,11 +3,11 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
-import Test from "./pages/signUp/signup";
+import Router from "./Main";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Test />
+    <Router />
   </React.StrictMode>,
   document.getElementById("root")
 );
