@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import "./Chat.scoped.css";
+import React, { Component } from "react"
+import "./Chat.scoped.css"
 
 // COMPONENTS
-import Header from "../../components/Navbar/navLog";
-import Footer from "../../components/Footer/Footer";
-import ChatRoom from "../../components/ChatRoom/ChatRoom";
+import Header from "../../components/Navbar/Navbar"
+import Footer from "../../components/Footer/Footer"
+import ChatRoom from "../../components/ChatRoom/ChatRoom"
 
 export default class Chat extends Component {
   render() {
@@ -78,8 +78,7 @@ export default class Chat extends Component {
                 <div className="chat-list">
                   <div
                     className="chat-item"
-                    onClick={() => this.props.history.push("/chat/detail")}
-                  >
+                    onClick={() => this.props.history.push("/chat/detail")}>
                     <img
                       src={require("../../assets/images/background-chat.jpg")}
                       alt="user"
@@ -105,6 +104,6 @@ export default class Chat extends Component {
         </div>
         <Footer />
       </>
-    );
+    )
   }
 }

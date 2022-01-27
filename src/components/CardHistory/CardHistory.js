@@ -1,9 +1,9 @@
-import React from "react";
-import "./card_history.scoped.css";
+import React from "react"
+import "./CardHistory.scoped.css"
 
-import Image from "../../assets/images/background-profile.jpg";
+import Image from "../../assets/images/background-profile.jpg"
 
-export default function card_history(props) {
+export default function CardHistory(props) {
   return (
     <div className="main">
       <img src={Image} alt="" />
@@ -11,5 +11,5 @@ export default function card_history(props) {
       <p className="price">IDR 15.000</p>
       <p className="delivery">Delivered to table 88</p>
     </div>
-  );
+  )
 }
