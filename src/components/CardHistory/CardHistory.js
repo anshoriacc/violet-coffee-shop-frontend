@@ -10,6 +10,9 @@ export default function CardHistory(props) {
       <p className="name">Coffe Latte</p>
       <p className="price">IDR 15.000</p>
       <p className="delivery">Delivered to table 88</p>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+      </div>
     </div>
   )
 }
