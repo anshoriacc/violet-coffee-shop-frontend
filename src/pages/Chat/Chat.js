@@ -101,7 +101,6 @@ export default class Chat extends Component {
             ) : (
               <ChatRoom />
             )}
-            {/* <ChatRoom /> */}
           </div>
         </div>
         <Footer />

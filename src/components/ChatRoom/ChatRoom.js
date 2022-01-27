@@ -1,10 +1,13 @@
 import React from "react";
 import "./ChatRoom.scoped.css";
+import { Link } from "react-router-dom";
 
 export default function ChatRoom() {
   return (
     <div className="right-section">
-      <p className="section-title">Jason</p>
+      <div className="section-title">
+        <Link to="/chat">{"< "}</Link> Jason
+      </div>
       <div className="chat-box">
         <div className="message-sent">
           <img

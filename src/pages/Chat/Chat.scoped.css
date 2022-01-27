@@ -15,7 +15,6 @@ p {
 }
 
 .content {
-  /* margin: 15%; */
   width: 90%;
   height: 80%;
   background-color: #fff;
@@ -25,14 +24,7 @@ p {
 }
 
 .left-section {
-  width: 40%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  background-color: #6a4029;
-  color: #fff;
+  display: none;
 }
 
 form.search-bar {
@@ -97,6 +89,7 @@ input.search-input:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: scroll;
 }
 
 .staff-list hr {
@@ -141,7 +134,7 @@ input.search-input:focus {
 }
 
 .right-section {
-  width: 60%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   /* padding: 1rem; */
@@ -176,4 +169,26 @@ input.search-input:focus {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+}
+
+@media (min-width: 576px) {
+  .left-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 40%;
+    height: 100%;
+    background-color: #6a4029;
+    color: #fff;
+  }
+  .right-section {
+    width: 60%;
+  }
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
 }
