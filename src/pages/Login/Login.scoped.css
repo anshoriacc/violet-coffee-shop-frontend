@@ -88,6 +88,13 @@ input[typeof="email"] {
   box-shadow: 0px 6px 20px rgba(255, 186, 51, 0.4);
   border-radius: 20px;
   margin: 10px 0;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 25px;
+  color: #6a4029;
+  border: none;
 }
 
 .btn-google {
@@ -97,6 +104,17 @@ input[typeof="email"] {
   box-shadow: 0px 6px 20px rgba(196, 196, 196, 0.67);
   border-radius: 20px;
   margin: 10px 0;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 25px;
+  color: #000000;
+  border: none;
+}
+
+.icon-google {
+  margin-right: 10px;
 }
 
 .card {
@@ -104,7 +122,7 @@ input[typeof="email"] {
   width: 80%;
   height: 233px;
   left: 150px;
-  top: 870px;
+  bottom: -100px;
   background: #ffffff;
   border-radius: 10px;
   display: flex;
@@ -142,4 +160,172 @@ input[typeof="email"] {
   line-height: 25px;
   color: #6a4029;
   border: none;
+}
+
+.wrapper-form {
+  margin: 0 auto;
+}
+
+.wrapper-btn-signup > .btn-signup {
+  display: none;
+}
+
+@media only screen and (max-width: 425px) {
+  .wrapper-title-card,
+  .card {
+    display: none;
+  }
+
+  .content-right {
+    position: absolute;
+  }
+
+  .btn-signup {
+    display: none;
+  }
+
+  .wrapper-btn-signup > .btn-signup {
+    display: block;
+  }
+
+  .wrapper-title-coffee {
+    display: flex;
+    justify-content: center;
+  }
+
+  .title-coffee {
+    background-color: #ffffff;
+    width: 60%;
+    border-radius: 20px;
+    padding: 10px 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+  }
+
+  .wrapper-title-login > .title-login {
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: #ffffff;
+    letter-spacing: 5px;
+  }
+
+  .wrapper-form,
+  .input-form {
+    margin: auto !important;
+  }
+
+  .label-form,
+  .link-forgot-password {
+    color: #ffffff;
+  }
+}
+@media only screen and (max-width: 768px) {
+  /* .img-left {
+    height: 100vh;
+  } */
+  .content-right {
+    padding: 20px;
+  }
+
+  .title-coffee {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 25px;
+  }
+
+  .title-login {
+    font-size: 20px;
+  }
+
+  .btn-signup {
+    width: 400px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .label-form,
+  .link-forgot-password {
+    font-size: 16px;
+  }
+
+  .input-form {
+    width: 94%;
+    height: 40px;
+  }
+
+  .wrapper-form {
+    margin: 10px 0;
+    /* margin-top: 10px; */
+    /* width: ; */
+  }
+
+  .btn-login,
+  .btn-google {
+    height: 40px;
+    border: none;
+  }
+
+  .input-form::-webkit-input-placeholder {
+    font-size: 16px;
+  }
+
+  input[typeof="email"] {
+    font-size: 16px;
+  }
+
+  .card,
+  #card {
+    height: 100px;
+    bottom: -55px;
+  }
+
+  .card > .wrapper-title-card {
+    height: 100px;
+    width: 350px;
+  }
+
+  .wrapper-title > .title-card {
+    font-size: 20px;
+  }
+
+  .main-card {
+    font-size: 14px;
+    width: 270px;
+    line-height: 20px;
+  }
+
+  .create-now {
+    width: 180px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .card {
+    width: 80%;
+    height: 180px;
+    left: 120px;
+    bottom: -100px;
+    background: #ffffff;
+    border-radius: 10px;
+  }
+
+  .wrapper-title-card {
+    width: 550px;
+  }
+
+  .wrapper-title {
+    width: 340px;
+  }
+
+  .title-card {
+    font-size: 30px;
+  }
+
+  .wrapper-form {
+    width: 400px;
+  }
 }
