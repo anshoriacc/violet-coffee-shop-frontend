@@ -1,0 +1,116 @@
+.main {
+  width: 100%;
+  height: 11.5vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "logo link button";
+}
+
+.logo {
+  grid-area: logo;
+  width: 70%;
+  height: 100%;
+  margin-left: 15%;
+  display: grid;
+  grid-template-columns: 0.15fr 1fr;
+  grid-template-areas: "icon text";
+}
+
+.icon {
+  grid-area: icon;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.icon img {
+  width: 1.953125vw;
+  height: 4.423592493297587vh;
+  object-fit: cover;
+  position: absolute;
+  top: 25%;
+}
+
+.text {
+  grid-area: text;
+  width: 100%;
+  height: 100%;
+}
+
+.text p {
+  font-family: "Rubik";
+  font-weight: 700;
+  color: rgba(11, 19, 42, 1);
+  padding-top: 9%;
+  font-size: 1.3020833333333333vw;
+}
+
+.link {
+  grid-area: link;
+}
+
+a:hover {
+  color: rgba(106, 64, 41, 1) !important;
+  font-weight: 700;
+}
+
+.nav-link .active {
+  font-weight: 700;
+}
+
+.nav-link {
+  color: rgba(79, 86, 101, 1);
+  font-family: "Rubik";
+  font-weight: 400;
+}
+
+.navbar-nav {
+  padding-top: 5%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.button {
+  grid-area: button;
+  margin-left: 30%;
+  margin-right: 15%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "left right";
+  grid-gap: 5%;
+}
+
+.left {
+  grid-area: left;
+  position: relative;
+  height: 100%;
+}
+
+.btn-light {
+  position: absolute;
+  width: 100%;
+  top: 28%;
+  border-radius: 50px;
+  background-color: rgb(255, 255, 255);
+}
+
+.right {
+  grid-area: right;
+  position: relative;
+  height: 100%;
+}
+
+.btn-warning {
+  position: absolute;
+  right: 0%;
+  width: 100%;
+  top: 28%;
+  border-radius: 50px;
+  background-color: rgba(255, 186, 51, 1);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+button:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

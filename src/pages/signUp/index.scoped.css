@@ -1,0 +1,202 @@
+.main {
+  width: 100%;
+  height: 208vh;
+  position: relative;
+}
+
+.forms {
+  width: 100%;
+  height: 50vh;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-areas: "left right";
+}
+
+.left-container {
+  grid-area: left;
+}
+
+.left-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.right-container {
+  grid-area: right;
+  position: relative;
+}
+
+.logo {
+  display: inline-flex;
+  margin-left: 8%;
+  margin-top: 5%;
+  width: 11.71875vw;
+}
+
+.logo img {
+  height: 4.423592493297587vh;
+  width: 1.953125vw;
+}
+
+.logo p {
+  padding-left: 10%;
+  padding-top: 2.5%;
+  font-weight: 700;
+  font-family: "Rubik";
+  color: rgba(106, 64, 41, 1);
+  font-size: 1.3020833333333333vw;
+}
+
+.button {
+  position: absolute;
+  right: 8%;
+  top: 3%;
+}
+
+.button button {
+  width: 9.765625vw;
+  height: 6.032171581769437vh;
+  border-radius: 50px;
+  font-weight: 500;
+  font-family: "Rubik";
+  color: rgba(106, 64, 41, 1);
+}
+
+button {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+button:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.tittle {
+  text-align: center;
+  font-family: "Rubik";
+  color: rgba(106, 64, 41, 1);
+  font-weight: 700;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.mb-3 {
+  width: 80%;
+  margin: auto;
+}
+
+.mb-3 input {
+  height: 9.05361930294906vh;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.mb-3 label {
+  color: rgba(79, 86, 101, 1);
+  font-family: "Rubik";
+  font-weight: 700;
+  font-size: 1.3020833333333333vw;
+}
+
+input::placeholder {
+  color: rgba(159, 159, 159, 1);
+}
+
+.button-container {
+  width: 100%;
+  height: 25.5vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "signup signup"
+    "google google";
+}
+
+.button-container button {
+  width: 80%;
+  height: 9.05361930294906vh;
+  border-radius: 20px;
+}
+
+.button-container .btn-warning {
+  margin: 2% auto 0% auto;
+  grid-area: signup;
+  width: 80%;
+  height: 9.05361930294906vh;
+  font-family: "Rubik";
+  font-weight: 700;
+  color: rgba(106, 64, 41, 1);
+  font-size: 1.3020833333333333vw;
+  background-color: rgba(255, 186, 51, 1);
+}
+
+.button-container .btn-light {
+  margin: 2% auto 2% auto;
+  grid-area: google;
+  font-family: "Poppins";
+  color: black;
+  font-weight: 700;
+  font-size: 1.1067708333333333vw;
+}
+
+.btn-light img {
+  width: 1.7578125vw;
+  height: 3.753351206434316vh;
+  margin-right: 3%;
+}
+
+.fly {
+  position: absolute;
+  z-index: 9999;
+  top: 65%;
+  left: 10%;
+  width: 80%;
+  height: 31.233243967828418vh;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: "text create";
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.fly .text {
+  grid-area: text;
+  margin-top: 4%;
+  margin-left: 5%;
+}
+
+.fly h2 {
+  font-size: 2.2786458333333335vw;
+  color: rgba(11, 19, 42, 1);
+  font-family: "Rubik";
+  font-weight: 500;
+}
+
+.fly p {
+  color: rgba(79, 86, 101, 1);
+  font-family: "Rubik";
+  font-weight: 400;
+  font-size: 1.0416666666666667vw;
+}
+
+.create {
+  grid-area: create;
+  position: relative;
+}
+
+.create button {
+  width: 16.276041666666668vw;
+  height: 8.04289544235925vh;
+  border-radius: 10px;
+  color: rgba(106, 64, 41, 1);
+  font-weight: 700;
+  font-family: "Rubik";
+  font-size: 1.0416666666666667vw;
+  position: absolute;
+  top: 32%;
+  left: 20%;
+  background-color: rgba(255, 186, 51, 1);
+}

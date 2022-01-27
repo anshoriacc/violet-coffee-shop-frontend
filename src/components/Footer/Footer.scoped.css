@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+
+.footer {
+  background-color: #f8f8f8;
+}
+
+.row-content {
+  padding: 190px 20px;
+}
+
+.img-logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.title-footer {
+  align-items: center;
+  display: flex;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  color: #0b132a;
+}
+
+.body-footer {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 30px;
+  color: #4f5665;
+}
+
+.icon-footer {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper-icon {
+  width: 35px;
+  height: 35px;
+  background-color: #ffba33;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.tag-footer {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 30px;
+  color: #afb5c0;
+}
+
+.title-col-right {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 30px;
+  color: #0b132a;
+}
+
+.body-col-right {
+  list-style: none;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 30px;
+  color: #4f5665;
+}
+
+@media only screen and (max-width: 425px) {
+  .col-one {
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+}
+
+@media only screen and (max-width: 1024px) {
+}
