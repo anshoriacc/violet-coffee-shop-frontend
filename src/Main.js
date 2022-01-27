@@ -17,7 +17,8 @@ export default class Main extends Component {
           <Route path="/signup" component={SignUp} />
           <Route path="/Login" component={Login} />
           <Route path="/Forgot_password" component={ForgotPassword} />
-          <Route path="/Chat" component={Chat} />
+          <Route path="/chat" component={Chat} />
+          <Route path="/chat/detail" component={Chat} />
           <Route path="/profile" component={Profile} />
         </Switch>
       </BrowserRouter>
