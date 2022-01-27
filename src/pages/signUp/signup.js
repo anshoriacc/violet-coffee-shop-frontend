@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import "./signup.scoped.css";
+import React, { Component } from "react"
+import "./SignUp.scoped.css"
 
-import banner from "../../assets/images/login-signup.jpeg";
-import logo from "../../assets/icons/logo.png";
-import google from "../../assets/icons/google-logo-min.png";
+import banner from "../../assets/images/login-signup.jpeg"
+import logo from "../../assets/icons/logo.png"
+import google from "../../assets/icons/google-logo-min.png"
 
 // components
-import Footer from "../../components/Footer/Footer";
+import Footer from "../../components/Footer/Footer"
 
 export default class index extends Component {
   render() {
@@ -32,19 +32,35 @@ export default class index extends Component {
                 <label for="exampleInputEmail1" class="form-label">
                   Email address :
                 </label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email address" />
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter your email address"
+                />
               </div>
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">
                   Password :
                 </label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password" />
+                <input
+                  type="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  placeholder="Enter your password"
+                />
               </div>
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">
                   Phone Number :
                 </label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your Phone number" />
+                <input
+                  type="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  placeholder="Enter your Phone number"
+                />
               </div>
             </form>
             <div className="button-container">
@@ -70,6 +86,6 @@ export default class index extends Component {
         </div>
         <Footer className="footer" />
       </div>
-    );
+    )
   }
 }

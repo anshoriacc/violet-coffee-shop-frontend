@@ -1,9 +1,9 @@
-import React from "react";
-import "./card_coupon.scoped.css";
+import React from "react"
+import "./CardCoupon.scoped.css"
 
-import mother from "../../assets/icons/mother_event.png";
+import mother from "../../assets/icons/mother_event.png"
 
-export default function card_coupon(props) {
+export default function CardCoupon(props) {
   return (
     <div className="main">
       <div className="motherDays">
@@ -12,5 +12,5 @@ export default function card_coupon(props) {
         <p className="promo">Get one of our favorite menu for free</p>
       </div>
     </div>
-  );
+  )
 }

@@ -1,9 +1,9 @@
-import React from "react";
-import "./card_favorite.scoped.css";
+import React from "react"
+import "./CardFavorite.scoped.css"
 
-import Dumy from "../../assets/images/background-profile.jpg";
+import Dumy from "../../assets/images/background-profile.jpg"
 
-function card_favorite(props) {
+function CardFavorite(props) {
   return (
     <div className="main">
       <img src={Dumy} alt="" />
@@ -11,7 +11,7 @@ function card_favorite(props) {
       <p className="price">IDR 50.000</p>
       <button className="btn btn-warning">Select</button>
     </div>
-  );
+  )
 }
 
-export default card_favorite;
+export default CardFavorite
