@@ -5,6 +5,9 @@ import banner from "../../assets/images/login-signup.jpeg";
 import logo from "../../assets/icons/logo.png";
 import google from "../../assets/icons/google-logo-min.png";
 
+// components
+import Footer from "../../components/Footer/Footer";
+
 export default class index extends Component {
   render() {
     return (
@@ -65,6 +68,7 @@ export default class index extends Component {
             </a>
           </div>
         </div>
+        <Footer className="footer" />
       </div>
     );
   }
