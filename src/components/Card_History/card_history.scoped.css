@@ -1,0 +1,51 @@
+.main {
+  width: 394px;
+  height: 126px;
+  background-color: rgba(255, 255, 255, 1);
+  margin: 5% auto 5% auto;
+  position: relative;
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.main img {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+p {
+  font-family: "Poppins";
+}
+
+.name {
+  position: absolute;
+  width: 50%;
+  height: max-content;
+  left: 25%;
+  top: 15%;
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.price {
+  color: rgba(137, 85, 55, 1);
+  font-weight: 400;
+  font-size: 20px;
+  position: absolute;
+  top: 43%;
+  left: 33%;
+}
+
+.delivery {
+  color: rgba(137, 85, 55, 1);
+  font-weight: 400;
+  font-size: 20px;
+  position: absolute;
+  top: 60%;
+  left: 33%;
+}
