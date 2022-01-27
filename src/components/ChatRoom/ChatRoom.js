@@ -41,21 +41,6 @@ export default function ChatRoom() {
           </div>
         </div>
       </div>
-      {/* <div className="chat-list">
-        <div className="chat-item">
-          <img
-            src={require("../../assets/images/background-chat.jpg")}
-            alt="user"
-          />
-          <div className="chat-content">
-            <p className="chat-message">
-              Hey jason, I can't find the promo section. Can u tell me where is
-              it?
-            </p>
-          </div>
-        </div>
-        <hr />
-      </div> */}
       <div className="message-box">
         <textarea placeholder="Type a message" />
       </div>
