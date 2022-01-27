@@ -3,11 +3,14 @@ import ReactDOM from "react-dom"
 import "./index.css"
 import reportWebVitals from "./reportWebVitals"
 
-import Router from "./Main"
+// import Router from "./Main"
+import Navbar from "./components/Navbar/navbar"
+import Navlog from "./components/Navbar/navLog"
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router />
+    <Navbar />
+    {/* <Navlog /> */}
   </React.StrictMode>,
   document.getElementById("root")
 )
