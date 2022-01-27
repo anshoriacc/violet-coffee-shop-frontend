@@ -9,9 +9,8 @@
 .footer {
   background-color: #f8f8f8;
   width: 100%;
-  position: relative;
   position: absolute;
-  bottom: 25%;
+  bottom: 0%;
 }
 
 .row-content {
