@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import "./Profile.scoped.css";
+import React, { Component } from "react"
+import "./Profile.scoped.css"
 
 // COMPONENTS
-import Header from "../../components/Navbar/navLog";
-import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Navbar/Navbar"
+import Footer from "../../components/Footer/Footer"
 
 // IMAGE
-import Profile from "../../assets/images/dummy-profile.png";
+import Profile from "../../assets/images/dummy-profile.png"
 
 export default class index extends Component {
   render() {
@@ -47,13 +47,22 @@ export default class index extends Component {
                       <label for="exampleInputEmail1" class="form-label">
                         Email address :
                       </label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                      />
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">
                         Delivery adress :
                       </label>
-                      <input type="text" class="form-control" id="exampleInputPassword1" />
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="exampleInputPassword1"
+                      />
                     </div>
                   </form>
                 </div>
@@ -64,19 +73,32 @@ export default class index extends Component {
                       <label for="exampleInputEmail1" class="form-label">
                         Display name :
                       </label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                      />
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">
                         First name :
                       </label>
-                      <input type="text" class="form-control" id="exampleInputPassword1" />
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="exampleInputPassword1"
+                      />
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">
                         Last name :
                       </label>
-                      <input type="text" class="form-control" id="exampleInputPassword1" />
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="exampleInputPassword1"
+                      />
                     </div>
                   </form>
                 </div>
@@ -86,13 +108,22 @@ export default class index extends Component {
                   <label for="exampleInputPassword1" class="form-label">
                     Mobile number :
                   </label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleInputPassword1"
+                  />
                 </div>
                 <div class="mb-3 dob">
                   <label for="exampleFormControlInput1" class="form-label">
                     DD/MM/YYYY:
                   </label>
-                  <input type="date" class="form-control" date aria-label="YYYY/MM/DD" />
+                  <input
+                    type="date"
+                    class="form-control"
+                    date
+                    aria-label="YYYY/MM/DD"
+                  />
                 </div>
               </div>
             </div>
@@ -102,6 +133,6 @@ export default class index extends Component {
           <Footer />
         </div>
       </div>
-    );
+    )
   }
 }

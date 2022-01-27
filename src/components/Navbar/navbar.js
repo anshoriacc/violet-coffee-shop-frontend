@@ -103,7 +103,7 @@ export default function Navbar(props) {
 */
 
     /* 
-
+.
     navbar login
     <div className="info">
           <div className="search">
