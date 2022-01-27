@@ -2,6 +2,11 @@ p {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .chat-list {
   width: 100%;
   display: flex;
