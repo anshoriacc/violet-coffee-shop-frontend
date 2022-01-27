@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./index.scoped.css";
+import "./signup.scoped.css";
 
 import banner from "../../assets/images/login-signup.jpeg";
 import logo from "../../assets/icons/logo.png";

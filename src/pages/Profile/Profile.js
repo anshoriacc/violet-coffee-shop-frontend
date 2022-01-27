@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./index.scoped.css";
+import "./Profile.scoped.css";
 
 // COMPONENTS
 import Header from "../../components/Navbar/navLog";
