@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import SignUp from "./pages/signUp/signup";
 import Login from "./pages/Login/Login";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+import Profile from "./pages/Profile/Profile";
 
 import React, { Component } from "react";
 
@@ -15,6 +16,7 @@ export default class Main extends Component {
           <Route path="/signup" component={SignUp} />
           <Route path="/Login" component={Login} />
           <Route path="/Forgot_password" component={ForgotPassword} />
+          <Route path="/profile" component={Profile} />
         </Switch>
       </BrowserRouter>
     );
