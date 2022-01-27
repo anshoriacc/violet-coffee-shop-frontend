@@ -65,7 +65,10 @@
 }
 
 .engage {
-  padding-left: 13%;
+  /* padding-left: 13%; */
+  width: max-content;
+  position: absolute;
+  right: 0%;
 }
 
 .icon-footer {
