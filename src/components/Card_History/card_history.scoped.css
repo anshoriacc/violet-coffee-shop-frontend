@@ -2,7 +2,6 @@
   width: 394px;
   height: 126px;
   background-color: rgba(255, 255, 255, 1);
-  margin: 5% auto 5% auto;
   position: relative;
   border-radius: 20px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
@@ -48,4 +47,19 @@ p {
   position: absolute;
   top: 60%;
   left: 33%;
+}
+
+input {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  bottom: 20%;
+  right: 5%;
+  border: 3px solid rgba(137, 85, 55, 1);
+  background-color: rgba(245, 245, 248, 1);
+}
+
+input:checked {
+  background-color: rgba(137, 85, 55, 1);
+  border: none;
 }
