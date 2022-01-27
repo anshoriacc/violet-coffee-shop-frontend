@@ -3,13 +3,11 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
-// import Router from "./Main";
-import Card from "./components/Card_Favorite/card_favorite";
+import Router from "./Main";
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Router /> */}
-    <Card />
+    <Router />
   </React.StrictMode>,
   document.getElementById("root")
 );
