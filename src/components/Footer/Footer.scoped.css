@@ -1,11 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
 
+*,
+*::after,
+*::before {
+  margin: 0;
+  box-sizing: border-box;
+}
 .footer {
   background-color: #f8f8f8;
+  width: 100%;
+  position: relative;
 }
 
 .row-content {
-  padding: 190px 20px;
+  height: 50vh;
+  padding-top: 8%;
+  margin-left: 0%;
+  /* background-color: #ffba33; */
+}
+
+.body-footer {
+  padding-top: 5%;
 }
 
 .img-logo {
@@ -15,7 +30,6 @@
 }
 
 .title-footer {
-  align-items: center;
   display: flex;
   font-family: Rubik;
   font-style: normal;
@@ -25,6 +39,12 @@
   color: #0b132a;
 }
 
+.row {
+  width: 90vw;
+  position: absolute;
+  left: 5%;
+}
+
 .body-footer {
   font-family: Rubik;
   font-style: normal;
@@ -32,6 +52,20 @@
   font-size: 16px;
   line-height: 30px;
   color: #4f5665;
+}
+
+.tittle {
+  position: absolute;
+  left: 0%;
+  width: 30%;
+}
+
+.product {
+  padding-left: 13%;
+}
+
+.engage {
+  padding-left: 13%;
 }
 
 .icon-footer {
