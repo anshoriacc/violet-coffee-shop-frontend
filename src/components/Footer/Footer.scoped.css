@@ -9,8 +9,9 @@
 .footer {
   background-color: #f8f8f8;
   width: 100%;
-  position: absolute;
-  bottom: 0%;
+  position: relative;
+  /* bottom: 25%; */
+  margin-top: 30px;
 }
 
 .row-content {
@@ -126,12 +127,54 @@
 }
 
 @media only screen and (max-width: 425px) {
-  .col-one {
+  .row {
+    width: 90vw;
+    position: relative;
+  }
+
+  .tittle {
+    position: relative;
+    width: auto;
+  }
+
+  .engage {
+    position: relative;
+  }
+
+  .title-footer {
+    width: 300px;
+  }
+
+  .col-two {
+    margin-top: 30px;
     margin-bottom: 20px;
+  }
+
+  .col-three {
+    padding: 0;
+  }
+
+  .icon-footer {
+    justify-content: center;
+  }
+
+  .wrapper-icon {
+    margin-right: 20px;
+  }
+
+  .row-content {
+    height: auto;
+  }
+
+  .footer {
+    margin: 0;
   }
 }
 
 @media only screen and (max-width: 768px) {
+  .col-two {
+    padding-left: 0;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
