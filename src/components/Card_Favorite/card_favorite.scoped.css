@@ -1,0 +1,61 @@
+.main {
+  width: 330px;
+  height: 567px;
+  margin-top: 5%;
+  background-color: rgba(255, 255, 255, 1);
+  border: 2px solid rgba(221, 221, 221, 1);
+  position: relative;
+  border-radius: 10px;
+}
+
+.main:hover {
+  border: 2px solid rgba(106, 64, 41, 1);
+}
+
+img {
+  top: -10%;
+  left: 30%;
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+}
+
+.name {
+  position: absolute;
+  top: 15%;
+  width: 100%;
+  text-align: center;
+  font-family: "Rubik";
+  font-weight: 500;
+  font-size: 18px;
+  color: rgba(11, 19, 42, 1);
+}
+
+.price {
+  position: absolute;
+  font-family: "Rubik";
+  font-size: 25px;
+  font-weight: 500;
+  width: 100%;
+  bottom: 15%;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: rgba(255, 186, 51, 1);
+}
+
+.btn {
+  width: 177px;
+  height: 45px;
+  background-color: white;
+  border-radius: 50px;
+  border: 2px solid #ffba33;
+  position: absolute;
+  left: 23%;
+  bottom: 5%;
+  color: rgba(106, 64, 41, 1);
+  font-family: "Rubik";
+  font-weight: 700;
+}
