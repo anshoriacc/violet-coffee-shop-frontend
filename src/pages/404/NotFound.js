@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./notFound.scoped.css";
+import "./NotFound.scoped.css";
 
-export default class notFound extends Component {
+export default class NotFound extends Component {
   render() {
     return (
       <>
