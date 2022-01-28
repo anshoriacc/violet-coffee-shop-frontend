@@ -29,6 +29,7 @@ p {
 }
 
 .left-section {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -198,7 +199,14 @@ input.search-input:focus {
   }
 
   .left-section.left-section-hidden {
-    display: initial;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    height: auto;
+    background-color: #6a4029;
+    color: #fff;
   }
 
   .left-section {
