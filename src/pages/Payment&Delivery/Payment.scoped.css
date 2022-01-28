@@ -1,0 +1,363 @@
+.banner {
+  width: 100%;
+  height: 128vh;
+  background-image: url(/src/assets/images/background-payment.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.title {
+  padding-left: 5%;
+  padding-top: 2.5%;
+  font-family: Rubik;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 47px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: white;
+  text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.49);
+}
+
+.order-card {
+  width: 487px;
+  height: 737px;
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  top: 15%;
+  left: 5%;
+}
+
+.order-summary {
+  color: rgba(54, 33, 21, 1);
+  font-family: Poppins;
+  font-size: 35px;
+  font-style: normal;
+  text-align: center;
+  font-weight: 700;
+  line-height: 53px;
+  letter-spacing: 0em;
+  width: 100%;
+  position: absolute;
+  top: 5%;
+}
+
+img {
+  width: 82px;
+  height: 90px;
+  border-radius: 20px;
+}
+
+.card-item {
+  width: 80%;
+  height: 90px;
+  position: absolute;
+  left: 10%;
+  top: 20%;
+}
+
+.cards {
+  width: 80%;
+  height: 90px;
+  position: absolute;
+  left: 10%;
+  top: 35%;
+}
+
+.product-name {
+  position: absolute;
+  top: 0%;
+  left: 25%;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.product-order {
+  position: absolute;
+  top: 30%;
+  left: 25%;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.size-order {
+  position: absolute;
+  bottom: -15%;
+  left: 25%;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.product-price {
+  position: absolute;
+  bottom: 15%;
+  right: 0%;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.order {
+  height: 294px;
+  width: 80%;
+  position: absolute;
+  border-top: 0.5px solid rgba(0, 0, 0, 1);
+  bottom: 0%;
+  left: 10%;
+  color: rgba(54, 33, 21, 1);
+}
+
+.sub-total {
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  position: absolute;
+  top: 3%;
+}
+
+.sub-idr {
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  position: absolute;
+  top: 3%;
+  right: 0;
+}
+
+.tax {
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  position: absolute;
+  top: 15%;
+}
+
+.fees {
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  position: absolute;
+  top: 15%;
+  right: 0;
+}
+
+.ship {
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  position: absolute;
+  top: 27%;
+}
+
+.ship-idr {
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  position: absolute;
+  top: 27%;
+  right: 0%;
+}
+
+.total-order {
+  font-family: Poppins;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 45px;
+  letter-spacing: 0em;
+  text-align: left;
+  position: absolute;
+  bottom: 20%;
+}
+
+.total-idr {
+  font-family: Poppins;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 45px;
+  letter-spacing: 0em;
+  text-align: left;
+  position: absolute;
+  bottom: 20%;
+  right: 0%;
+}
+
+.detail-address {
+  width: 454px;
+  height: 50vh;
+  position: absolute;
+  right: 5%;
+}
+
+.head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.address-title {
+  font-family: Poppins;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: white;
+  margin-top: 2%;
+  text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.49);
+}
+
+.head .btn-link {
+  font-family: Poppins;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: white;
+  text-decoration: none;
+}
+
+.address-card {
+  width: 100%;
+  height: 198.98px;
+  background: white;
+  border-radius: 20px;
+  border: none;
+}
+
+.address-card input {
+  height: 9vh;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 0.5px solid black;
+  text-align: left;
+  color: black;
+  border-radius: 0%;
+  background-color: rgba(255, 255, 255, 0);
+  outline: 0;
+}
+
+.address-card input:focus {
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.payment {
+  width: 454px;
+  height: 40vh;
+  position: absolute;
+  right: 5%;
+  top: 45%;
+}
+
+.payment-title {
+  font-family: Poppins;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: white;
+  margin-top: 2%;
+  text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.49);
+}
+
+.payment-card {
+  width: 100%;
+  background-color: white;
+  border-radius: 20px;
+  height: 80%;
+}
+
+.confirm {
+  width: 452px;
+  height: 84px;
+  position: absolute;
+  bottom: 9%;
+  right: 5%;
+  border-radius: 20px;
+  background-color: rgba(54, 33, 21, 1);
+  color: white;
+  border: none;
+  font-family: Poppins;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.confirm:hover {
+  width: 452px;
+  height: 84px;
+  position: absolute;
+  bottom: 9%;
+  right: 5%;
+  border-radius: 20px;
+  background-color: rgba(54, 33, 21, 1);
+  color: white;
+  border: none;
+  font-family: Poppins;
+  font-weight: 600;
+  font-size: 18px;
+}
