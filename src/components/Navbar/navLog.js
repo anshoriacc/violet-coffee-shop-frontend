@@ -1,8 +1,9 @@
 import React from "react";
 import logo from "../../assets/icons/logo.png";
-import "./navLog.scoped.css";
+import "./NavLog.scoped.css";
 import chat from "../../assets/icons/chat (1) 1.png";
 import profile from "../../assets/images/dummy-profile.png";
+
 
 export default function navLog() {
   return (

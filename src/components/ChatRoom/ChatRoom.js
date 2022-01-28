@@ -40,6 +40,21 @@ export default function ChatRoom() {
             </div>
           </div>
         </div>
+        <hr />
+        <div className="message-sent">
+          <img
+            src={require("../../assets/images/background-chat.jpg")}
+            alt="user"
+          />
+          <div className="message-content">
+            <p className="message">
+              Thanks, jason!
+            </p>
+            <div className="message-status-time">
+              <p className="message-time">✓✓ 02.16 PM</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="message-box">
         <textarea placeholder="Type a message" />

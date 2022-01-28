@@ -5,7 +5,7 @@ import "./SignUp.scoped.css"
 import logo from "../../assets/icons/logo.png"
 import iconGoogle from "../../assets/icons/google-logo-min.png"
 import imageLeft from "../../assets/images/background-loginregister.jpg"
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 
 export class SignUp extends Component {
   render() {
