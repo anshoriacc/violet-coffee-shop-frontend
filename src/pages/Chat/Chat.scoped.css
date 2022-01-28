@@ -16,15 +16,22 @@ p {
 
 .content {
   width: 90%;
-  height: 80%;
+  height: 85%;
   background-color: #fff;
   border-radius: 20px;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
 }
 
 .left-section {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  height: auto;
+  background-color: #6a4029;
+  color: #fff;
 }
 
 form.search-bar {
@@ -83,24 +90,30 @@ input.search-input:focus {
   text-align: center;
 }
 
-.staff-list,
+.staff-list {
+  display: flex;
+  padding-bottom: 1rem;
+}
+
+.staff-list hr {
+  display: none;
+}
+
+.staff-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 33%;
+  padding: 0 0.5rem;
+}
+
 .chat-list {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
-}
-
-.staff-list hr {
-  margin: 0;
-  width: 80%;
-}
-
-.staff-item {
-  padding: 0.75rem 10%;
-  display: flex;
-  gap: 0.5rem;
 }
 
 .staff-item:hover,
@@ -131,21 +144,25 @@ input.search-input:focus {
 
 .staff-content {
   width: auto;
+  text-align: center;
+}
+
+.staff-message {
+  display: none;
 }
 
 .right-section {
   width: 100%;
   display: flex;
   flex-direction: column;
-  /* padding: 1rem; */
   color: #4f5665;
 }
 
 .section-title {
   font-size: 1.25rem;
   font-weight: 700;
-  margin-bottom: 2rem;
-  padding: 1.5rem 1.5rem 0;
+  margin-bottom: 1rem;
+  padding: 1rem 1rem 0;
 }
 
 .chat-list hr {
@@ -157,7 +174,7 @@ input.search-input:focus {
 .chat-item {
   width: 100%;
   display: flex;
-  padding: 1.5rem;
+  padding: 1rem;
   gap: 0.5rem;
 }
 
@@ -172,18 +189,52 @@ input.search-input:focus {
 }
 
 @media (min-width: 576px) {
+  .content {
+    flex-direction: row;
+  }
+
   .left-section {
+    width: 40%;
+  }
+
+  .staff-list {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
-    width: 40%;
-    height: 100%;
-    background-color: #6a4029;
-    color: #fff;
+    overflow-y: scroll;
   }
+
+  .staff-item {
+    padding: 0.75rem 10%;
+    flex-direction: row;
+    width: initial;
+  }
+
+  .staff-content {
+    text-align: start;
+  }
+
+  .staff-message {
+    display: initial;
+  }
+
+  .staff-list hr {
+    display: initial;
+    margin: 0;
+    width: 80%;
+  }
+
   .right-section {
     width: 60%;
+  }
+
+  .section-title {
+    padding: 1.5rem 1.5rem 0;
+  }
+
+  .chat-item {
+    padding: 1rem 1.5rem;
   }
 }
 
