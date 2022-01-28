@@ -9,6 +9,7 @@ a {
 
 .right-section {
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   /* padding: 1rem; */
@@ -25,7 +26,7 @@ a {
 
 .chat-box {
   width: 100%;
-  height: 160px;
+  height: calc(100%);
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -114,10 +115,6 @@ img {
 @media (min-width: 576px) {
   .right-section {
     width: 60%;
-  }
-
-  .chat-box {
-    height: calc(100%);
   }
 }
 

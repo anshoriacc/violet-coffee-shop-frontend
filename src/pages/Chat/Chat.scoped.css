@@ -24,6 +24,10 @@ p {
   flex-direction: column;
 }
 
+.left-section.left-section-hidden {
+  display: none;
+}
+
 .left-section {
   display: flex;
   flex-direction: column;
@@ -191,6 +195,10 @@ input.search-input:focus {
 @media (min-width: 576px) {
   .content {
     flex-direction: row;
+  }
+
+  .left-section.left-section-hidden {
+    display: initial;
   }
 
   .left-section {
