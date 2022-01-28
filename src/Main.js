@@ -7,7 +7,7 @@ import Login from "./pages/Login/Login"
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword"
 import Chat from "./pages/Chat/Chat"
 import Profile from "./pages/Profile/Profile"
-import NotFound from "./pages/404/notFound"
+import NotFound from "./pages/404/NotFound"
 
 import React, { Component } from "react"
 
