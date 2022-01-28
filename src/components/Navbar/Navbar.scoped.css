@@ -6,7 +6,6 @@
   grid-template-areas: "logo link button";
 }
 
-
 .logo {
   grid-area: logo;
   width: 70%;
