@@ -2,7 +2,7 @@
   width: 100%;
   padding: 40px 0;
   /* background: #fff; */
-  font-family: "Arvo", serif;
+  font-family: "Poppins", serif;
 }
 
 .banner {
@@ -42,5 +42,21 @@
   display: inline-block;
 }
 .contant_box_404 {
-  margin-top: -50px;
+  margin-top: 40px;
+}
+
+button {
+  background-color: rgba(106, 64, 41, 1);
+  color: white;
+  font-family: "Poppins";
+  border: none;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+button:hover {
+  background-color: rgba(106, 64, 41, 1);
+  color: white;
+  font-family: "Poppins";
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
