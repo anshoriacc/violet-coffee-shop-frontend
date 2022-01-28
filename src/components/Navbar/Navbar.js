@@ -1,44 +1,32 @@
-import React, { useState } from "react"
-import { Link } from "react-router-dom"
-import "./Navbar.scoped.css"
-import logo from "../../assets/icons/logo.png"
-import chat from "../../assets/icons/chat (1) 1.png"
-import profile from "../../assets/images/dummy-profile.png"
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./Navbar.scoped.css";
+import logo from "../../assets/icons/logo.png";
+import chat from "../../assets/icons/chat (1) 1.png";
+import profile from "../../assets/images/dummy-profile.png";
 
 export default function Navbar(props) {
-  const [isLogin] = useState(true)
+  const [isLogin] = useState(true);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <Link className="navbar-brand title-brand" to="#">
-          <img
-            src={logo}
-            alt="logo"
-            width="30"
-            className="d-inline-block align-text-top img-logo"
-          />
+          <img src={logo} alt="logo" width="30" className="d-inline-block align-text-top img-logo" />
           Coffee Shop
         </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation">
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 p-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="#">
+              <Link className="nav-link active" aria-current="page" to="/">
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="#">
+              <Link className="nav-link" to="/product">
                 Product
               </Link>
             </li>
@@ -48,7 +36,7 @@ export default function Navbar(props) {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="#">
+              <Link className="nav-link" to="/history">
                 History
               </Link>
             </li>
@@ -69,14 +57,14 @@ export default function Navbar(props) {
                 <input type="text" placeholder="Search" />
               </div>
               <div className="chat">
-                <Link to="/">
+                <Link to="/chat">
                   <div className="notif">1</div>
                   <img src={chat} alt="chat" />
                 </Link>
               </div>
               <div className="profilepic">
                 <div className="img-profile">
-                  <Link to="/">
+                  <Link to="/profile">
                     <img src={profile} alt="profile" />
                   </Link>
                 </div>
@@ -174,5 +162,5 @@ export default function Navbar(props) {
     //     </div>
     //   </div>
     // </nav>
-  )
+  );
 }

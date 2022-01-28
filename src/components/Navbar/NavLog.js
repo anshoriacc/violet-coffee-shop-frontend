@@ -4,7 +4,6 @@ import "./NavLog.scoped.css";
 import chat from "../../assets/icons/chat (1) 1.png";
 import profile from "../../assets/images/dummy-profile.png";
 
-
 export default function navLog() {
   return (
     <>
@@ -26,7 +25,7 @@ export default function navLog() {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/">
+                <a class="nav-link" href="/product">
                   Product
                 </a>
               </li>
@@ -36,7 +35,7 @@ export default function navLog() {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/">
+                <a class="nav-link" href="/history">
                   History
                 </a>
               </li>
@@ -48,14 +47,14 @@ export default function navLog() {
             <input type="text" placeholder="Search" />
           </div>
           <div className="chat">
-            <a href="/">
+            <a href="/chat">
               <img src={chat} alt="" />
               <div className="notif">1</div>
             </a>
           </div>
           <div className="profilepic">
             <div className="img-profile">
-              <a href="/">
+              <a href="/profile">
                 <img src={profile} alt="" />
               </a>
             </div>
