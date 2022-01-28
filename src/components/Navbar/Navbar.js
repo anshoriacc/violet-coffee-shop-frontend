@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./Navbar.scoped.css";
-import logo from "../../assets/icons/logo.png";
-import chat from "../../assets/icons/chat (1) 1.png";
-import profile from "../../assets/images/dummy-profile.png";
+import React, { useState } from "react"
+import { Link } from "react-router-dom"
+import "./Navbar.scoped.css"
+import logo from "../../assets/icons/logo.png"
+import chat from "../../assets/icons/chat (1) 1.png"
+import profile from "../../assets/images/dummy-profile.png"
 
 export default function Navbar(props) {
-  const [isLogin] = useState(true);
+  const [isLogin] = useState(true)
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -16,7 +16,6 @@ export default function Navbar(props) {
             src={logo}
             alt="logo"
             width="30"
-            height="24"
             className="d-inline-block align-text-top img-logo"
           />
           Coffee Shop
@@ -28,8 +27,7 @@ export default function Navbar(props) {
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+          aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -176,5 +174,5 @@ export default function Navbar(props) {
     //     </div>
     //   </div>
     // </nav>
-  );
+  )
 }
