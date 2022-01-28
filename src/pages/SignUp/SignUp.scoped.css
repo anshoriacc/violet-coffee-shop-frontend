@@ -1,0 +1,557 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Rubik&display=swap");
+
+.title-coffee {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  color: #0b132a;
+}
+
+
+.btn-signup {
+  width: 100px;
+  height: 40px;
+  background: #ffba33;
+  border-radius: 50px;
+  border: none;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #6a4029;
+}
+
+.title-login {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 41px;
+  color: #6a4029;
+}
+
+.label-form {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  color: #4f5665;
+  margin: 10px 0;
+}
+
+.input-form {
+  width: 100%;
+  height: 60px;
+  background: #ffffff;
+  border: 1px solid #4f5665;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.input-form::-webkit-input-placeholder {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  color: #9f9f9f;
+  padding-left: 20px;
+}
+
+input[typeof="email"] {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  color: #9f9f9f;
+}
+
+.link-forgot-password {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  text-decoration-line: underline;
+  color: #6a4029;
+  margin: 10px 0;
+}
+
+.btn-login {
+  width: 100%;
+  height: 60px;
+  background: #ffba33;
+  box-shadow: 0px 6px 20px rgba(255, 186, 51, 0.4);
+  border-radius: 20px;
+  margin: 10px 0;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 25px;
+  color: #6a4029;
+  border: none;
+}
+
+.btn-google {
+  width: 100%;
+  height: 60px;
+  background: #ffffff;
+  box-shadow: 0px 6px 20px rgba(196, 196, 196, 0.67);
+  border-radius: 20px;
+  margin: 10px 0;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 25px;
+  color: #000000;
+  border: none;
+}
+
+.icon-google {
+  margin-right: 10px;
+}
+
+.card {
+  position: absolute;
+  width: 80%;
+  height: 233px;
+  left: 150px;
+  bottom: -100px;
+  background: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.title-card {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 45px;
+  color: #0b132a;
+}
+
+.main-card {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 30px;
+  color: #4f5665;
+}
+
+.create-now {
+  width: 200px;
+  height: 60px;
+  background: #ffba33;
+  border-radius: 10px;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 25px;
+  color: #6a4029;
+  border: none;
+}
+
+.wrapper-form {
+  margin: 0 auto;
+}
+
+.wrapper-btn-signup > .btn-signup {
+  display: none;
+}
+
+.content-right {
+  padding: 10px;
+}
+
+@media only screen and (max-width: 425px) {
+  .btn-login {
+    margin-top: 40px;
+  }
+  .wrapper-title-card,
+  .card {
+    display: none;
+  }
+
+  .content-right {
+    position: absolute;
+  }
+
+  .btn-signup {
+    display: none;
+  }
+
+  .wrapper-btn-signup > .btn-signup {
+    display: block;
+  }
+
+  .wrapper-title-coffee {
+    display: flex;
+    justify-content: center;
+  }
+
+  .title-coffee {
+    background-color: #ffffff;
+    width: 60%;
+    border-radius: 20px;
+    padding: 10px 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+  }
+
+  .wrapper-title-login > .title-login {
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: #ffffff;
+    letter-spacing: 5px;
+  }
+
+  .wrapper-form,
+  .input-form {
+    margin: auto !important;
+  }
+
+  .label-form,
+  .link-forgot-password {
+    color: #ffffff;
+  }
+}
+@media only screen and (max-width: 768px) {
+  /* .img-left {
+    height: 100vh;
+  } */
+  .content-right {
+    padding: 20px;
+  }
+
+  .title-coffee {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 25px;
+  }
+
+  .title-login {
+    font-size: 20px;
+  }
+
+  .btn-signup {
+    width: 400px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .label-form,
+  .link-forgot-password {
+    font-size: 16px;
+  }
+
+  .input-form {
+    width: 94%;
+    height: 40px;
+  }
+
+  .wrapper-form {
+    margin: 10px 0;
+    /* margin-top: 10px; */
+    /* width: ; */
+  }
+
+  .btn-login,
+  .btn-google {
+    height: 40px;
+    border: none;
+  }
+
+  .input-form::-webkit-input-placeholder {
+    font-size: 16px;
+  }
+
+  input[typeof="email"] {
+    font-size: 16px;
+  }
+
+  .card,
+  #card {
+    height: 100px;
+    bottom: -55px;
+  }
+
+  .card > .wrapper-title-card {
+    height: 100px;
+    width: 350px;
+  }
+
+  .wrapper-title > .title-card {
+    font-size: 20px;
+  }
+
+  .main-card {
+    font-size: 14px;
+    width: 270px;
+    line-height: 20px;
+  }
+
+  .create-now {
+    width: 180px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .card {
+    width: 80%;
+    height: 180px;
+    left: 120px;
+    bottom: -100px;
+    background: #ffffff;
+    border-radius: 10px;
+  }
+
+  .wrapper-title-card {
+    width: 550px;
+  }
+
+  .wrapper-title {
+    width: 340px;
+  }
+
+  .title-card {
+    font-size: 30px;
+  }
+
+  .wrapper-form {
+    width: 400px;
+  }
+}
+
+/* .main {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  margin-bottom: 400px;
+}
+
+.forms {
+  width: 100%;
+  height: 50vh;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-areas: "left right";
+}
+
+.left-container {
+  grid-area: left;
+}
+
+.left-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.right-container {
+  grid-area: right;
+  position: relative;
+}
+
+.logo {
+  display: inline-flex;
+  margin-left: 8%;
+  margin-top: 5%;
+  width: 11.71875vw;
+}
+
+.logo img {
+  height: 4.423592493297587vh;
+  width: 1.953125vw;
+}
+
+.logo p {
+  padding-left: 10%;
+  padding-top: 2.5%;
+  font-weight: 700;
+  font-family: "Rubik";
+  color: rgba(106, 64, 41, 1);
+  font-size: 1.3020833333333333vw;
+}
+
+.button {
+  position: absolute;
+  right: 8%;
+  top: 3%;
+}
+
+.button button {
+  width: 9.765625vw;
+  height: 6.032171581769437vh;
+  border-radius: 50px;
+  font-weight: 500;
+  font-family: "Rubik";
+  color: rgba(106, 64, 41, 1);
+}
+
+button {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+button:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.tittle {
+  text-align: center;
+  font-family: "Rubik";
+  color: rgba(106, 64, 41, 1);
+  font-weight: 700;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.mb-3 {
+  width: 80%;
+  margin: auto;
+}
+
+.mb-3 input {
+  height: 9.05361930294906vh;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.mb-3 label {
+  color: rgba(79, 86, 101, 1);
+  font-family: "Rubik";
+  font-weight: 700;
+  font-size: 1.3020833333333333vw;
+}
+
+input::placeholder {
+  color: rgba(159, 159, 159, 1);
+}
+
+.button-container {
+  width: 100%;
+  height: 25.5vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "signup signup"
+    "google google";
+}
+
+.button-container button {
+  width: 80%;
+  height: 9.05361930294906vh;
+  border-radius: 20px;
+}
+
+.button-container .btn-warning {
+  margin: 2% auto 0% auto;
+  grid-area: signup;
+  width: 80%;
+  height: 9.05361930294906vh;
+  font-family: "Rubik";
+  font-weight: 700;
+  color: rgba(106, 64, 41, 1);
+  font-size: 1.3020833333333333vw;
+  background-color: rgba(255, 186, 51, 1);
+}
+
+.button-container .btn-light {
+  margin: 2% auto 2% auto;
+  grid-area: google;
+  font-family: "Poppins";
+  color: black;
+  font-weight: 700;
+  font-size: 1.1067708333333333vw;
+}
+
+.btn-light img {
+  width: 1.7578125vw;
+  height: 3.753351206434316vh;
+  margin-right: 3%;
+}
+
+.fly {
+  position: absolute;
+   z-index: 9999; 
+  top: 65%; 
+  bottom: -65%;
+  left: 10%;
+  width: 80%;
+  height: 31.233243967828418vh;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: "text create";
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.fly .text {
+  grid-area: text;
+  margin-top: 4%;
+  margin-left: 5%;
+}
+
+.fly h2 {
+  font-size: 2.2786458333333335vw;
+  color: rgba(11, 19, 42, 1);
+  font-family: "Rubik";
+  font-weight: 500;
+}
+
+.fly p {
+  color: rgba(79, 86, 101, 1);
+  font-family: "Rubik";
+  font-weight: 400;
+  font-size: 1.0416666666666667vw;
+}
+
+.create {
+  grid-area: create;
+  position: relative;
+}
+
+.create button {
+  width: 16.276041666666668vw;
+  height: 8.04289544235925vh;
+  border-radius: 10px;
+  color: rgba(106, 64, 41, 1);
+  font-weight: 700;
+  font-family: "Rubik";
+  font-size: 1.0416666666666667vw;
+  position: absolute;
+  top: 32%;
+  left: 20%;
+  background-color: rgba(255, 186, 51, 1);
+}
+
+@media only screen and (max-width: 425px) {
+}
+
+@media only screen and (max-width: 768px) {
+}
+
+@media only screen and (max-width: 1024px) {
+  .fly {
+    height: 170px;
+    bottom: -20%;
+  }
+} */
