@@ -9,6 +9,7 @@ import Chat from "./pages/Chat/Chat"
 import Profile from "./pages/Profile/Profile"
 import NotFound from "./pages/404/NotFound"
 import History from "./pages/History/History"
+import Dashboard from "./pages/Dashboard/Dashboard"
 import Product from "./pages/Product/Product"
 
 import React, { Component } from "react"
@@ -27,6 +28,8 @@ export default class Main extends Component {
           <Route path="/product" component={Product} />
           <Route path="/chat" component={Chat} />
           <Route path="/chat/detail" component={Chat} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/admin/dashboard" component={Dashboard} />
           <Route path="*" component={NotFound} />
         </Switch>
       </BrowserRouter>

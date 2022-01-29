@@ -1,5 +1,5 @@
 .main {
-  width: 335px;
+  width: 350px;
   height: 109px;
   position: relative;
 }
@@ -52,4 +52,9 @@ p {
   top: 35%;
   left: 30%;
   font-weight: 400;
+}
+
+.name-event {
+  font-weight: 700;
+  margin: 0;
 }

@@ -53,28 +53,42 @@ export class Product extends Component {
       <>
         <Header />
 
-        <div>
-          <h1>Halaman Product</h1>
-
-          <CardProduct />
-          <CardCoupon
-            event={helloween}
-            pic={picHelloween}
-            nameEvent={eventHelloween}
-            ketEvent={ketHelloween}
-          />
-          <CardCoupon
-            event={sundayMorning}
-            pic={picSundayMorning}
-            nameEvent={eventSundayMorning}
-            ketEvent={ketSundayMorning}
-          />
-          <CardCoupon
-            event={motherDay}
-            pic={picMotherDays}
-            nameEvent={eventMotherDays}
-            ketEvent={ketMotherDays}
-          />
+        <div className="row">
+          <div className="col-lg-4 border">
+            <div className="wrapper-title-promo">
+              <p className="title-promo"> Promo Today</p>
+              <p className="info-promo">
+                Coupons will be updated every weeks. Check them out!
+              </p>
+            </div>
+            <div>
+              <CardCoupon
+                event={motherDay}
+                pic={picMotherDays}
+                nameEvent={eventMotherDays}
+                ketEvent={ketMotherDays}
+              />
+              <CardCoupon
+                event={sundayMorning}
+                pic={picSundayMorning}
+                nameEvent={eventSundayMorning}
+                ketEvent={ketSundayMorning}
+              />
+              <CardCoupon
+                event={motherDay}
+                pic={picMotherDays}
+                nameEvent={eventMotherDays}
+                ketEvent={ketMotherDays}
+              />
+              <CardCoupon
+                event={helloween}
+                pic={picHelloween}
+                nameEvent={eventHelloween}
+                ketEvent={ketHelloween}
+              />
+            </div>
+          </div>
+          <div className="col-lg-8">product</div>
         </div>
 
         <Footer />
