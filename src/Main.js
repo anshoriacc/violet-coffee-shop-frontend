@@ -9,6 +9,7 @@ import Chat from "./pages/Chat/Chat";
 import Profile from "./pages/Profile/Profile";
 import NotFound from "./pages/404/NotFound";
 import History from "./pages/History/History";
+import Payment from "./pages/Payment&Delivery/Payment";
 
 import React, { Component } from "react";
 
@@ -18,6 +19,7 @@ export default class Main extends Component {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/payment" component={Payment} />
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={Login} />
           <Route path="/forgot_password" component={ForgotPassword} />
