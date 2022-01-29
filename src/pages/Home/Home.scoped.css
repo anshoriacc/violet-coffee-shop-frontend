@@ -7,6 +7,7 @@
 .main {
   margin-bottom: 100px;
   border-bottom: 1px solid #f8f8f8;
+  position: relative;
 }
 
 .wrapper-jumbotron {
@@ -18,6 +19,10 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 57% 57%;
+}
+
+.jumbotron {
+  position: relative;
 }
 
 .title-jumbotron {
@@ -81,11 +86,12 @@
 }
 
 .card {
-  width: 70%;
-  height: 24%;
+  width: 950px;
+  height: 200px;
   position: absolute;
-  bottom: -12%;
-  left: 15%;
+  /* bottom: 0; */
+  bottom: -300px;
+  left: 200px;
   display: flex;
   flex-direction: row;
   border: none;
@@ -399,9 +405,10 @@
 
 .card2 {
   width: 70%;
-  height: 24%;
+  height: 200px;
   position: absolute;
-  top: 622vh;
+  /* top: 500px; */
+  bottom: -120px;
   left: 200px;
   background: #ffffff;
   border-radius: 10px;
@@ -451,4 +458,18 @@
   line-height: 25px;
   color: #6a4029;
   border: none;
+}
+
+@media only screen and (max-width: 425px) {
+  .card,
+  .card2 {
+    display: none;
+  }
+}
+@media only screen and (max-width: 768px) {
+}
+@media only screen and (max-width: 1024px) {
+  .card {
+    bottom: -350px;
+  }
 }

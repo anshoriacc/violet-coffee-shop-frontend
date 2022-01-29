@@ -1,16 +1,30 @@
 import React from "react"
 import "./CardCoupon.scoped.css"
 
-import mother from "../../assets/icons/mother_event.png"
-
 export default function CardCoupon(props) {
   return (
-    <div className="main">
-      <div className="motherDays">
-        <img src={mother} alt="" />
-        <p className="event-name">HAPPY MOTHER DAYS!</p>
-        <p className="promo">Get one of our favorite menu for free</p>
+    <>
+      <div className="main">
+        <div className={props.event}>
+          <img src={props.pic} alt="pic-event" />
+          <p className="event-name">{props.nameEvent}</p>
+          <p className="promo">{props.ketEvent}</p>
+        </div>
       </div>
-    </div>
+      bootstrap
+      <div className="row main m-3">
+        <div className={`col-12 ${props.event}`}>
+          <div className="row">
+            <div className="col-4 border">
+              <img src={props.pic} alt="pic-event" />
+            </div>
+            <div className="col-8 border ">
+              <p className="">{props.nameEvent}</p>
+              <p className="">{props.ketEvent}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
