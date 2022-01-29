@@ -257,6 +257,10 @@ label {
   border: 4px solid rgba(106, 64, 41, 1);
 }
 
+.radio-input input[type="radio"]:checked + label {
+  color: rgba(106, 64, 41, 1);
+}
+
 .form-check-label:checked {
   color: rgba(106, 64, 41, 1);
 }
