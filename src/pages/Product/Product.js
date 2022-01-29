@@ -54,7 +54,7 @@ export class Product extends Component {
         <Header />
 
         <div className="row">
-          <div className="col-lg-4 border">
+          <div className="col-lg-5 col-md-7 border">
             <div className="wrapper-title-promo">
               <p className="title-promo"> Promo Today</p>
               <p className="info-promo">
@@ -88,7 +88,7 @@ export class Product extends Component {
               />
             </div>
           </div>
-          <div className="col-lg-8">product</div>
+          <div className="col-lg-5">product</div>
         </div>
 
         <Footer />
