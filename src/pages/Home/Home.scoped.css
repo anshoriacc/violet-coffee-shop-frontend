@@ -7,10 +7,11 @@
 .main {
   margin-bottom: 100px;
   border-bottom: 1px solid #f8f8f8;
+  position: relative;
 }
 
 .wrapper-jumbotron {
-  height: 87vh;
+  height: 90vh;
   margin-bottom: 160px;
   background: url("../../assets//images//jumbotron-home.jpg");
   max-width: 100%;
@@ -18,6 +19,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 57% 57%;
+  position: relative;
 }
 
 .title-jumbotron {
@@ -271,8 +273,7 @@
 }
 
 .img-partner {
-  filter: invert(94%) sepia(8%) saturate(108%) hue-rotate(175deg)
-    brightness(100%) contrast(83%);
+  filter: invert(94%) sepia(8%) saturate(108%) hue-rotate(175deg) brightness(100%) contrast(83%);
 }
 
 .wrapper-title {
@@ -382,15 +383,12 @@
 .icon-arrow {
   width: 30px;
   height: 30px;
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(177deg)
-    brightness(105%) contrast(101%);
-  -webkit-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(177deg)
-    brightness(105%) contrast(101%);
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(177deg) brightness(105%) contrast(101%);
+  -webkit-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(177deg) brightness(105%) contrast(101%);
 }
 
 .left {
-  filter: invert(24%) sepia(13%) saturate(2103%) hue-rotate(337deg)
-    brightness(101%) contrast(87%);
+  filter: invert(24%) sepia(13%) saturate(2103%) hue-rotate(337deg) brightness(101%) contrast(87%);
 }
 
 .row-6 {
@@ -399,9 +397,10 @@
 
 .card2 {
   width: 70%;
-  height: 24%;
+  height: 4%;
   position: absolute;
-  top: 622vh;
+  bottom: -4%;
+  z-index: 999;
   left: 200px;
   background: #ffffff;
   border-radius: 10px;
