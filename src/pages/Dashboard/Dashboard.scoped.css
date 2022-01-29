@@ -1,0 +1,10 @@
+.background {
+  font-family: "Poppins";
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  padding: 7.5vw;
+  border-bottom: 1px solid #9f9f9f;
+}
