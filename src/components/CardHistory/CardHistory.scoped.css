@@ -1,65 +1,73 @@
+p {
+  font-family: "Poppins";
+  margin: 0;
+}
+
 .main {
-  width: 394px;
-  height: 126px;
-  background-color: rgba(255, 255, 255, 1);
+  width: 100%;
+  aspect-ratio: 3/1;
+  background-color: #fff;
   position: relative;
+  padding: 5%;
   border-radius: 20px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+  display: flex;
+  gap: 0.5rem;
 }
 
 .main img {
-  position: absolute;
-  top: 20%;
-  left: 5%;
-  width: 75px;
-  height: 75px;
+  /* width: 75px;
+  aspect-ratio: 1/1; */
+  display: block;
+  max-width: 100%;
+  aspect-ratio: 1/1;
+  /* max-height: 100%; */
   border-radius: 50%;
+  object-fit: cover;
 }
 
-p {
-  font-family: "Poppins";
+.detail {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .name {
-  position: absolute;
-  width: 50%;
-  height: max-content;
-  left: 25%;
-  top: 15%;
-  font-size: 25px;
-  font-weight: 700;
-  text-align: center;
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
 .price {
-  color: rgba(137, 85, 55, 1);
-  font-weight: 400;
-  font-size: 20px;
-  position: absolute;
-  top: 43%;
-  left: 33%;
+  color: #895537;
+  /* font-size: 20px; */
 }
 
 .delivery {
-  color: rgba(137, 85, 55, 1);
-  font-weight: 400;
-  font-size: 20px;
-  position: absolute;
-  top: 60%;
-  left: 33%;
+  color: #6a4029;
+  /* font-size: 20px; */
+}
+
+p {
+  /* width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
 }
 
 input {
-  width: 25px;
-  height: 25px;
+  width: 5%;
+  height: 15%;
   position: absolute;
-  bottom: 20%;
+  bottom: 15%;
   right: 5%;
+  align-self: flex-end;
   border: 3px solid rgba(137, 85, 55, 1);
   background-color: rgba(245, 245, 248, 1);
 }
 
 input:checked {
   background-color: rgba(137, 85, 55, 1);
-  border: none;
+  border: 3px solid rgba(137, 85, 55, 1);
+  /* border: none; */
 }
