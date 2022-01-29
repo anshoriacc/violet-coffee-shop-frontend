@@ -3,11 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
-import Router from "./Main";
+// import Router from "./Main";
+import Test from "./pages/Add_Product/Add_product";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router />
+    {/* <Router /> */}
+    <Test />
   </React.StrictMode>,
   document.getElementById("root")
 );
