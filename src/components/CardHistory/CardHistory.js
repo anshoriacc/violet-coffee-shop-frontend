@@ -1,7 +1,7 @@
-import React from "react"
-import "./CardHistory.scoped.css"
+import React from "react";
+import "./CardHistory.scoped.css";
 
-import Image from "../../assets/images/background-profile.jpg"
+import Image from "../../assets/images/background-profile.jpg";
 
 export default function CardHistory(props) {
   return (
@@ -11,8 +11,8 @@ export default function CardHistory(props) {
       <p className="price">IDR 15.000</p>
       <p className="delivery">Delivered to table 88</p>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+        <input class="form-check-input shadow-none" type="checkbox" value="" id="defaultCheck1" />
       </div>
     </div>
-  )
+  );
 }

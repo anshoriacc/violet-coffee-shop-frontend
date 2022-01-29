@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Profile.scoped.css";
+import { Modal } from "react-bootstrap";
 
 // COMPONENTS
 import Header from "../../components/Navbar/Navbar";
@@ -21,6 +22,11 @@ export default class index extends Component {
     this.inputFile.current.click();
     event.preventDefault();
   };
+
+  modalTrigger = () => {
+    this.setState({ isShow: !this.state.isShow });
+  };
+
   render() {
     return (
       <div className="main">
@@ -51,7 +57,9 @@ export default class index extends Component {
               <input type="file" hidden />
               <button className="btn btn-warning chose">Save Change</button>
               <button className="btn btn-primary">Cancel</button>
-              <button className="btn btn-light">Log out</button>
+              <button className="btn btn-light" onClick={this.modalTrigger}>
+                Log out
+              </button>
             </div>
             <div className="forms">
               <div className="radio-input">
@@ -131,6 +139,19 @@ export default class index extends Component {
           <Footer />
         </div>
         {/* MODAL */}
+        <Modal show={this.state.isShow} centered>
+          <Modal.Body className="modal-body">
+            <p className="modal-text">Are you sure to Log Out ?</p>
+          </Modal.Body>
+          <Modal.Footer className="modal-footer">
+            <div className="modal-btn">
+              <button className="btn btn-light" onClick={this.modalTrigger}>
+                No
+              </button>
+              <button className="btn btn-warning">Yes</button>
+            </div>
+          </Modal.Footer>
+        </Modal>
       </div>
     );
   }
