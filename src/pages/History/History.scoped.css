@@ -1,0 +1,42 @@
+p {
+  margin: 0;
+}
+
+.background {
+  font-family: "Poppins";
+  background: url("../../assets/images/background-history.jpg");
+  background-size: cover;
+  background-position: center;
+  /* height: calc(100vh - 11.5vh); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  padding: 5rem;
+}
+
+.content {
+  /* width: 90%; */
+  /* height: 85%; */
+  /* background-color: #fff; */
+  border-radius: 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-family: "Rubik";
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.8);
+  margin-bottom: 3rem;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+.history-tile {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(5, auto);
+  gap: 1rem;
+  color: #000;
+}
