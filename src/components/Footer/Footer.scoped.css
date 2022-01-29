@@ -7,17 +7,17 @@
   box-sizing: border-box;
 }
 .footer {
-  background-color: #f8f8f8;
+  background-color: rgba(248, 248, 248, 1);
+  height: 50vh;
   width: 100%;
   position: relative;
-  /* bottom: 25%; */
-  margin-top: 30px;
 }
 
 .row-content {
-  height: 50vh;
   padding-top: 8%;
+  height: 100%;
   margin-left: 0%;
+
   /* background-color: #ffba33; */
 }
 

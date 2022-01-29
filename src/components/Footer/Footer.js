@@ -1,10 +1,10 @@
-import React from "react"
-import "./Footer.scoped.css"
-import "bootstrap/dist/css/bootstrap.min.css"
-import logo from "../../assets/icons/logo.png"
-import iconFacebook from "../../assets/icons/facebook.png"
-import iconTwitter from "../../assets/icons/twitter.png"
-import iconInstagram from "../../assets/icons/instagram.png"
+import React from "react";
+import "./Footer.scoped.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import logo from "../../assets/icons/logo.png";
+import iconFacebook from "../../assets/icons/facebook.png";
+import iconTwitter from "../../assets/icons/twitter.png";
+import iconInstagram from "../../assets/icons/instagram.png";
 
 function Footer() {
   return (
@@ -17,10 +17,7 @@ function Footer() {
                 <img src={logo} alt="logo" className="img-logo" />
                 Coffe Shop
               </p>
-              <p className="body-footer">
-                Coffee Shop is a store that sells some good meals, and
-                especially coffee. We provide high quality beans
-              </p>
+              <p className="body-footer">Coffee Shop is a store that sells some good meals, and especially coffee. We provide high quality beans</p>
 
               <div className="icon-footer col-lg-5 col-md-7">
                 <div className="wrapper-icon">
@@ -30,11 +27,7 @@ function Footer() {
                   <img src={iconTwitter} alt="icon-twitter" className="icon" />
                 </div>
                 <div className="wrapper-icon">
-                  <img
-                    src={iconInstagram}
-                    alt="icon-instagram"
-                    className="icon"
-                  />
+                  <img src={iconInstagram} alt="icon-instagram" className="icon" />
                 </div>
               </div>
               <p className="tag-footer">©2020CoffeeStore</p>
@@ -67,7 +60,7 @@ function Footer() {
         </section>
       </footer>
     </div>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
