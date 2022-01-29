@@ -7,6 +7,16 @@ import Footer from "../../components/Footer/Footer";
 import Camera from "../../assets/icons/Camera.png";
 
 export default class Add_product extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.inputFile = React.createRef();
+  }
+
+  handleFile = (event) => {
+    this.inputFile.current.click();
+    event.preventDefault();
+  };
   render() {
     return (
       <div className="main">
@@ -22,7 +32,10 @@ export default class Add_product extends Component {
               <img src={Camera} alt="" />
             </div>
             <button className="btn btn-dark">Take a picture</button>
-            <button className="btn btn-warning">Choose from gallery</button>
+            <input type="file" hidden ref={this.inputFile} />
+            <button className="btn btn-warning chose" onClick={this.handleFile}>
+              Choose from gallery
+            </button>
             <div className="delivery-hour">
               <p className="title">Delivery Hour :</p>
               <select class="form-select start" aria-label="Default select example">
