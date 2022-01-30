@@ -5,11 +5,19 @@ import "./History.scoped.css";
 import Header from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import CardHistory from "../../components/CardHistory/CardHistory";
+import { Link } from "react-router-dom";
 
 export default class History extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      historyData: [],
+    };
+    this.inputFile = React.createRef();
+  }
+
   render() {
-    const arr = [1,2,3,4,5,6,7,8,9,0,1,2,3,4,5];
-    arr.length = 15;
+    const historyData = this.state.historyData;
 
     return (
       <>
@@ -18,13 +26,17 @@ export default class History extends Component {
           <div className="content">
             <div className="section-title">
               <h1>Let's see what you have bought!</h1>
-              <p>Long press to delete item</p>
+              <p>Select item to delete</p>
             </div>
-            <div className="history-tile">
-                
-              {arr.map(() => (
-                <CardHistory />
-              ))}
+            <p className="action">Delete</p>
+            <div className={historyData.length > 0 ? "history-tile" : ""}>
+              {historyData.length > 0 ? (
+                historyData.map((data) => <CardHistory historyData={data} />)
+              ) : (
+                <p className="no-data">
+                  No transaction made. <Link to="/product">Make one now!</Link>
+                </p>
+              )}
             </div>
           </div>
         </div>
