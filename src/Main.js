@@ -1,4 +1,7 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React, { Component } from "react";
+import { Provider as ReduxProvider } from "react-redux";
+import Store from "./Redux/store";
 
 // Components
 import Home from "./pages/Home/Home";
@@ -14,27 +17,29 @@ import Payment from "./pages/Payment&Delivery/Payment";
 import AddProduct from "./pages/Add_Product/Add_product";
 import Detail from "./pages/Product_Detail/Product_detail";
 
-import React, { Component } from "react";
-
 export default class Main extends Component {
   render() {
+    const state = JSON.parse(localStorage.getItem("state"));
+    const accessToken = state ? state.auth.token : null;
     return (
       <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/product/payment&delivery" component={Payment} />
-          <Route path="/product/add" component={AddProduct} />
-          <Route path="/product/detail/:id" component={Detail} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/login" component={Login} />
-          <Route path="/forgot_password" component={ForgotPassword} />
-          <Route path="/history" component={History} />
-          <Route path="/chat" component={Chat} />
-          <Route path="/chat/detail" component={Chat} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/admin/dashboard" component={Dashboard} />
-          <Route path="*" component={NotFound} />
-        </Switch>
+        <ReduxProvider store={Store}>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/product/payment&delivery" component={Payment} />
+            <Route path="/product/add" component={AddProduct} />
+            <Route path="/product/detail/:id" component={Detail} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/login" component={Login} />
+            <Route path="/forgot_password" component={ForgotPassword} />
+            <Route path="/history" component={History} />
+            <Route path="/chat" component={Chat} />
+            <Route path="/chat/detail" component={Chat} />
+            <Route path="/profile" component={Profile} />
+            <Route path="/admin/dashboard" component={Dashboard} />
+            <Route path="*" component={NotFound} />
+          </Switch>
+        </ReduxProvider>
       </BrowserRouter>
     );
   }
