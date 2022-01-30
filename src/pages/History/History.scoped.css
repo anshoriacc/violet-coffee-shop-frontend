@@ -7,7 +7,7 @@ p {
   background: url("../../assets/images/background-history.jpg");
   background-size: cover;
   background-position: center;
-  /* height: calc(100vh - 11.5vh); */
+  min-height: calc(100vh - 11.5vh);
   /* width: 100%; */
   display: flex;
   justify-content: center;
@@ -20,7 +20,7 @@ p {
   width: 100%;
   height: 100%;
   /* background-color: #fff; */
-  border-radius: 20px;
+  /* border-radius: 20px; */
 }
 
 .section-title {

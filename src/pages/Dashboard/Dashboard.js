@@ -11,7 +11,7 @@ export default class Dashboard extends Component {
         <Header />
         <div className="background">
           <div className="content">
-              
+            <h1>Let's see what you have bought!</h1>
           </div>
         </div>
         <Footer />
