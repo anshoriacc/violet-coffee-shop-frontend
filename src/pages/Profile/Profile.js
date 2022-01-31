@@ -1,31 +1,39 @@
-import React, { Component } from "react";
-import "./Profile.scoped.css";
-import { Modal } from "react-bootstrap";
+import React, { Component } from "react"
+import "./Profile.scoped.css"
+import { Modal } from "react-bootstrap"
+import { connect } from "react-redux"
+import { logout } from "../../Redux/actions/auth"
 
 // COMPONENTS
-import Header from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Navbar/Navbar"
+import Footer from "../../components/Footer/Footer"
 
 // IMAGE
-import Profile from "../../assets/images/dummy-profile.png";
+import Profile from "../../assets/images/dummy-profile.png"
 
-export default class index extends Component {
+export class index extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       isShow: false,
-    };
-    this.inputFile = React.createRef();
+      isLogin: true
+    }
+    this.inputFile = React.createRef()
   }
 
   handleFile = (event) => {
-    this.inputFile.current.click();
-    event.preventDefault();
-  };
+    this.inputFile.current.click()
+    event.preventDefault()
+  }
 
   modalTrigger = () => {
-    this.setState({ isShow: !this.state.isShow });
-  };
+    this.setState({ isShow: !this.state.isShow })
+  }
+
+  onClickLogout = () => {
+    this.props.logoutDispatch()
+    this.props.history.push("/")
+  }
 
   render() {
     return (
@@ -43,7 +51,9 @@ export default class index extends Component {
               </div>
               <div className="button">
                 <input type="file" hidden ref={this.inputFile} />
-                <button className="btn btn-warning chose" onClick={this.handleFile}>
+                <button
+                  className="btn btn-warning chose"
+                  onClick={this.handleFile}>
                   choose photo
                 </button>
                 <button className="btn btn-primary">Remove photo</button>
@@ -64,14 +74,28 @@ export default class index extends Component {
             <div className="forms">
               <div className="radio-input">
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input shadow-none" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                  <input
+                    class="form-check-input shadow-none"
+                    type="radio"
+                    name="inlineRadioOptions"
+                    id="inlineRadio1"
+                    value="option1"
+                  />
                   <label class="form-check-label male-label" for="inlineRadio1">
                     Male
                   </label>
                 </div>
                 <div class="form-check form-check-inline female">
-                  <input class="form-check-input shadow-none" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-                  <label class="form-check-label female-label" for="inlineRadio2">
+                  <input
+                    class="form-check-input shadow-none"
+                    type="radio"
+                    name="inlineRadioOptions"
+                    id="inlineRadio2"
+                    value="option2"
+                  />
+                  <label
+                    class="form-check-label female-label"
+                    for="inlineRadio2">
                     Female
                   </label>
                 </div>
@@ -84,13 +108,22 @@ export default class index extends Component {
                       <label for="exampleInputEmail1" class="form-label">
                         Email address :
                       </label>
-                      <input type="email" class="form-control shadow-none" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                      <input
+                        type="email"
+                        class="form-control shadow-none"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                      />
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">
                         Delivery adress :
                       </label>
-                      <input type="text" class="form-control shadow-none" id="exampleInputPassword1" />
+                      <input
+                        type="text"
+                        class="form-control shadow-none"
+                        id="exampleInputPassword1"
+                      />
                     </div>
                   </form>
                 </div>
@@ -101,19 +134,32 @@ export default class index extends Component {
                       <label for="exampleInputEmail1" class="form-label">
                         Display name :
                       </label>
-                      <input type="email" class="form-control shadow-none" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                      <input
+                        type="email"
+                        class="form-control shadow-none"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                      />
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">
                         First name :
                       </label>
-                      <input type="text" class="form-control shadow-none" id="exampleInputPassword1" />
+                      <input
+                        type="text"
+                        class="form-control shadow-none"
+                        id="exampleInputPassword1"
+                      />
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">
                         Last name :
                       </label>
-                      <input type="text" class="form-control shadow-none" id="exampleInputPassword1" />
+                      <input
+                        type="text"
+                        class="form-control shadow-none"
+                        id="exampleInputPassword1"
+                      />
                     </div>
                   </form>
                 </div>
@@ -123,13 +169,22 @@ export default class index extends Component {
                   <label for="exampleInputPassword1" class="form-label">
                     Mobile number :
                   </label>
-                  <input type="text" class="form-control shadow-none" id="exampleInputPassword1" />
+                  <input
+                    type="text"
+                    class="form-control shadow-none"
+                    id="exampleInputPassword1"
+                  />
                 </div>
                 <div class="mb-3 dob">
                   <label for="exampleFormControlInput1" class="form-label">
                     DD/MM/YYYY:
                   </label>
-                  <input type="date" class="form-control shadow-none" date aria-label="YYYY/MM/DD" />
+                  <input
+                    type="date"
+                    class="form-control shadow-none"
+                    date
+                    aria-label="YYYY/MM/DD"
+                  />
                 </div>
               </div>
             </div>
@@ -148,11 +203,33 @@ export default class index extends Component {
               <button className="btn btn-light" onClick={this.modalTrigger}>
                 No
               </button>
-              <button className="btn btn-warning">Yes</button>
+              <button className="btn btn-warning" onClick={this.onClickLogout}>
+                Yes
+              </button>
             </div>
           </Modal.Footer>
         </Modal>
       </div>
-    );
+    )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logoutDispatch: () => {
+      dispatch(logout())
+    }
+  }
+}
+
+const AppWithRedux = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(index)
+export default AppWithRedux
