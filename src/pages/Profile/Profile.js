@@ -26,7 +26,7 @@ class Profile extends Component {
       phone: "",
       dob: "",
       gender: "",
-      // isShow: false,
+      isShow: false,
     };
     this.inputFile = React.createRef();
   }
