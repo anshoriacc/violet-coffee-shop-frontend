@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Profile.scoped.css";
 import { Modal } from "react-bootstrap";
 import FormData from "form-data";
+import Default from "../../assets/images/dummy-profile.png";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -115,6 +116,7 @@ class Profile extends Component {
   };
 
   render() {
+    const profilepic = this.props.users.image;
     return (
       <div className="main">
         <Header />
@@ -122,7 +124,7 @@ class Profile extends Component {
           <h1 className="title">User Profile</h1>
           <div className="wrapper">
             <div className="profile">
-              <img src={this.props.users.image} alt="" />
+              <img src={profilepic ? process.env.REACT_APP_HOST + profilepic : Default} alt="" />
               <div className="name">
                 <strong>{this.props.users.display_name}</strong>
                 <br />
