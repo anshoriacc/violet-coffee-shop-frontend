@@ -2,6 +2,12 @@
   width: 350px;
   height: 109px;
   position: relative;
+  cursor: pointer;
+}
+
+.main:hover {
+  border: 3px solid #6a4029;
+  border-radius: 20px;
 }
 
 .motherDays {
