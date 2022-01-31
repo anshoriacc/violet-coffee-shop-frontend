@@ -25,10 +25,11 @@ class Profile extends Component {
       last_name: "",
       phone: "",
       dob: "",
-      gender: ""
-      // isShow: false,
-    }
-    this.inputFile = React.createRef()
+      gender: "",
+      isShow: false,
+    };
+    this.inputFile = React.createRef();
+
   }
 
   formChange = (e) => {
