@@ -27,6 +27,7 @@ export default class Main extends Component {
         <ReduxProvider store={Store}>
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route path="/product" component={Product} />
             <Route path="/product/payment&delivery" component={Payment} />
             <Route path="/product/add" component={AddProduct} />
             <Route path="/product/detail/:id" component={Detail} />

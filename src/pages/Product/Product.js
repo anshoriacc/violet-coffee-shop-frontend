@@ -12,7 +12,6 @@ import helloween from "../../assets/icons/halloween_event.png"
 export class Product extends Component {
   container = React.createRef()
   state = {
-    open: false,
     event: {
       eventHelloween: "HAPPY HALLOWEEN!",
       eventSundayMorning: "Get a cup of coffee for free on sunday morning",
@@ -36,27 +35,6 @@ export class Product extends Component {
     }
   }
 
-  componentDidMount() {
-    document.addEventListener("mousedown", this.handleClickOutside)
-  }
-  componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleClickOutside)
-  }
-
-  handleClickOutside = (event) => {
-    if (
-      this.container.current &&
-      !this.container.current.contains(event.target)
-    ) {
-      this.setState({
-        open: false
-      })
-    }
-  }
-
-  handleCLickMenu = () => {
-    this.setState({ open: true })
-  }
   render() {
     const { helloween, sundayMorning, motherDay } = this.state.promo
     const {
@@ -74,7 +52,6 @@ export class Product extends Component {
       ketSundayMorning,
       ketMotherDays
     } = this.state.eventKet
-    console.log("CLICK", this.state.open)
     return (
       <>
         <Header />
@@ -131,19 +108,29 @@ export class Product extends Component {
               </Link>
             </div>
           </div>
-          <div
-            className="col-lg-8 col-md-4 border responsive-menu"
-            ref={this.container}>
-            <button onClick={this.handleCLickMenu}>Menu</button>
-            {this.state.open && (
-              <ul className="menu2">
-                <li>Favorite & Promo</li>
-                <li>Coffee</li>
-                <li>Non Coffee</li>
-                <li>Foods</li>
-                <li>Add-on</li>
-              </ul>
-            )}
+
+          <div className="col-lg-8 col-md-6">
+            <ul className="wrapper-menu-category">
+              <li className="active-menu">Favorite & Promo</li>
+              <li>Coffee</li>
+              <li>Non Coffee</li>
+              <li>Foods</li>
+              <li>Add-on</li>
+            </ul>
+            <div className="col-lg-12 d-flex wrapper-card-product">
+              <CardProduct />
+              <CardProduct />
+              <CardProduct />
+              <CardProduct />
+              <CardProduct />
+              <CardProduct />
+              <CardProduct />
+              <CardProduct />
+              <CardProduct />
+              <CardProduct />
+              <CardProduct />
+              <CardProduct />
+            </div>
           </div>
           <div />
         </div>

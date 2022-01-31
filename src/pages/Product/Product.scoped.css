@@ -90,18 +90,37 @@
   margin-bottom: 20px;
 }
 
-.responsive-menu {
-  display: none;
-}
-
-.menu {
+.wrapper-menu-category {
   display: flex;
   list-style: none;
-  flex-wrap: nowrap;
+  /* flex-wrap: nowrap; */
+  justify-content: center;
+  align-items: center;
+  height: 100px;
 }
 
-.menu > li {
-  margin: 50px;
+.wrapper-menu-category li {
+  margin: 30px;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  color: #9f9f9f;
+  cursor: pointer;
+}
+
+.active-menu {
+  font-weight: bold !important;
+  font-size: 20px;
+  color: #6a4029 !important;
+  border-bottom: 2px solid #6a4029;
+}
+
+.wrapper-card-product {
+  flex-wrap: wrap;
+  padding: 30px;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 425px) {
