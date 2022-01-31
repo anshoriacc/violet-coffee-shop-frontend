@@ -1,9 +1,12 @@
 import React, { Component } from "react"
+import { getFavorite } from "../../utils/product"
 import Header from "../../components/Navbar/Navbar"
 import Footer from "../../components/Footer/Footer"
 import CardFavorite from "../../components/CardFavorite/CardFavorite"
 import CardHomeTesti from "../../components/CardHomeTesti/CardHomeTesti"
 import "./Home.scoped.css"
+
+// assets
 import iconUser from "../../assets/icons/user.png"
 import iconMap from "../../assets/icons/map.png"
 import iconLove from "../../assets/icons/love.png"
@@ -19,10 +22,12 @@ import leftArrow from "../../assets/icons/arrow-left.svg"
 import righttArrow from "../../assets/icons/arrow-right.svg"
 
 export class Home extends Component {
-  //  constructor(props) {
-  //    super(props)
-
-  //  }
+  constructor(props) {
+    super(props)
+    this.state = {
+      getFavorite: []
+    }
+  }
 
   scrollToTop = () => {
     window.scrollTo({
@@ -33,9 +38,20 @@ export class Home extends Component {
 
   componentDidMount() {
     this.scrollToTop()
+    getFavorite()
+      .then((res) => {
+        console.log(res)
+        this.setState({
+          getFavorite: res.data.data
+        })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
   render() {
+    console.log("STATE-DATA-FAVORITE", this.state.getFavorite)
     return (
       <>
         <Header />
@@ -169,9 +185,9 @@ export class Home extends Component {
                 </p>
               </div>
               <div className="card-body">
-                <CardFavorite />
-                <CardFavorite />
-                <CardFavorite />
+                <CardFavorite favoriteData={this.state.getFavorite} />
+                <CardFavorite favoriteData={this.state.getFavorite} />
+                <CardFavorite favoriteData={this.state.getFavorite} />
               </div>
             </div>
           </div>

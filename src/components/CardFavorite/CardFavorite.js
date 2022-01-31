@@ -4,6 +4,7 @@ import "./CardFavorite.scoped.css"
 import Dumy from "../../assets/images/background-profile.jpg"
 
 function CardFavorite(props) {
+  console.log("PROPS-CARD-FAVORITE", props)
   return (
     <div className="main">
       <img src={Dumy} alt="" />
