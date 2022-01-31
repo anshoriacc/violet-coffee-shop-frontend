@@ -22,6 +22,10 @@
   position: relative;
 }
 
+.jumbotron {
+  position: relative;
+}
+
 .title-jumbotron {
   font-family: Rubik;
   font-style: normal;
@@ -83,11 +87,12 @@
 }
 
 .card {
-  width: 70%;
-  height: 24%;
+  width: 950px;
+  height: 200px;
   position: absolute;
-  bottom: -12%;
-  left: 15%;
+  /* bottom: 0; */
+  bottom: -300px;
+  left: 200px;
   display: flex;
   flex-direction: row;
   border: none;
@@ -273,7 +278,8 @@
 }
 
 .img-partner {
-  filter: invert(94%) sepia(8%) saturate(108%) hue-rotate(175deg) brightness(100%) contrast(83%);
+  filter: invert(94%) sepia(8%) saturate(108%) hue-rotate(175deg)
+    brightness(100%) contrast(83%);
 }
 
 .wrapper-title {
@@ -383,12 +389,15 @@
 .icon-arrow {
   width: 30px;
   height: 30px;
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(177deg) brightness(105%) contrast(101%);
-  -webkit-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(177deg) brightness(105%) contrast(101%);
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(177deg)
+    brightness(105%) contrast(101%);
+  -webkit-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(177deg)
+    brightness(105%) contrast(101%);
 }
 
 .left {
-  filter: invert(24%) sepia(13%) saturate(2103%) hue-rotate(337deg) brightness(101%) contrast(87%);
+  filter: invert(24%) sepia(13%) saturate(2103%) hue-rotate(337deg)
+    brightness(101%) contrast(87%);
 }
 
 .row-6 {
@@ -450,4 +459,18 @@
   line-height: 25px;
   color: #6a4029;
   border: none;
+}
+
+@media only screen and (max-width: 425px) {
+  .card,
+  .card2 {
+    display: none;
+  }
+}
+@media only screen and (max-width: 768px) {
+}
+@media only screen and (max-width: 1024px) {
+  .card {
+    bottom: -350px;
+  }
 }
