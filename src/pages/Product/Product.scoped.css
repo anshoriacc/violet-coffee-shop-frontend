@@ -94,7 +94,6 @@
   display: flex;
   flex-direction: column;
   height: 10%;
-  background-color: violet;
   padding-left: 9%;
   font-family: Poppins;
   font-style: normal;
@@ -156,7 +155,4 @@
 @media only screen and (max-width: 768px) {
 }
 @media only screen and (max-width: 1024px) {
-  .wrapper-left {
-    /* width: 420px; */
-  }
 }
