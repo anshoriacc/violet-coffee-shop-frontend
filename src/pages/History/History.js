@@ -28,7 +28,7 @@ export default class History extends Component {
               <h1>Let's see what you have bought!</h1>
               <p>Select item to delete</p>
             </div>
-            <p className="action">Delete</p>
+            {historyData.length > 0 ? <p className="action">Delete</p> : <></>}
             <div className={historyData.length > 0 ? "history-tile" : ""}>
               {historyData.length > 0 ? (
                 historyData.map((data) => <CardHistory historyData={data} />)
