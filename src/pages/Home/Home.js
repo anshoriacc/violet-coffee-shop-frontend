@@ -19,22 +19,25 @@ import leftArrow from "../../assets/icons/arrow-left.svg"
 import righttArrow from "../../assets/icons/arrow-right.svg"
 
 export class Home extends Component {
-  constructor(props) {
-    super(props)
-    this.scrollUp = React.createRef()
+  //  constructor(props) {
+  //    super(props)
+
+  //  }
+
+  scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
   }
 
   componentDidMount() {
-    this.scrollUp.current.scrollTo(0, 0)
-  }
-
-  componentDidUpdate() {
-    this.scrollUp.current.scrollTo(0, 0)
+    this.scrollToTop()
   }
 
   render() {
     return (
-      <div ref={this.scrollUp}>
+      <>
         <Header />
 
         <div className="container-fluid main">
@@ -292,7 +295,7 @@ export class Home extends Component {
         </div>
 
         <Footer />
-      </div>
+      </>
     )
   }
 }
