@@ -6,16 +6,12 @@ import FormData from "form-data";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { loginAction, saveAction } from "../../Redux/actions/auth";
-import axios from "axios";
 
 // COMPONENTS
 import Header from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
 import { GetUser, editUser } from "../../utils/auth";
-
-// IMAGE
-// import Dummy from "../../assets/images/dummy-profile.png";
 
 class Profile extends Component {
   constructor(props) {
@@ -87,7 +83,6 @@ class Profile extends Component {
   };
 
   EditUser = () => {
-    // const URL = process.env.REACT_APP_HOST + "/user/edit";
     const forms = this._setData();
     const token = this.props.token;
     editUser(forms, token)
