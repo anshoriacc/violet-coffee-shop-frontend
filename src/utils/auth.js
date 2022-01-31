@@ -22,5 +22,5 @@ export const GetUser = (accessToken) => {
 
 export const editUser = (data, accessToken) => {
   const URL = `${process.env.REACT_APP_HOST}/user/edit`;
-  return axios.patch(URL, data, { headers: { "x-acess-token": accessToken } });
+  return axios.patch(URL, data, { headers: { "x-acess-token": accessToken, "content-type": "multipart/form-data" } });
 };
