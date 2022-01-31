@@ -6,7 +6,7 @@ import Default from "../../assets/images/dummy-profile.png";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { loginAction, saveAction } from "../../Redux/actions/auth";
+import { loginAction, saveAction, logout } from "../../Redux/actions/auth";
 
 // COMPONENTS
 import Header from "../../components/Navbar/Navbar";
@@ -113,6 +113,11 @@ class Profile extends Component {
 
   modalTrigger = () => {
     this.setState({ isShow: !this.state.isShow });
+  };
+
+  onCLickLogout = () => {
+    this.props.logout();
+    this.props.history.push("/");
   };
 
   render() {
@@ -239,7 +244,9 @@ class Profile extends Component {
               <button className="btn btn-light" onClick={this.modalTrigger}>
                 No
               </button>
-              <button className="btn btn-warning">Yes</button>
+              <button className="btn btn-warning" onClick={this.onCLickLogout}>
+                Yes
+              </button>
             </div>
           </Modal.Footer>
         </Modal>
@@ -252,6 +259,7 @@ const mapDispatchToPropps = (dispacth) => {
   return {
     setUsers: bindActionCreators(saveAction, dispacth),
     setAuth: bindActionCreators(loginAction, dispacth),
+    logout: bindActionCreators(logout, dispacth),
   };
 };
 
