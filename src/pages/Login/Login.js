@@ -58,7 +58,6 @@ class Login extends Component {
         this.setUser(token)
       })
       .catch((err) => {
-        console.log(process.env.REACT_APP_HOST)
         console.log(err)
         var x = document.getElementById("snackbar")
         x.className = "show"
