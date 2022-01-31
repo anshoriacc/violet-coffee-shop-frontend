@@ -19,6 +19,22 @@ import leftArrow from "../../assets/icons/arrow-left.svg"
 import righttArrow from "../../assets/icons/arrow-right.svg"
 
 export class Home extends Component {
+  //  constructor(props) {
+  //    super(props)
+
+  //  }
+
+  scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  }
+
+  componentDidMount() {
+    this.scrollToTop()
+  }
+
   render() {
     return (
       <>
