@@ -28,22 +28,42 @@ class Login extends Component {
     this.setState(data);
   };
 
+  setUser = (token) => {
+    const URL = process.env.REACT_APP_HOST + "/user/profile";
+    axios({
+      url: URL,
+      method: "GET",
+      headers: { "x-access-token": token },
+    })
+      .then((res) => {
+        const { result } = res.data;
+        this.props.setUsers(result[0]);
+        this.props.history.goBack();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   login = () => {
-    const URL = "https://coffee-shop-back-end.herokuapp.com/api/auth/login";
+    const URL = process.env.REACT_APP_HOST + "/auth/login";
     axios({
       url: URL,
       method: "POST",
       data: this.state,
     })
       .then((res) => {
-        console.log(res.data.result.result);
         const { token } = res.data.result;
-        console.log(token);
         this.props.setAuth(token);
-        console.log(this.props);
+        this.setUser(token);
       })
       .catch((err) => {
         console.log(err);
+        var x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function() {
+          x.className = x.className.replace("show", "");
+        }, 3000);
       });
   };
 
@@ -106,6 +126,8 @@ class Login extends Component {
               </div>
             </div>
           </div>
+          {/* TOAST */}
+          <div id="snackbar">Password atau email salah</div>
           <Footer />
         </main>
       </>
