@@ -142,7 +142,14 @@ const mapDispatchToPropps = (dispacth) => {
   };
 };
 
+const mapStateToProps = (state) => {
+  return {
+    users: state.auth.userData,
+    token: state.auth.token,
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToPropps
 )(Login);
