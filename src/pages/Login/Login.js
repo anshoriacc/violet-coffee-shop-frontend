@@ -36,8 +36,8 @@ class Login extends Component {
       headers: { "x-access-token": token },
     })
       .then((res) => {
-        const { result } = res.data;
-        this.props.setUsers(result[0]);
+        const userData = res.data.data;
+        this.props.setUsers(userData);
         window.location.reload();
       })
       .catch((err) => {
@@ -53,9 +53,9 @@ class Login extends Component {
       data: this.state,
     })
       .then((res) => {
-        const { token } = res.data.result;
-        this.props.setAuth(token);
+        const token = res.data.data;
         this.setUser(token);
+        this.props.setAuth(token);
       })
       .catch((err) => {
         console.log(err);
@@ -102,7 +102,7 @@ class Login extends Component {
                   <input typeof="email" className="input-form" placeholder="Enter your email address" name="email" onChange={this.formChange} />
                   <label className="label-form">Password :</label>
                   <input type="password" className="input-form" placeholder="Enter your password" name="password" onChange={this.formChange} />
-                  <Link className="link-forgot-password" to="/forgot-password">
+                  <Link className="link-forgot-password" to="/forgot_password">
                     Forgot Password
                   </Link>
                   <button className="btn-login" onClick={this.login}>
