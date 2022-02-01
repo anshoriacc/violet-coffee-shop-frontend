@@ -26,7 +26,7 @@ export default class Main extends Component {
 
   componentDidMount() {
     const state = JSON.parse(localStorage.getItem("state"));
-    this.setState({ token: state.auth.token });
+    if (state) this.setState({ token: state.auth.token });
   }
 
   render() {
