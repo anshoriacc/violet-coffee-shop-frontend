@@ -22,6 +22,10 @@ const userData = (state = initialState, action) => {
         userData: {},
         token: "",
       };
+      case "FORGOT_PASSWORD_FULFILLED":
+        return {
+          ...state,
+        };
     default:
       return state;
   }
