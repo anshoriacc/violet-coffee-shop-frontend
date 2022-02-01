@@ -14,13 +14,19 @@ export class Navbar extends Component {
     }
   }
   componentDidMount() {
+    console.log("COMPONENT DID MOUNT")
     if (this.props.auth.token) {
       this.setState({
         isLogin: true
       })
     }
   }
+
+  componentDidUpdate() {
+    console.log("COMPONENT DID UPDATE")
+  }
   render() {
+    console.log(this.props)
     const isLogin = this.state.isLogin
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -69,9 +75,13 @@ export class Navbar extends Component {
             </ul>
             {!isLogin ? (
               <div className="d-flex">
-                <Link to="/login" className="btn-login">
+                <button
+                  onClick={() => {
+                    this.props.history.push("/login")
+                  }}
+                  className="btn-login">
                   Login
-                </Link>
+                </button>
 
                 <Link to="/signup" className="btn-signup">
                   Sign Up

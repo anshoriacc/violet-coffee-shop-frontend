@@ -52,9 +52,10 @@ export class Home extends Component {
 
   render() {
     console.log("STATE-DATA-FAVORITE", this.state.getFavorite)
+
     return (
       <>
-        <Header />
+        <Header history={this.props.history} />
 
         <div className="container-fluid main">
           <div className="row row-1">
