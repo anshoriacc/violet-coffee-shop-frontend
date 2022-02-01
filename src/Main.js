@@ -42,8 +42,6 @@ export default class Main extends Component {
             <Route
               path="/signup"
               render={(routerProps) => {
-                console.log("TEST STATE", state);
-                console.log("TEST TOKEN", accessToken);
                 if (accessToken) return <Redirect from="/signup" to="/" />;
                 return <SignUp {...routerProps} />;
               }}
@@ -51,8 +49,6 @@ export default class Main extends Component {
             <Route
               path="/login"
               render={(routerProps) => {
-                console.log("TEST STATE", state);
-                console.log("TEST TOKEN", accessToken);
                 if (accessToken) return <Redirect from="/login" to="/" />;
                 return <Login {...routerProps} />;
               }}
@@ -109,8 +105,6 @@ export default class Main extends Component {
             <Route
               path="/profile"
               render={(routerProps) => {
-                console.log("TEST STATE", state);
-                console.log("TEST TOKEN", accessToken);
                 if (!accessToken) return <Redirect from="/profile" to="/" />;
                 return <Profile {...routerProps} />;
               }}
