@@ -59,7 +59,7 @@ class History extends Component {
             <div className="card-container">
               {userHistory.map((val) => {
                 console.log(val.name);
-                return <CardHistory image={Dumy} name={val.name} price={val.price} id={val.id} />;
+                return <CardHistory image={Dumy} name={val.name} price={val.price} id={val.id} key={val.id} />;
               })}
             </div>
           </div>
