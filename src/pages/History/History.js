@@ -5,6 +5,9 @@ import "./History.scoped.css";
 import Header from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import CardHistory from "../../components/CardHistory/CardHistory";
+
+import Dumy from "../../assets/images/background-profile.jpg";
+
 // import { Link } from "react-router-dom";
 import { GetHistory } from "../../utils/history";
 import { connect } from "react-redux";
@@ -14,24 +17,24 @@ class History extends Component {
     super(props);
     this.state = {
       userHistory: [],
+      id: [],
     };
     this.inputFile = React.createRef();
   }
+
+  fromChange = (e) => {
+    const ids = [...this.state.id];
+    ids.push(e.target.value);
+    this.setState({ id: ids }, () => {
+      console.log(this.state.id);
+    });
+  };
 
   getHistoryUser = () => {
     const token = this.props.token;
     GetHistory(token)
       .then((res) => {
-        const data = res.data.data;
-        for (let index = 0; index < data.length; index++) {
-          const element = data[index];
-          const item = element.payment_item;
-          for (let i = 0; i < item.length; i++) {
-            const data = item[i];
-            const product = data.product;
-            this.setState({ userHistory: product });
-          }
-        }
+        this.setState({ userHistory: res.data.data });
       })
       .catch((err) => {
         console.log(err);
@@ -44,7 +47,6 @@ class History extends Component {
 
   render() {
     const userHistory = this.state.userHistory;
-    console.log("USER HISTORY", userHistory);
     return (
       <>
         <Header />
@@ -54,9 +56,12 @@ class History extends Component {
               <h1>Let's see what you have bought!</h1>
               <p>Select item to delete</p>
             </div>
-            {userHistory.map((val) => {
-              return <CardHistory image={val.image} name={val.name} price={val.price} />;
-            })}
+            <div className="card-container">
+              {userHistory.map((val) => {
+                console.log(val.name);
+                return <CardHistory image={Dumy} name={val.name} price={val.price} id={val.id} />;
+              })}
+            </div>
           </div>
         </div>
         <Footer />
@@ -64,14 +69,6 @@ class History extends Component {
     );
   }
 }
-
-/* 
-
- {this.state.history.map((val) => {
-              return <Card image={`${process.env.REACT_APP_HOST}/${val.image}`} name={val.vehicle} date={val.date} price={val.prepayment} status={val.status} rating={val.rating} key={val.id} />;
-            })}
-
-*/
 
 const mapStateToProps = (state) => {
   return {

@@ -1,20 +1,42 @@
-import React from "react";
 import "./CardHistory.scoped.css";
 
-function CardHistory(props) {
-  return (
-    <div className="main">
-      <img src={props.image} alt="" />
-      <div className="detail">
-        <p className="name">{props.name}</p>
-        <p className="price">{props.price}</p>
-        <p className="delivery">{props.delivery}</p>
-        <input className="form-check-input" type="checkbox" value={props.id} />
-        {/* <div class="form-check">
-    </div> */}
-      </div>
-    </div>
-  );
-}
+import React, { Component } from "react";
 
-export default CardHistory;
+export default class CardHistory extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: [],
+    };
+  }
+
+  // fromChange = (e) => {
+  //   const data = { ...this.state.id };
+  //   data[e.target.name] = e.target.value;
+  //   this.setState({ id: e.target.value });
+  // };
+
+  /*  fromChange = (e) => {
+    const ids = [...this.state.id];
+    ids.push(e.target.value);
+    this.setState({ id: ids }, () => {
+      console.log(this.state.id);
+    });
+  }; */
+
+  render() {
+    return (
+      <>
+        <div className="main">
+          <img src={this.props.image} alt="" />
+          <div className="detail">
+            <p className="name">{this.props.name}</p>
+            <p className="price">{this.props.price}</p>
+            <p className="delivery">{this.props.delivery}</p>
+            <input className="form-check-input" name="id" type="checkbox" value={this.props.id} />
+          </div>
+        </div>
+      </>
+    );
+  }
+}

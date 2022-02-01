@@ -4,11 +4,11 @@ p {
 }
 
 .main {
-  width: 100%;
+  width: 30%;
   aspect-ratio: 3/1;
   background-color: #fff;
   position: relative;
-  padding: 5%;
+  padding: 3%;
   border-radius: 20px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
   display: flex;
@@ -16,14 +16,11 @@ p {
 }
 
 .main img {
-  /* width: 75px;
-  aspect-ratio: 1/1; */
-  display: block;
+  width: 75px;
+  height: 75px;
   max-width: 100%;
   aspect-ratio: 1/1;
-  /* max-height: 100%; */
   border-radius: 50%;
-  object-fit: cover;
 }
 
 .detail {
@@ -36,6 +33,7 @@ p {
 .name {
   font-size: 1.25rem;
   font-weight: bold;
+  color: black;
 }
 
 .price {
@@ -48,15 +46,8 @@ p {
   /* font-size: 20px; */
 }
 
-/* p {
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-} */
-
 input {
-  width: 5%;
+  width: 6%;
   height: 15%;
   position: absolute;
   bottom: 15%;
@@ -69,5 +60,4 @@ input {
 input:checked {
   background-color: rgba(137, 85, 55, 1);
   border: 3px solid rgba(137, 85, 55, 1);
-  /* border: none; */
 }
