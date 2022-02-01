@@ -117,6 +117,20 @@ button:hover {
   color: rgba(106, 64, 41, 1);
 }
 
+.expire-date {
+  position: absolute;
+  top: 68%;
+  left: 23%;
+  font-family: Rubik;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: rgba(106, 64, 41, 1);
+}
+
 .delivery-hour .form-select {
   width: 250px;
   height: 68px;
@@ -129,7 +143,7 @@ button:hover {
 
 .input-stock {
   position: absolute;
-  bottom: 0%;
+  bottom: -5%;
   left: 23%;
   font-family: Rubik;
   font-size: 22px;
@@ -141,7 +155,9 @@ button:hover {
   color: rgba(106, 64, 41, 1);
 }
 
-.input-stock .form-select {
+.input-stock .form-select,
+.start-date,
+.end-date {
   width: 250px;
   height: 68px;
   border-radius: 20px;
