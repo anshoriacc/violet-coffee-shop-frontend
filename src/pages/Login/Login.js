@@ -38,7 +38,9 @@ class Login extends Component {
       .then((res) => {
         const { result } = res.data;
         this.props.setUsers(result[0]);
-        this.props.history.goBack();
+        setTimeout(() => {
+          this.props.history.goBack();
+        }, 5000);
       })
       .catch((err) => {
         console.log(err);

@@ -117,7 +117,7 @@ class Profile extends Component {
 
   onCLickLogout = () => {
     this.props.logout();
-    this.props.history.push("/");
+    window.location.reload();
   };
 
   render() {
