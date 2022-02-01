@@ -21,7 +21,8 @@ class Product extends Component {
         eventMotherDays: "HAPPY MOTHER’S DAY!",
       },
       eventKet: {
-        ketHelloween: "Do you like chicken wings? Get 1 free only if you buy pinky promise",
+        ketHelloween:
+          "Do you like chicken wings? Get 1 free only if you buy pinky promise",
         ketSundayMorning: "Only at 7 to 9 AM",
         ketMotherDays: "Get one of our favorite menu for free!",
       },
@@ -45,9 +46,21 @@ class Product extends Component {
 
   render() {
     const { helloween, sundayMorning, motherDay } = this.state.promo;
-    const { picHelloween, picSundayMorning, picMotherDays } = this.state.picPromo;
-    const { eventHelloween, eventMotherDays, eventSundayMorning } = this.state.event;
-    const { ketHelloween, ketSundayMorning, ketMotherDays } = this.state.eventKet;
+    const {
+      picHelloween,
+      picSundayMorning,
+      picMotherDays,
+    } = this.state.picPromo;
+    const {
+      eventHelloween,
+      eventMotherDays,
+      eventSundayMorning,
+    } = this.state.event;
+    const {
+      ketHelloween,
+      ketSundayMorning,
+      ketMotherDays,
+    } = this.state.eventKet;
     return (
       <>
         <Header />
@@ -63,11 +76,31 @@ class Product extends Component {
             </div>
             <div className="wrapper-cuppon">
               <Link>
-                <CardCoupon event={motherDay} pic={picMotherDays} nameEvent={eventMotherDays} ketEvent={ketMotherDays} />
+                <CardCoupon
+                  event={motherDay}
+                  pic={picMotherDays}
+                  nameEvent={eventMotherDays}
+                  ketEvent={ketMotherDays}
+                />
               </Link>
-              <CardCoupon event={sundayMorning} pic={picSundayMorning} nameEvent={eventSundayMorning} ketEvent={ketSundayMorning} />
-              <CardCoupon event={motherDay} pic={picMotherDays} nameEvent={eventMotherDays} ketEvent={ketMotherDays} />
-              <CardCoupon event={helloween} pic={picHelloween} nameEvent={eventHelloween} ketEvent={ketHelloween} />
+              <CardCoupon
+                event={sundayMorning}
+                pic={picSundayMorning}
+                nameEvent={eventSundayMorning}
+                ketEvent={ketSundayMorning}
+              />
+              <CardCoupon
+                event={motherDay}
+                pic={picMotherDays}
+                nameEvent={eventMotherDays}
+                ketEvent={ketMotherDays}
+              />
+              <CardCoupon
+                event={helloween}
+                pic={picHelloween}
+                nameEvent={eventHelloween}
+                ketEvent={ketHelloween}
+              />
             </div>
             <button className="btn-cuppon">Apply Cuppon</button>
             <p className="title-terms">Terms and Condition</p>
@@ -90,7 +123,7 @@ class Product extends Component {
           <div className="col-lg-8 col-md-6">
             <ul className="wrapper-menu-category">
               <li className="active-menu">Favorite & Promo</li>
-              <li>Coffee</li>
+              <li active>Coffee</li>
               <li>Non Coffee</li>
               <li>Foods</li>
               <li>Add-on</li>
