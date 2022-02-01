@@ -1,7 +1,13 @@
 .main {
-  width: 335px;
+  width: 350px;
   height: 109px;
   position: relative;
+  cursor: pointer;
+}
+
+.main:hover {
+  border: 3px solid #6a4029;
+  border-radius: 20px;
 }
 
 .motherDays {
@@ -52,4 +58,9 @@ p {
   top: 35%;
   left: 30%;
   font-weight: 400;
+}
+
+.name-event {
+  font-weight: 700;
+  margin: 0;
 }

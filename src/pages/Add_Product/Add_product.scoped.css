@@ -20,7 +20,7 @@
 .forms {
   width: 90%;
   height: 100vh;
-  margin: auto;
+  margin: 5% auto 5% auto;
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-gap: 5%;

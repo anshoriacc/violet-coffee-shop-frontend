@@ -36,10 +36,22 @@ export class SignUp extends Component {
       data: this.state,
     })
       .then((res) => {
-        console.log(res.data);
+        var x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function() {
+          x.className = x.className.replace("show", "");
+        }, 3000);
+        setTimeout(() => {
+          this.props.history.push("/login");
+        }, 3001);
       })
       .catch((err) => {
-        console.log(err);
+        console.log("ERROR", err);
+        var x = document.getElementById("toast");
+        x.className = "show";
+        setTimeout(function() {
+          x.className = x.className.replace("show", "");
+        }, 5000);
       });
   };
   render() {
@@ -59,7 +71,9 @@ export class SignUp extends Component {
                   </p>
                 </div>
                 <div className="col-lg-6 col-md-6 justify-content-center d-flex">
-                  <button className="btn-signup">Login</button>
+                  <a href="/login">
+                    <button className="btn-signup">Login</button>
+                  </a>
                 </div>
                 <div className="col-lg-12 col-md-6 text-center ps-md-5 mt-lg-5 mb-lg-3 wrapper-title-login">
                   <p className="title-login">Sign Up</p>
@@ -100,6 +114,9 @@ export class SignUp extends Component {
             </div>
           </div>
           <Footer />
+          {/* TOAST */}
+          <div id="snackbar">Sign Up berhasil,Silahkan Login</div>
+          <div id="toast">Sign Up gagal,silahkan coba kembali</div>;
         </main>
       </>
     );

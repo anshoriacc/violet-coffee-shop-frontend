@@ -28,22 +28,42 @@ class Login extends Component {
     this.setState(data);
   };
 
+  setUser = (token) => {
+    const URL = process.env.REACT_APP_HOST + "/user/profile";
+    axios({
+      url: URL,
+      method: "GET",
+      headers: { "x-access-token": token },
+    })
+      .then((res) => {
+        const userData = res.data.data;
+        this.props.setUsers(userData);
+        window.location.reload();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   login = () => {
-    const URL = "https://coffee-shop-back-end.herokuapp.com/api/auth/login";
+    const URL = process.env.REACT_APP_HOST + "/auth/login";
     axios({
       url: URL,
       method: "POST",
       data: this.state,
     })
       .then((res) => {
-        console.log(res.data.result.result);
-        const { token } = res.data.result;
-        console.log(token);
+        const token = res.data.data;
+        this.setUser(token);
         this.props.setAuth(token);
-        console.log(this.props);
       })
       .catch((err) => {
         console.log(err);
+        var x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function() {
+          x.className = x.className.replace("show", "");
+        }, 3000);
       });
   };
 
@@ -66,7 +86,9 @@ class Login extends Component {
                   </p>
                 </div>
                 <div className="col-lg-6 col-md-6 justify-content-center d-flex">
-                  <button className="btn-signup">Sign Up</button>
+                  <a href="/signup">
+                    <button className="btn-signup">Sign Up</button>
+                  </a>
                 </div>
                 <div className="col-lg-12 col-md-6 text-center ps-md-5 mt-lg-5 mb-lg-3 wrapper-title-login">
                   <p className="title-login">Login</p>
@@ -80,7 +102,7 @@ class Login extends Component {
                   <input typeof="email" className="input-form" placeholder="Enter your email address" name="email" onChange={this.formChange} />
                   <label className="label-form">Password :</label>
                   <input type="password" className="input-form" placeholder="Enter your password" name="password" onChange={this.formChange} />
-                  <Link className="link-forgot-password" to="/forgot-password">
+                  <Link className="link-forgot-password" to="/forgot_password">
                     Forgot Password
                   </Link>
                   <button className="btn-login" onClick={this.login}>
@@ -106,6 +128,8 @@ class Login extends Component {
               </div>
             </div>
           </div>
+          {/* TOAST */}
+          <div id="snackbar">Password atau email salah</div>
           <Footer />
         </main>
       </>
@@ -120,7 +144,14 @@ const mapDispatchToPropps = (dispacth) => {
   };
 };
 
+const mapStateToProps = (state) => {
+  return {
+    users: state.auth.userData,
+    token: state.auth.token,
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToPropps
 )(Login);

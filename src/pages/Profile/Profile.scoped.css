@@ -56,14 +56,14 @@ button:hover {
   width: 35%;
   border-radius: 50%;
   position: absolute;
-  left: 30%;
-  top: 5%;
+  left: 32%;
+  top: 3%;
 }
 
 .profile .name {
   position: absolute;
+  width: 100%;
   top: 28%;
-  left: 32%;
   text-align: center;
   font-size: 1.3020833333333333vw;
   font-family: "Rubik";
