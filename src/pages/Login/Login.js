@@ -36,8 +36,8 @@ class Login extends Component {
       headers: { "x-access-token": token },
     })
       .then((res) => {
-        const { result } = res.data;
-        this.props.setUsers(result[0]);
+        const userData = res.data.data;
+        this.props.setUsers(userData);
         window.location.reload();
       })
       .catch((err) => {
@@ -53,9 +53,9 @@ class Login extends Component {
       data: this.state,
     })
       .then((res) => {
-        const { token } = res.data.result;
-        this.props.setAuth(token);
+        const token = res.data.data;
         this.setUser(token);
+        this.props.setAuth(token);
       })
       .catch((err) => {
         console.log(err);

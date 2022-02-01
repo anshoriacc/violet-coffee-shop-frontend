@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./Navbar.scoped.css";
 import logo from "../../assets/icons/logo.png";
 import chat from "../../assets/icons/chat (1) 1.png";
-import profile from "../../assets/images/dummy-profile.png";
+import Default from "../../assets/images/dummy-profile.png";
 
 export class Navbar extends Component {
   constructor(props) {
@@ -22,6 +22,7 @@ export class Navbar extends Component {
   }
   render() {
     const isLogin = this.state.isLogin;
+    const profilepic = this.props.user.image !== null ? this.props.user.image : Default;
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
@@ -50,9 +51,21 @@ export class Navbar extends Component {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/history">
-                  History
-                </Link>
+                {isLogin ? (
+                  this.props.user.role === "user" ? (
+                    <Link className="nav-link" to="/history">
+                      History
+                    </Link>
+                  ) : (
+                    <Link className="nav-link" to="/admin/dashboard">
+                      Dashboard
+                    </Link>
+                  )
+                ) : (
+                  <Link className="nav-link" to="/history">
+                    History
+                  </Link>
+                )}
               </li>
             </ul>
             {!isLogin ? (
@@ -79,7 +92,7 @@ export class Navbar extends Component {
                 <div className="profilepic">
                   <div className="img-profile">
                     <Link to="/profile">
-                      <img src={profile} alt="profile" />
+                      <img src={profilepic} alt="profile" />
                     </Link>
                   </div>
                 </div>
@@ -95,6 +108,7 @@ export class Navbar extends Component {
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
+    user: state.auth.userData,
   };
 };
 
