@@ -54,9 +54,9 @@ export default class Main extends Component {
               }}
             />
             <Route
-              path="/product/payment&delivery"
+              path="/product/payment"
               render={(routerProps) => {
-                if (!accessToken) return <Redirect from="/product/payment&delivery" to="/" />;
+                if (!accessToken) return <Redirect from="/product/payment" to="/" />;
                 return <Payment {...routerProps} />;
               }}
             />
