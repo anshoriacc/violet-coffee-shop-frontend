@@ -102,7 +102,7 @@ class Login extends Component {
                   <input typeof="email" className="input-form" placeholder="Enter your email address" name="email" onChange={this.formChange} />
                   <label className="label-form">Password :</label>
                   <input type="password" className="input-form" placeholder="Enter your password" name="password" onChange={this.formChange} />
-                  <Link className="link-forgot-password" to="/forgot-password">
+                  <Link className="link-forgot-password" to="/forgot_password">
                     Forgot Password
                   </Link>
                   <button className="btn-login" onClick={this.login}>
