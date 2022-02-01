@@ -10,7 +10,9 @@ import motherDays from "../../assets/icons/mother_event.png"
 import sundayMorning from "../../assets/icons/sunday_event.png"
 import helloween from "../../assets/icons/halloween_event.png"
 
-export class Product extends Component {
+import { connect } from "react-redux"
+
+class Product extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -35,12 +37,12 @@ export class Product extends Component {
         picHelloween: helloween,
         picSundayMorning: sundayMorning,
         picMotherDays: motherDays
-      },
-      product: []
+      }
     }
   }
-
   componentDidMount() {
+    console.log(this.props.token)
+    console.log(this.props.users.role)
     getProduct()
       .then((res) => {
         console.log(res)
@@ -148,6 +150,14 @@ export class Product extends Component {
               <CardProduct />
               <CardProduct />
             </div>
+            {this.props.token ? (
+              this.props.users.role === "admin" ? (
+                <div className="admin-link">
+                  <a href="/product/edit/:id">Edit product</a>
+                  <a href="/product/add">Add new product</a>
+                </div>
+              ) : null
+            ) : null}
           </div>
           <div />
         </div>
@@ -158,4 +168,16 @@ export class Product extends Component {
   }
 }
 
-export default Product
+const mapStateToProps = (state) => {
+  return {
+    users: state.auth.userData,
+    token: state.auth.token
+  }
+}
+
+export default connect(mapStateToProps)(Product)
+
+// <div className="admin-link">
+//               <a href="/product/edit/:id">Edit product</a>
+//               <a href="/product/add">Add new product</a>
+//             </div>

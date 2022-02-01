@@ -1,44 +1,45 @@
-import React, { Component } from "react"
-import Footer from "../../components/Footer/Footer"
-import "bootstrap/dist/css/bootstrap.min.css"
-import "./SignUp.scoped.css"
-import logo from "../../assets/icons/logo.png"
-import iconGoogle from "../../assets/icons/google-logo-min.png"
-import imageLeft from "../../assets/images/background-loginregister.jpg"
+import React, { Component } from "react";
+import Footer from "../../components/Footer/Footer";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./SignUp.scoped.css";
+import logo from "../../assets/icons/logo.png";
+import iconGoogle from "../../assets/icons/google-logo-min.png";
+import imageLeft from "../../assets/images/background-loginregister.jpg";
 // import { Link } from "react-router-dom"
 
-import { connect } from "react-redux"
-import { bindActionCreators } from "redux"
-import axios from "axios"
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import axios from "axios";
 
 export class SignUp extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       email: "",
       password: "",
-      phone: ""
-    }
+      phone: "",
+    };
   }
 
   formChange = (e) => {
-    const data = { ...this.state }
-    data[e.target.name] = e.target.value
-    console.log(this.state)
-    this.setState(data)
-  }
+    const data = { ...this.state };
+    data[e.target.name] = e.target.value;
+    console.log(this.state);
+    this.setState(data);
+  };
 
   signup = () => {
-    const URL = "https://coffee-shop-back-end.herokuapp.com/api/auth/signup"
+    const URL = "https://coffee-shop-back-end.herokuapp.com/api/auth/signup";
     axios({
       url: URL,
       method: "POST",
-      data: this.state
+      data: this.state,
     })
       .then((res) => {
-        console.log("RESPONSE DATA", res.data)
+        console.log("RESPONSE DATA", res.data);
       })
       .catch((err) => {
+<<<<<<< HEAD
         console.log("ERROR", err)
       })
   }
@@ -46,36 +47,37 @@ export class SignUp extends Component {
   onCLickLogin = () => {
     console.log(this.props)
   }
+=======
+        console.log("ERROR", err);
+      });
+  };
+>>>>>>> 89359af6051329d078ce831c2eb00b4892282771
   render() {
     return (
       <>
         <main className="container-fluid p-0">
           <div className="row position-relative border">
             <section className="col-lg-6 col-md-6 content-left">
-              <img
-                src={imageLeft}
-                alt="img-left"
-                className="img-fluid img-left"
-              />
+              <img src={imageLeft} alt="img-left" className="img-fluid img-left" />
             </section>
             <section className="col-lg-6 col-md-6 p-lg-4 content-right">
               <div className="row">
                 <div className="col-lg-6 wrapper-title-coffee">
                   <p className="title-coffee">
-                    <img
-                      src={logo}
-                      alt="logo-img"
-                      width={30}
-                      height={30}
-                      className="me-3"
-                    />
+                    <img src={logo} alt="logo-img" width={30} height={30} className="me-3" />
                     Coffee Shop
                   </p>
                 </div>
                 <div className="col-lg-6 col-md-6 justify-content-center d-flex">
+<<<<<<< HEAD
                   <button className="btn-signup" onClick={this.onCLickLogin}>
                     Login
                   </button>
+=======
+                  <a href="/login">
+                    <button className="btn-signup">Login</button>
+                  </a>
+>>>>>>> 89359af6051329d078ce831c2eb00b4892282771
                 </div>
                 <div className="col-lg-12 col-md-6 text-center ps-md-5 mt-lg-5 mb-lg-3 wrapper-title-login">
                   <p className="title-login">Sign Up</p>
@@ -86,42 +88,17 @@ export class SignUp extends Component {
 
                 <div className="col-lg-8 col-md-2 d-flex flex-column wrapper-form">
                   <label className="label-form">Email Address :</label>
-                  <input
-                    typeof="email"
-                    className="input-form"
-                    placeholder="Enter your email address"
-                    name="email"
-                    onChange={this.formChange}
-                  />
+                  <input typeof="email" className="input-form" placeholder="Enter your email address" name="email" onChange={this.formChange} />
                   <label className="label-form">Password :</label>
-                  <input
-                    type="password"
-                    className="input-form"
-                    placeholder="Enter your password"
-                    name="password"
-                    onChange={this.formChange}
-                  />
+                  <input type="password" className="input-form" placeholder="Enter your password" name="password" onChange={this.formChange} />
                   <label className="label-form">Phone Number :</label>
-                  <input
-                    typeof="text"
-                    className="input-form"
-                    placeholder="Enter your phone number"
-                    name="phone"
-                    onChange={this.formChange}
-                  />
+                  <input typeof="text" className="input-form" placeholder="Enter your phone number" name="phone" onChange={this.formChange} />
 
                   <button className="btn-login" onClick={this.signup}>
                     Sign Up
                   </button>
                   <button className="btn-google">
-                    <img
-                      src={iconGoogle}
-                      alt="icon-google"
-                      width={25}
-                      height={25}
-                      className="icon-google"
-                    />{" "}
-                    Sign Up with Google
+                    <img src={iconGoogle} alt="icon-google" width={25} height={25} className="icon-google" /> Sign Up with Google
                   </button>
                 </div>
               </div>
@@ -133,9 +110,7 @@ export class SignUp extends Component {
                     <h1 className="title-card">Get your member card now!</h1>
                   </div>
                 </div>
-                <p className="main-card ps-5">
-                  Let's join with our member and enjoy the deals.
-                </p>
+                <p className="main-card ps-5">Let's join with our member and enjoy the deals.</p>
               </div>
               <div className="col-lg-3 col-md-5 ps-md-5 ps-lg-0">
                 <button className="create-now">Create Now</button>
@@ -145,11 +120,11 @@ export class SignUp extends Component {
           <Footer />
         </main>
       </>
-    )
+    );
   }
 }
 
-export default SignUp
+export default SignUp;
 
 // import React, { Component } from "react"
 // import "./SignUp.scoped.css"

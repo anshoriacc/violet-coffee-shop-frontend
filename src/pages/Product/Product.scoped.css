@@ -90,6 +90,24 @@
   margin-bottom: 20px;
 }
 
+.admin-link {
+  display: flex;
+  flex-direction: column;
+  height: 10%;
+  padding-left: 9%;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 37px;
+  margin-bottom: 20px;
+}
+
+.admin-link a {
+  padding-bottom: 2%;
+  color: #6a4029;
+}
+
 .wrapper-menu-category {
   display: flex;
   list-style: none;
@@ -137,7 +155,4 @@
 @media only screen and (max-width: 768px) {
 }
 @media only screen and (max-width: 1024px) {
-  .wrapper-left {
-    /* width: 420px; */
-  }
 }
