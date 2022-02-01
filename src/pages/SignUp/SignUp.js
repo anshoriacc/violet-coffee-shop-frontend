@@ -42,6 +42,10 @@ export class SignUp extends Component {
         console.log("ERROR", err)
       })
   }
+
+  onCLickLogin = () => {
+    console.log(this.props)
+  }
   render() {
     return (
       <>
@@ -69,7 +73,9 @@ export class SignUp extends Component {
                   </p>
                 </div>
                 <div className="col-lg-6 col-md-6 justify-content-center d-flex">
-                  <button className="btn-signup">Login</button>
+                  <button className="btn-signup" onClick={this.onCLickLogin}>
+                    Login
+                  </button>
                 </div>
                 <div className="col-lg-12 col-md-6 text-center ps-md-5 mt-lg-5 mb-lg-3 wrapper-title-login">
                   <p className="title-login">Sign Up</p>

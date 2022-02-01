@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
+import { getProduct } from "../../utils/product"
 import "./Product.scoped.css"
 import Header from "../../components/Navbar/Navbar"
 import Footer from "../../components/Footer/Footer"
@@ -13,6 +14,7 @@ export class Product extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      product: [],
       event: {
         eventHelloween: "HAPPY HALLOWEEN!",
         eventSundayMorning: "Get a cup of coffee for free on sunday morning",
@@ -36,6 +38,16 @@ export class Product extends Component {
       },
       product: []
     }
+  }
+
+  componentDidMount() {
+    getProduct()
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
   render() {
