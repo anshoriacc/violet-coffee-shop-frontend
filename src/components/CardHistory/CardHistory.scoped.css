@@ -48,12 +48,12 @@ p {
   /* font-size: 20px; */
 }
 
-p {
-  /* width: 100%;
+/* p {
+  width: 100%;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; */
-}
+  text-overflow: ellipsis;
+} */
 
 input {
   width: 5%;
