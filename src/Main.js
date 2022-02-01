@@ -26,7 +26,7 @@ export default class Main extends Component {
 
   componentDidMount() {
     const state = JSON.parse(localStorage.getItem("state"));
-    if (state) this.setState({ token: state.auth.token });
+    if (state) this.setState({ token: state.auth });
   }
 
   render() {
@@ -42,6 +42,8 @@ export default class Main extends Component {
             <Route
               path="/signup"
               render={(routerProps) => {
+                console.log("TEST STATE", state);
+                console.log("TEST TOKEN", accessToken);
                 if (accessToken) return <Redirect from="/signup" to="/" />;
                 return <SignUp {...routerProps} />;
               }}
@@ -49,6 +51,8 @@ export default class Main extends Component {
             <Route
               path="/login"
               render={(routerProps) => {
+                console.log("TEST STATE", state);
+                console.log("TEST TOKEN", accessToken);
                 if (accessToken) return <Redirect from="/login" to="/" />;
                 return <Login {...routerProps} />;
               }}
@@ -56,32 +60,28 @@ export default class Main extends Component {
             <Route
               path="/product/payment&delivery"
               render={(routerProps) => {
-                if (!accessToken)
-                  return <Redirect from="/product/payment&delivery" to="/" />;
+                if (!accessToken) return <Redirect from="/product/payment&delivery" to="/" />;
                 return <Payment {...routerProps} />;
               }}
             />
             <Route
               path="/product/add"
               render={(routerProps) => {
-                if (!accessToken)
-                  return <Redirect from="/product/add" to="/" />;
+                if (!accessToken) return <Redirect from="/product/add" to="/" />;
                 return <AddProduct {...routerProps} />;
               }}
             />
             <Route
               path="/product/detail/:id"
               render={(routerProps) => {
-                if (!accessToken)
-                  return <Redirect from="/product/detail/:id" to="/" />;
+                if (!accessToken) return <Redirect from="/product/detail/:id" to="/" />;
                 return <Detail {...routerProps} />;
               }}
             />
             <Route
               path="/forgot_password"
               render={(routerProps) => {
-                if (accessToken)
-                  return <Redirect from="/forgot_password" to="/" />;
+                if (accessToken) return <Redirect from="/forgot_password" to="/" />;
                 return <ForgotPassword {...routerProps} />;
               }}
             />
@@ -102,14 +102,15 @@ export default class Main extends Component {
             <Route
               path="/chat/detail"
               render={(routerProps) => {
-                if (!accessToken)
-                  return <Redirect from="/chat/detail" to="/" />;
+                if (!accessToken) return <Redirect from="/chat/detail" to="/" />;
                 return <Chat {...routerProps} />;
               }}
             />
             <Route
               path="/profile"
               render={(routerProps) => {
+                console.log("TEST STATE", state);
+                console.log("TEST TOKEN", accessToken);
                 if (!accessToken) return <Redirect from="/profile" to="/" />;
                 return <Profile {...routerProps} />;
               }}
@@ -117,8 +118,7 @@ export default class Main extends Component {
             <Route
               path="/admin/dashboard"
               render={(routerProps) => {
-                if (!accessToken)
-                  return <Redirect from="/admin/dashboard" to="/" />;
+                if (!accessToken) return <Redirect from="/admin/dashboard" to="/" />;
                 return <Dashboard {...routerProps} />;
               }}
             />
