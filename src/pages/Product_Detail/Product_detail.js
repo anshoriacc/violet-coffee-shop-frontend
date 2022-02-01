@@ -183,7 +183,10 @@ export default class Product_detail extends Component {
                 <li>x1 (Regular)</li>
               </ul>
               <p className="checkout">Checkout</p>
-              <button className="btn btn-warning checkout-btn">
+              <button
+                className="btn btn-warning checkout-btn"
+                onClick={() => this.props.history.push("/product/payment")}
+              >
                 {" "}
                 <i class="bi bi-arrow-right" />{" "}
               </button>
