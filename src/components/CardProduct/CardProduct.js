@@ -2,18 +2,19 @@ import React from "react";
 import "./CardProduct.scoped.css";
 
 // DUMMY IMG\
-import Image from "../../assets/images/background-profile.jpg";
+import image from "../../assets/images/no-image.jpg";
+import { Link } from "react-router-dom";
 
-function CardProduct(props) {
+function CardProduct({ dataProduct }) {
   return (
     <>
-      <a href="/product/detail/:id">
+      <Link to={`/product/detail/${dataProduct.id}`}>
         <div className="main">
-          <img src={Image} alt="" />
-          <p className="name">Coffee Latte</p>
-          <p className="price">IDR. 15.000</p>
+          <img src={dataProduct.image ? dataProduct.image : image} alt="" />
+          <p className="name">{dataProduct.name}</p>
+          <p className="price">{`IDR. ${dataProduct.price}`}</p>
         </div>
-      </a>
+      </Link>
     </>
   );
 }

@@ -56,28 +56,39 @@ export default class Main extends Component {
             <Route
               path="/product/payment"
               render={(routerProps) => {
-                if (!accessToken) return <Redirect from="/product/payment" to="/" />;
+                if (!accessToken)
+                  return <Redirect from="/product/payment" to="/" />;
                 return <Payment {...routerProps} />;
               }}
             />
             <Route
               path="/product/add"
               render={(routerProps) => {
-                if (!accessToken) return <Redirect from="/product/add" to="/" />;
+                if (!accessToken)
+                  return <Redirect from="/product/add" to="/" />;
                 return <AddProduct {...routerProps} />;
               }}
             />
             <Route
               path="/product/detail/:id"
               render={(routerProps) => {
-                if (!accessToken) return <Redirect from="/product/detail/:id" to="/" />;
+                if (!accessToken)
+                  return <Redirect from="/product/detail/:id" to="/" />;
                 return <Detail {...routerProps} />;
               }}
             />
             <Route
+              path="/product/:category"
+              render={(routerProps) => {
+                return <Product {...routerProps} />;
+              }}
+            />
+            {/* <Route exact path="/product/:category" component={Product} /> */}
+            <Route
               path="/forgot_password"
               render={(routerProps) => {
-                if (accessToken) return <Redirect from="/forgot_password" to="/" />;
+                if (accessToken)
+                  return <Redirect from="/forgot_password" to="/" />;
                 return <ForgotPassword {...routerProps} />;
               }}
             />
@@ -98,7 +109,8 @@ export default class Main extends Component {
             <Route
               path="/chat/detail"
               render={(routerProps) => {
-                if (!accessToken) return <Redirect from="/chat/detail" to="/" />;
+                if (!accessToken)
+                  return <Redirect from="/chat/detail" to="/" />;
                 return <Chat {...routerProps} />;
               }}
             />
@@ -112,7 +124,8 @@ export default class Main extends Component {
             <Route
               path="/admin/dashboard"
               render={(routerProps) => {
-                if (!accessToken) return <Redirect from="/admin/dashboard" to="/" />;
+                if (!accessToken)
+                  return <Redirect from="/admin/dashboard" to="/" />;
                 return <Dashboard {...routerProps} />;
               }}
             />
