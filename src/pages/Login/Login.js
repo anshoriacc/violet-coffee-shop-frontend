@@ -1,72 +1,72 @@
-import React, { Component } from "react"
-import Footer from "../../components/Footer/Footer"
-import "bootstrap/dist/css/bootstrap.min.css"
-import "./Login.scoped.css"
-import logo from "../../assets/icons/logo.png"
-import iconGoogle from "../../assets/icons/google-logo-min.png"
-import imageLeft from "../../assets/images/background-loginregister.jpg"
-import { Link } from "react-router-dom"
+import React, { Component } from "react";
+import Footer from "../../components/Footer/Footer";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./Login.scoped.css";
+import logo from "../../assets/icons/logo.png";
+import iconGoogle from "../../assets/icons/google-logo-min.png";
+import imageLeft from "../../assets/images/background-loginregister.jpg";
+import { Link } from "react-router-dom";
 
-import { connect } from "react-redux"
-import { bindActionCreators } from "redux"
-import { loginAction, saveAction } from "../../Redux/actions/auth"
-import axios from "axios"
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { loginAction, saveAction } from "../../Redux/actions/auth";
+import axios from "axios";
 
 class Login extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       email: "",
       password: ""
-    }
+    };
   }
 
   formChange = (e) => {
-    const data = { ...this.state }
-    data[e.target.name] = e.target.value
-    console.log(this.state)
-    this.setState(data)
-  }
+    const data = { ...this.state };
+    data[e.target.name] = e.target.value;
+    console.log(this.state);
+    this.setState(data);
+  };
 
   setUser = (token) => {
-    const URL = process.env.REACT_APP_HOST + "/user/profile"
+    const URL = process.env.REACT_APP_HOST + "/user/profile";
     axios({
       url: URL,
       method: "GET",
       headers: { "x-access-token": token }
     })
       .then((res) => {
-        const { result } = res.data
-        this.props.setUsers(result[0])
-        this.props.history.push("/")
+        const { result } = res.data;
+        this.props.setUsers(result[0]);
+        window.location.reload();
       })
       .catch((err) => {
-        console.log(err)
-      })
-  }
+        console.log(err);
+      });
+  };
 
   login = () => {
-    const URL = process.env.REACT_APP_HOST + "/auth/login"
+    const URL = process.env.REACT_APP_HOST + "/auth/login";
     axios({
       url: URL,
       method: "POST",
       data: this.state
     })
       .then((res) => {
-        const { token } = res.data.result
-        this.props.setAuth(token)
-        this.setUser(token)
-        this.props.history.push("/")
+        const { token } = res.data.result;
+        this.props.setAuth(token);
+        this.setUser(token);
+        this.props.history.push("/");
       })
       .catch((err) => {
-        console.log(err)
-        var x = document.getElementById("snackbar")
-        x.className = "show"
+        console.log(err);
+        var x = document.getElementById("snackbar");
+        x.className = "show";
         setTimeout(function() {
-          x.className = x.className.replace("show", "")
-        }, 3000)
-      })
-  }
+          x.className = x.className.replace("show", "");
+        }, 3000);
+      });
+  };
 
   // https://coffee-shop-back-end.herokuapp.com/api/
 
@@ -165,7 +165,7 @@ class Login extends Component {
           <Footer />
         </main>
       </>
-    )
+    );
   }
 }
 
@@ -173,17 +173,17 @@ const mapDispatchToPropps = (dispacth) => {
   return {
     setUsers: bindActionCreators(saveAction, dispacth),
     setAuth: bindActionCreators(loginAction, dispacth)
-  }
-}
+  };
+};
 
 const mapStateToProps = (state) => {
   return {
     users: state.auth.userData,
     token: state.auth.token
-  }
-}
+  };
+};
 
 export default connect(
   mapStateToProps,
   mapDispatchToPropps
-)(Login)
+)(Login);
