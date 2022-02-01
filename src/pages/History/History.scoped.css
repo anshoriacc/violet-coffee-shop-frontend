@@ -77,3 +77,11 @@ a {
     grid-template-rows: repeat(5, 1fr);
   }
 }
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+  flex-wrap: wrap;
+}
