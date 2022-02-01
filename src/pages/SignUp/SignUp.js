@@ -7,8 +7,6 @@ import iconGoogle from "../../assets/icons/google-logo-min.png"
 import imageLeft from "../../assets/images/background-loginregister.jpg"
 // import { Link } from "react-router-dom"
 
-import { connect } from "react-redux"
-import { bindActionCreators } from "redux"
 import axios from "axios"
 
 export class SignUp extends Component {
