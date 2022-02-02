@@ -96,6 +96,11 @@ class Profile extends Component {
     editUser(forms, token)
       .then((res) => {
         this.setUser(token);
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function() {
+          x.className = x.className.replace("show", "");
+        }, 3000);
       })
       .catch((err) => {
         console.log(forms);
@@ -259,6 +264,7 @@ class Profile extends Component {
             </div>
           </Modal.Footer>
         </Modal>
+        <div id="snackbar">Berhasil Meng Update data</div>
       </div>
     );
   }
