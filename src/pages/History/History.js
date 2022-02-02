@@ -5,20 +5,48 @@ import "./History.scoped.css";
 import Header from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import CardHistory from "../../components/CardHistory/CardHistory";
-import { Link } from "react-router-dom";
 
-export default class History extends Component {
+import Dumy from "../../assets/images/background-profile.jpg";
+
+// import { Link } from "react-router-dom";
+import { GetHistory } from "../../utils/history";
+import { connect } from "react-redux";
+
+class History extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      historyData: [],
+      userHistory: [],
+      id: [],
     };
     this.inputFile = React.createRef();
   }
 
-  render() {
-    const historyData = this.state.historyData;
+  fromChange = (e) => {
+    const ids = [...this.state.id];
+    ids.push(e.target.value);
+    this.setState({ id: ids }, () => {
+      console.log(this.state.id);
+    });
+  };
 
+  getHistoryUser = () => {
+    const token = this.props.token;
+    GetHistory(token)
+      .then((res) => {
+        this.setState({ userHistory: res.data.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  componentDidMount() {
+    this.getHistoryUser();
+  }
+
+  render() {
+    const userHistory = this.state.userHistory;
     return (
       <>
         <Header />
@@ -28,15 +56,11 @@ export default class History extends Component {
               <h1>Let's see what you have bought!</h1>
               <p>Select item to delete</p>
             </div>
-            {historyData.length > 0 ? <p className="action">Delete</p> : <></>}
-            <div className={historyData.length > 0 ? "history-tile" : ""}>
-              {historyData.length > 0 ? (
-                historyData.map((data) => <CardHistory historyData={data} />)
-              ) : (
-                <p className="no-data">
-                  No transaction made. <Link to="/product">Make one now!</Link>
-                </p>
-              )}
+            <div className="card-container">
+              {userHistory.map((val) => {
+                console.log(val.name);
+                return <CardHistory image={Dumy} name={val.name} price={val.price} id={val.id} key={val.id} />;
+              })}
             </div>
           </div>
         </div>
@@ -45,3 +69,11 @@ export default class History extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    token: state.auth.token,
+  };
+};
+
+export default connect(mapStateToProps)(History);

@@ -1,20 +1,21 @@
-import React, { Component } from "react"
-import { Link } from "react-router-dom"
-import { getProduct } from "../../utils/product"
-import "./Product.scoped.css"
-import Header from "../../components/Navbar/Navbar"
-import Footer from "../../components/Footer/Footer"
-import CardProduct from "../../components/CardProduct/CardProduct"
-import CardCoupon from "../../components/CardCoupon/CardCoupon"
-import motherDays from "../../assets/icons/mother_event.png"
-import sundayMorning from "../../assets/icons/sunday_event.png"
-import helloween from "../../assets/icons/halloween_event.png"
+import React, { Component } from "react";
+import { Link, NavLink } from "react-router-dom";
+import "./Product.scoped.css";
+import Header from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
+import CardProduct from "../../components/CardProduct/CardProduct";
+import CardCoupon from "../../components/CardCoupon/CardCoupon";
+import motherDays from "../../assets/icons/mother_event.png";
+import sundayMorning from "../../assets/icons/sunday_event.png";
+import helloween from "../../assets/icons/halloween_event.png";
 
-import { connect } from "react-redux"
+import { connect } from "react-redux";
+
+import { getProduct } from "../../utils/product";
 
 class Product extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       product: [],
       event: {
@@ -38,37 +39,84 @@ class Product extends Component {
         picSundayMorning: sundayMorning,
         picMotherDays: motherDays
       }
-    }
+    };
   }
+
   componentDidMount() {
-    console.log(this.props.token)
-    console.log(this.props.users.role)
-    getProduct()
-      .then((res) => {
-        console.log(res)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    if (
+      this.props.match.params &&
+      Object.keys(this.props.match.params).length === 0
+    ) {
+      getProduct("favorite")
+        .then((res) => {
+          // console.log(res);
+          console.log(res.data.data);
+          this.setState({ product: res.data.data });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else if (
+      this.props.match.params &&
+      this.props.match.params.category === "coffee"
+    ) {
+      getProduct("coffee")
+        .then((res) => {
+          // console.log(res);
+          console.log(res.data.data);
+          this.setState({ product: res.data.data });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else if (
+      this.props.match.params &&
+      this.props.match.params.category === "non+coffee"
+    ) {
+      getProduct("non coffee")
+        .then((res) => {
+          // console.log(res);
+          console.log(res.data.data);
+          this.setState({ product: res.data.data });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else if (
+      this.props.match.params &&
+      this.props.match.params.category === "food"
+    ) {
+      getProduct("food")
+        .then((res) => {
+          // console.log(res);
+          console.log(res.data.data);
+          this.setState({ product: res.data.data });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }
 
   render() {
-    const { helloween, sundayMorning, motherDay } = this.state.promo
+    const { helloween, sundayMorning, motherDay } = this.state.promo;
     const {
       picHelloween,
       picSundayMorning,
       picMotherDays
-    } = this.state.picPromo
+    } = this.state.picPromo;
     const {
       eventHelloween,
       eventMotherDays,
       eventSundayMorning
-    } = this.state.event
+    } = this.state.event;
     const {
       ketHelloween,
       ketSundayMorning,
       ketMotherDays
-    } = this.state.eventKet
+    } = this.state.eventKet;
+
+    const { product } = this.state;
     return (
       <>
         <Header />
@@ -83,7 +131,7 @@ class Product extends Component {
               </p>
             </div>
             <div className="wrapper-cuppon">
-              <Link>
+              <Link to="">
                 <CardCoupon
                   event={motherDay}
                   pic={picMotherDays}
@@ -110,7 +158,7 @@ class Product extends Component {
                 ketEvent={ketHelloween}
               />
             </div>
-            <button className="btn-cuppon">Apply Cuppon</button>
+            <button className="btn-cuppon">Apply Coupon</button>
             <p className="title-terms">Terms and Condition</p>
             <ol className="terms">
               <li>You can only apply 1 coupon per day</li>
@@ -130,25 +178,24 @@ class Product extends Component {
 
           <div className="col-lg-8 col-md-6">
             <ul className="wrapper-menu-category">
-              <li className="active-menu">Favorite & Promo</li>
-              <li>Coffee</li>
-              <li>Non Coffee</li>
-              <li>Foods</li>
-              <li>Add-on</li>
+              <li className="active-menu">
+                <NavLink to="/product">Favorite & Promo</NavLink>
+              </li>
+              <li>
+                <NavLink to="/product/coffee">Coffee</NavLink>
+              </li>
+              <li>
+                <NavLink to="/product/non+coffee">Non Coffee</NavLink>
+              </li>
+              <li>
+                <NavLink to="/product/food">Foods</NavLink>
+              </li>
+              {/* <li>Add-on</li> */}
             </ul>
             <div className="col-lg-12 d-flex wrapper-card-product">
-              <CardProduct />
-              <CardProduct />
-              <CardProduct />
-              <CardProduct />
-              <CardProduct />
-              <CardProduct />
-              <CardProduct />
-              <CardProduct />
-              <CardProduct />
-              <CardProduct />
-              <CardProduct />
-              <CardProduct />
+              {product.map((data, index) => (
+                <CardProduct dataProduct={data} index={index} key={data.id} />
+              ))}
             </div>
             {this.props.token ? (
               this.props.users.role === "admin" ? (
@@ -164,7 +211,7 @@ class Product extends Component {
 
         <Footer />
       </>
-    )
+    );
   }
 }
 
@@ -172,10 +219,10 @@ const mapStateToProps = (state) => {
   return {
     users: state.auth.userData,
     token: state.auth.token
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps)(Product)
+export default connect(mapStateToProps)(Product);
 
 // <div className="admin-link">
 //               <a href="/product/edit/:id">Edit product</a>

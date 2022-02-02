@@ -55,10 +55,10 @@ export default class Main extends Component {
               }}
             />
             <Route
-              path="/product/payment&delivery"
+              path="/product/payment"
               render={(routerProps) => {
                 if (!accessToken)
-                  return <Redirect from="/product/payment&delivery" to="/" />;
+                  return <Redirect from="/product/payment" to="/" />;
                 return <Payment {...routerProps} />;
               }}
             />
@@ -78,6 +78,13 @@ export default class Main extends Component {
                 return <Detail {...routerProps} />;
               }}
             />
+            <Route
+              path="/product/:category"
+              render={(routerProps) => {
+                return <Product {...routerProps} />;
+              }}
+            />
+            {/* <Route exact path="/product/:category" component={Product} /> */}
             <Route
               path="/forgot_password"
               render={(routerProps) => {

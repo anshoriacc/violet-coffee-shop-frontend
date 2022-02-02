@@ -48,12 +48,10 @@
 }
 
 .product-image img {
-  width: 100px;
-  height: 100px;
-  object-position: center;
-  position: absolute;
-  top: 25%;
-  left: 25%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 button {
@@ -185,7 +183,7 @@ button:hover {
   color: rgba(159, 159, 159, 1);
 }
 
-.describtion {
+.description {
   font-family: Rubik;
   font-size: 17px;
   font-style: normal;
@@ -302,4 +300,54 @@ button:hover {
   background-color: rgba(186, 186, 186, 0.35);
   color: rgba(79, 86, 101, 1);
   border: none;
+}
+
+/* TOAST */
+
+#snackbar-fail {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(255, 0, 0);
+  font-family: Rubik;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 999;
+  left: 50%;
+  bottom: 30px;
+}
+
+#snackbar-fail.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#snackbar-success {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 146, 19);
+  font-family: Rubik;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 999;
+  left: 50%;
+  bottom: 30px;
+}
+
+#snackbar-success.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }

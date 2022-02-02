@@ -28,6 +28,8 @@ class Profile extends Component {
       dob: "",
       gender: "",
       isShow: false,
+      image_src: null,
+      use_src: false,
     };
     this.inputFile = React.createRef();
   }
@@ -40,15 +42,20 @@ class Profile extends Component {
   };
 
   fileChange = (event) => {
+    event.preventDefault();
     const file = event.target.files[0];
-    // console.log(file);
     const data = { ...this.state };
     if (file) {
       data.image = file;
-      console.log(data.image);
       this.setState(data);
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.setState({ image_src: reader.result, use_src: true }, () => {
+          // console.log(this.state.image_src);
+        });
+      };
+      reader.readAsDataURL(file);
     }
-    event.preventDefault();
   };
 
   _setData = () => {
@@ -91,6 +98,7 @@ class Profile extends Component {
         this.setUser(token);
       })
       .catch((err) => {
+        console.log(forms);
         console.log(err);
       });
   };
@@ -98,8 +106,9 @@ class Profile extends Component {
   setUser = (token) => {
     GetUser(token)
       .then((res) => {
-        const { result } = res.data;
-        this.props.setUsers(result[0]);
+        console.log(res.data.data);
+        const data = res.data.data;
+        this.props.setUsers(data);
       })
       .catch((err) => {
         console.log(err);
@@ -121,7 +130,7 @@ class Profile extends Component {
   };
 
   render() {
-    const profilepic = this.props.users.image;
+    const profilepic = this.props.users.image !== null ? this.props.users.image : Default;
     return (
       <div className="main">
         <Header />
@@ -129,7 +138,7 @@ class Profile extends Component {
           <h1 className="title">User Profile</h1>
           <div className="wrapper">
             <div className="profile">
-              <img src={profilepic ? process.env.REACT_APP_HOST + profilepic : Default} alt="" />
+              <img src={!this.state.use_src ? profilepic : this.state.image_src} alt="" />
               <div className="name">
                 <strong>{this.props.users.display_name}</strong>
                 <br />
@@ -159,15 +168,15 @@ class Profile extends Component {
             </div>
             <div className="forms">
               <div className="radio-input">
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input shadow-none" type="radio" name="gender" id="inlineRadio1" /*  checked={this.props.users.gender === "Male" ? true : null} */ value="Male" onChange={this.formChange} />
-                  <label class="form-check-label male-label" for="inlineRadio1">
+                <div className="form-check form-check-inline">
+                  <input className="form-check-input shadow-none" type="radio" name="gender" id="inlineRadio1" /*  checked={this.props.users.gender === "Male" ? true : null} */ value="Male" onChange={this.formChange} />
+                  <label className="form-check-label male-label" for="inlineRadio1">
                     Male
                   </label>
                 </div>
-                <div class="form-check form-check-inline female">
-                  <input class="form-check-input shadow-none" type="radio" name="gender" id="inlineRadio2" value="Female" onChange={this.formChange} /* checked={this.props.users.gender === "Female" ? true : null} */ />
-                  <label class="form-check-label female-label" for="inlineRadio2">
+                <div className="form-check form-check-inline female">
+                  <input className="form-check-input shadow-none" type="radio" name="gender" id="inlineRadio2" value="Female" onChange={this.formChange} /* checked={this.props.users.gender === "Female" ? true : null} */ />
+                  <label className="form-check-label female-label" for="inlineRadio2">
                     Female
                   </label>
                 </div>
@@ -180,52 +189,52 @@ class Profile extends Component {
                       <label for="exampleInputEmail1" class="form-label">
                         Email address :
                       </label>
-                      <input type="email" class="form-control shadow-none" id="exampleInputEmail1" placeholder={this.props.users.email} aria-describedby="emailHelp" name="email" onChange={this.formChange} />
+                      <input type="email" className="form-control shadow-none" id="exampleInputEmail1" placeholder={this.props.users.email} aria-describedby="emailHelp" name="email" onChange={this.formChange} />
                     </div>
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">
+                    <div className="mb-3">
+                      <label for="exampleInputPassword1" className="form-label">
                         Delivery adress :
                       </label>
-                      <input type="text" class="form-control shadow-none" id="exampleInputPassword1" placeholder={this.props.users.delivery_adress} name="delivery_adress" onChange={this.formChange} />
+                      <input type="text" className="form-control shadow-none" id="exampleInputPassword1" placeholder={this.props.users.delivery_adress} name="delivery_adress" onChange={this.formChange} />
                     </div>
                   </form>
                 </div>
                 <div className="detail">
                   <p>Detail</p>
                   <form>
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">
+                    <div className="mb-3">
+                      <label for="exampleInputEmail1" className="form-label">
                         Display name :
                       </label>
-                      <input type="text" placeholder={this.props.users.display_name} class="form-control shadow-none" id="exampleInputEmail1" aria-describedby="emailHelp" name="display_name" onChange={this.formChange} />
+                      <input type="text" placeholder={this.props.users.display_name} className="form-control shadow-none" id="exampleInputEmail1" aria-describedby="emailHelp" name="display_name" onChange={this.formChange} />
                     </div>
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">
+                    <div className="mb-3">
+                      <label for="exampleInputPassword1" className="form-label">
                         First name :
                       </label>
-                      <input type="text" placeholder={this.props.users.first_name} class="form-control shadow-none" id="exampleInputPassword1" name="first_name" onChange={this.formChange} />
+                      <input type="text" placeholder={this.props.users.first_name} className="form-control shadow-none" id="exampleInputPassword1" name="first_name" onChange={this.formChange} />
                     </div>
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">
+                    <div className="mb-3">
+                      <label for="exampleInputPassword1" className="form-label">
                         Last name :
                       </label>
-                      <input type="text" placeholder={this.props.users.last_name} class="form-control shadow-none" id="exampleInputPassword1" name="last_name" onChange={this.formChange} />
+                      <input type="text" placeholder={this.props.users.last_name} className="form-control shadow-none" id="exampleInputPassword1" name="last_name" onChange={this.formChange} />
                     </div>
                   </form>
                 </div>
               </div>
               <div className="form-right">
-                <div class="mb-3 mobile-number">
-                  <label for="exampleInputPassword1" class="form-label">
+                <div className="mb-3 mobile-number">
+                  <label for="exampleInputPassword1" className="form-label">
                     Mobile number :
                   </label>
-                  <input type="text" placeholder={this.props.users.phone} class="form-control shadow-none" id="exampleInputPassword1" name="phone" onChange={this.formChange} />
+                  <input type="text" placeholder={this.props.users.phone} className="form-control shadow-none" id="exampleInputPassword1" name="phone" onChange={this.formChange} />
                 </div>
-                <div class="mb-3 dob">
-                  <label for="exampleFormControlInput1" class="form-label">
+                <div className="mb-3 dob">
+                  <label for="exampleFormControlInput1" className="form-label">
                     DD/MM/YYYY:
                   </label>
-                  <input type="date" placeholder={this.props.users.dob} class="form-control shadow-none" date aria-label="YYYY/MM/DD" name="dob" onChange={this.formChange} />
+                  <input type="date" placeholder={this.props.users.dob} className="form-control shadow-none" date aria-label="YYYY/MM/DD" name="dob" onChange={this.formChange} />
                 </div>
               </div>
             </div>

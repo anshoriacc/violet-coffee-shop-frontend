@@ -1,62 +1,59 @@
-import React, { Component } from "react"
-import Footer from "../../components/Footer/Footer"
-import "bootstrap/dist/css/bootstrap.min.css"
-import "./SignUp.scoped.css"
-import logo from "../../assets/icons/logo.png"
-import iconGoogle from "../../assets/icons/google-logo-min.png"
-import imageLeft from "../../assets/images/background-loginregister.jpg"
+import React, { Component } from "react";
+import Footer from "../../components/Footer/Footer";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./SignUp.scoped.css";
+import logo from "../../assets/icons/logo.png";
+import iconGoogle from "../../assets/icons/google-logo-min.png";
+import imageLeft from "../../assets/images/background-loginregister.jpg";
 // import { Link } from "react-router-dom"
 
-import axios from "axios"
+import axios from "axios";
 
 export class SignUp extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       email: "",
       password: "",
       phone: ""
-    }
+    };
   }
 
   formChange = (e) => {
-    const data = { ...this.state }
-    data[e.target.name] = e.target.value
-    console.log(this.state)
-    this.setState(data)
-  }
+    const data = { ...this.state };
+    data[e.target.name] = e.target.value;
+    console.log(this.state);
+    this.setState(data);
+  };
 
   signup = () => {
-    const URL = "https://coffee-shop-back-end.herokuapp.com/api/auth/signup"
+    const URL = "https://coffee-shop-back-end.herokuapp.com/api/auth/signup";
     axios({
       url: URL,
       method: "POST",
       data: this.state
     })
       .then((res) => {
-        console.log("RESPONSE DATA", res.data)
-        var toast = document.getElementById("toast-success")
-        toast.className = "show"
+        var x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function() {
+          x.className = x.className.replace("show", "");
+        }, 3000);
         setTimeout(() => {
-          toast.className = toast.className.replace("show", "")
-          this.props.history.push("/login")
-        }, 3000)
+          this.props.history.push("/login");
+        }, 3001);
       })
       .catch((err) => {
-        console.log("ERROR", err)
-        var toast = document.getElementById("toast-failed")
-        toast.className = "show"
-        setTimeout(() => {
-          toast.className = toast.className.replace("show", "")
-        }, 3000)
-      })
-  }
-
-  onCLickLogin = () => {
-    this.props.history.push("/login")
-  }
+        console.log("ERROR", err);
+        var x = document.getElementById("toast");
+        x.className = "show";
+        setTimeout(function() {
+          x.className = x.className.replace("show", "");
+        }, 5000);
+      });
+  };
   render() {
-    console.log(this.props)
+    console.log(this.props);
     return (
       <>
         <main className="container-fluid p-0">
@@ -152,20 +149,21 @@ export class SignUp extends Component {
               </div>
             </div>
           </div>
-
           <div id="toast-success">Sign Up Successfuly</div>
           <div id="toast-failed">
             Please fill in the correct / Cannot be empty
           </div>
-
           <Footer />
+          {/* TOAST */}
+          <div id="snackbar">Sign Up berhasil,Silahkan Login</div>
+          <div id="toast">Sign Up gagal,silahkan coba kembali</div>;
         </main>
       </>
-    )
+    );
   }
 }
 
-export default SignUp
+export default SignUp;
 
 // import React, { Component } from "react"
 // import "./SignUp.scoped.css"

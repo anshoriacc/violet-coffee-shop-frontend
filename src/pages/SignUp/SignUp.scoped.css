@@ -339,13 +339,12 @@ input[typeof="email"] {
 
 /* TOAST */
 
-#toast-success,
-#toast-failed {
+#toast {
   visibility: hidden;
   min-width: 250px;
   margin-left: -125px;
   background-color: rgb(255, 255, 255);
-  color: #ffba33;
+  color: rgb(255, 0, 0);
   font-family: Rubik;
   font-weight: 600;
   text-align: center;
@@ -358,12 +357,31 @@ input[typeof="email"] {
   bottom: 30px;
 }
 
-#toast-failed {
-  color: red;
+#toast.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
-#toast-success.show,
-#toast-failed.show {
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 146, 19);
+  font-family: Rubik;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 999;
+  left: 50%;
+  bottom: 30px;
+}
+
+#snackbar.show {
   visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
