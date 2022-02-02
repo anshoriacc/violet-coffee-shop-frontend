@@ -40,7 +40,7 @@ export class Home extends Component {
     this.scrollToTop();
     getFavorite()
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         this.setState({
           getFavorite: res.data.data
         });
@@ -51,8 +51,8 @@ export class Home extends Component {
   }
 
   render() {
-    console.log("STATE-DATA-FAVORITE", this.state.getFavorite);
-
+    // console.log("STATE-DATA-FAVORITE", this.state.getFavorite);
+    const favorite = this.state.getFavorite;
     return (
       <>
         <Header history={this.props.history} />
@@ -186,9 +186,9 @@ export class Home extends Component {
                 </p>
               </div>
               <div className="card-body">
-                <CardFavorite favoriteData={this.state.getFavorite} />
-                <CardFavorite favoriteData={this.state.getFavorite} />
-                <CardFavorite favoriteData={this.state.getFavorite} />
+                {favorite.map((item, index) => {
+                  return <CardFavorite favoriteData={item} key={index} />;
+                })}
               </div>
             </div>
           </div>

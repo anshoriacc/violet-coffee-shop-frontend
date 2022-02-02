@@ -1,7 +1,9 @@
 import axios from "axios";
 
 export const getFavorite = (accessToken) => {
-  const URL = `${process.env.REACT_APP_HOST}/product?category=favorite`;
+  const URL = `${
+    process.env.REACT_APP_HOST
+  }/product?per_page=3&page=1&sort=ASC&category=favorite`;
   return axios.get(URL, { headers: { "x-access-token": accessToken } });
 };
 
