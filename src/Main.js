@@ -17,11 +17,12 @@ import Payment from "./pages/Payment&Delivery/Payment";
 import AddProduct from "./pages/Add_Product/Add_product";
 import Detail from "./pages/Product_Detail/Product_detail";
 import Product from "./pages/Product/Product";
+import addPromo from "./pages/Promo/addPromo";
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 
 export default class Main extends Component {
   state = {
-    token: "",
+    token: ""
   };
 
   componentDidMount() {
@@ -129,6 +130,7 @@ export default class Main extends Component {
                 return <Dashboard {...routerProps} />;
               }}
             />
+            <Route path="/promo/add" component={addPromo} />
             <Route path="*" component={NotFound} />
           </Switch>
         </ReduxProvider>

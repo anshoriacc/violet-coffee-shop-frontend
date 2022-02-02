@@ -17,28 +17,28 @@ class Product extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      product: [],
       event: {
         eventHelloween: "HAPPY HALLOWEEN!",
         eventSundayMorning: "Get a cup of coffee for free on sunday morning",
-        eventMotherDays: "HAPPY MOTHER’S DAY!",
+        eventMotherDays: "HAPPY MOTHER’S DAY!"
       },
       eventKet: {
         ketHelloween:
           "Do you like chicken wings? Get 1 free only if you buy pinky promise",
         ketSundayMorning: "Only at 7 to 9 AM",
-        ketMotherDays: "Get one of our favorite menu for free!",
+        ketMotherDays: "Get one of our favorite menu for free!"
       },
       promo: {
         helloween: "helloween",
         sundayMorning: "sunday-morning",
-        motherDay: "motherDays",
+        motherDay: "motherDays"
       },
       picPromo: {
         picHelloween: helloween,
         picSundayMorning: sundayMorning,
-        picMotherDays: motherDays,
-      },
-      product: [],
+        picMotherDays: motherDays
+      }
     };
   }
 
@@ -103,17 +103,17 @@ class Product extends Component {
     const {
       picHelloween,
       picSundayMorning,
-      picMotherDays,
+      picMotherDays
     } = this.state.picPromo;
     const {
       eventHelloween,
       eventMotherDays,
-      eventSundayMorning,
+      eventSundayMorning
     } = this.state.event;
     const {
       ketHelloween,
       ketSundayMorning,
-      ketMotherDays,
+      ketMotherDays
     } = this.state.eventKet;
 
     const { product } = this.state;
@@ -218,7 +218,7 @@ class Product extends Component {
 const mapStateToProps = (state) => {
   return {
     users: state.auth.userData,
-    token: state.auth.token,
+    token: state.auth.token
   };
 };
 

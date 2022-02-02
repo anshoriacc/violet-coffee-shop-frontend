@@ -10,27 +10,45 @@ export class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLogin: false,
+      isLogin: false
     };
   }
   componentDidMount() {
+    console.log("COMPONENT DID MOUNT");
     if (this.props.auth.token) {
       this.setState({
-        isLogin: true,
+        isLogin: true
       });
     }
   }
+
+  componentDidUpdate() {
+    console.log("COMPONENT DID UPDATE");
+  }
   render() {
     const isLogin = this.state.isLogin;
-    const profilepic = this.props.user.image !== null ? this.props.user.image : Default;
+    const profilepic =
+      this.props.user.image !== null ? this.props.user.image : Default;
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <Link className="navbar-brand title-brand" to="#">
-            <img src={logo} alt="logo" width="30" className="d-inline-block align-text-top img-logo" />
+            <img
+              src={logo}
+              alt="logo"
+              width="30"
+              className="d-inline-block align-text-top img-logo"
+            />
             Coffee Shop
           </Link>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -70,9 +88,13 @@ export class Navbar extends Component {
             </ul>
             {!isLogin ? (
               <div className="d-flex">
-                <Link to="/login" className="btn-login">
+                <button
+                  onClick={() => {
+                    this.props.history.push("/login");
+                  }}
+                  className="btn-login">
                   Login
-                </Link>
+                </button>
 
                 <Link to="/signup" className="btn-signup">
                   Sign Up
@@ -108,7 +130,7 @@ export class Navbar extends Component {
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
-    user: state.auth.userData,
+    user: state.auth.userData
   };
 };
 

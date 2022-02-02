@@ -1,60 +1,61 @@
-import React, { Component } from "react"
-import { getFavorite } from "../../utils/product"
-import Header from "../../components/Navbar/Navbar"
-import Footer from "../../components/Footer/Footer"
-import CardFavorite from "../../components/CardFavorite/CardFavorite"
-import CardHomeTesti from "../../components/CardHomeTesti/CardHomeTesti"
-import "./Home.scoped.css"
+import React, { Component } from "react";
+import { getFavorite } from "../../utils/product";
+import Header from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
+import CardFavorite from "../../components/CardFavorite/CardFavorite";
+import CardHomeTesti from "../../components/CardHomeTesti/CardHomeTesti";
+import "./Home.scoped.css";
 
 // assets
-import iconUser from "../../assets/icons/user.png"
-import iconMap from "../../assets/icons/map.png"
-import iconLove from "../../assets/icons/love.png"
-import teamWork from "../../assets/images/team-work-hom-banner.jpeg"
-import checkIcon from "../../assets/icons/check.png"
-import globe from "../../assets/images/globe.png"
-import netflix from "../../assets/images/netflix.png"
-import reddit from "../../assets/images/reddit.png"
-import amazon from "../../assets/images/amazon.png"
-import discord from "../../assets/images/discord.png"
-import spotify from "../../assets/images/spotify.png"
-import leftArrow from "../../assets/icons/arrow-left.svg"
-import righttArrow from "../../assets/icons/arrow-right.svg"
+import iconUser from "../../assets/icons/user.png";
+import iconMap from "../../assets/icons/map.png";
+import iconLove from "../../assets/icons/love.png";
+import teamWork from "../../assets/images/team-work-hom-banner.jpeg";
+import checkIcon from "../../assets/icons/check.png";
+import globe from "../../assets/images/globe.png";
+import netflix from "../../assets/images/netflix.png";
+import reddit from "../../assets/images/reddit.png";
+import amazon from "../../assets/images/amazon.png";
+import discord from "../../assets/images/discord.png";
+import spotify from "../../assets/images/spotify.png";
+import leftArrow from "../../assets/icons/arrow-left.svg";
+import righttArrow from "../../assets/icons/arrow-right.svg";
 
 export class Home extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       getFavorite: []
-    }
+    };
   }
 
   scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth"
-    })
-  }
+    });
+  };
 
   componentDidMount() {
-    this.scrollToTop()
+    this.scrollToTop();
     getFavorite()
       .then((res) => {
-        console.log(res)
+        // console.log(res);
         this.setState({
           getFavorite: res.data.data
-        })
+        });
       })
       .catch((err) => {
-        console.log(err)
-      })
+        console.log(err);
+      });
   }
 
   render() {
-    console.log("STATE-DATA-FAVORITE", this.state.getFavorite)
+    // console.log("STATE-DATA-FAVORITE", this.state.getFavorite);
+    const favorite = this.state.getFavorite;
     return (
       <>
-        <Header />
+        <Header history={this.props.history} />
 
         <div className="container-fluid main">
           <div className="row row-1">
@@ -185,9 +186,9 @@ export class Home extends Component {
                 </p>
               </div>
               <div className="card-body">
-                <CardFavorite favoriteData={this.state.getFavorite} />
-                <CardFavorite favoriteData={this.state.getFavorite} />
-                <CardFavorite favoriteData={this.state.getFavorite} />
+                {favorite.map((item, index) => {
+                  return <CardFavorite favoriteData={item} key={index} />;
+                })}
               </div>
             </div>
           </div>
@@ -312,8 +313,8 @@ export class Home extends Component {
 
         <Footer />
       </>
-    )
+    );
   }
 }
 
-export default Home
+export default Home;
