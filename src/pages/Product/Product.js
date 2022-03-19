@@ -17,7 +17,12 @@ class Product extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: [],
+      product: {
+        favorite: [],
+        coffee: [],
+        nonCoffee: [],
+        foods: []
+      },
       event: {
         eventHelloween: "HAPPY HALLOWEEN!",
         eventSundayMorning: "Get a cup of coffee for free on sunday morning",
@@ -42,60 +47,59 @@ class Product extends Component {
     };
   }
 
+  getFavorite = (category) => {
+    getProduct(category)
+      .then((res) => {
+        this.setState({
+          product: { ...this.state.product, favorite: res.data.data }
+        });
+      })
+      .catch((err) => {
+        console.log("ERROR GET PRODUCT", err);
+      });
+  };
+
+  getCoffee = (category) => {
+    getProduct(category)
+      .then((res) => {
+        this.setState({
+          product: { ...this.state.product, coffee: res.data.data }
+        });
+      })
+      .catch((err) => {
+        console.log("ERROR GET PRODUCT", err);
+      });
+  };
+
+  getNonCoffee = (category) => {
+    getProduct(category)
+      .then((res) => {
+        this.setState({
+          product: { ...this.state.product, nonCoffee: res.data.data }
+        });
+      })
+      .catch((err) => {
+        console.log("ERROR GET PRODUCT", err);
+      });
+  };
+
+  getFoods = (category) => {
+    getProduct(category)
+      .then((res) => {
+        this.setState({
+          product: { ...this.state.product, foods: res.data.data }
+        });
+      })
+      .catch((err) => {
+        console.log("ERROR GET PRODUCT", err);
+      });
+  };
+
   componentDidMount() {
-    if (
-      this.props.match.params &&
-      Object.keys(this.props.match.params).length === 0
-    ) {
-      getProduct("favorite")
-        .then((res) => {
-          // console.log(res);
-          console.log(res.data.data);
-          this.setState({ product: res.data.data });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } else if (
-      this.props.match.params &&
-      this.props.match.params.category === "coffee"
-    ) {
-      getProduct("coffee")
-        .then((res) => {
-          // console.log(res);
-          console.log(res.data.data);
-          this.setState({ product: res.data.data });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } else if (
-      this.props.match.params &&
-      this.props.match.params.category === "non+coffee"
-    ) {
-      getProduct("non coffee")
-        .then((res) => {
-          // console.log(res);
-          console.log(res.data.data);
-          this.setState({ product: res.data.data });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } else if (
-      this.props.match.params &&
-      this.props.match.params.category === "food"
-    ) {
-      getProduct("food")
-        .then((res) => {
-          // console.log(res);
-          console.log(res.data.data);
-          this.setState({ product: res.data.data });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+    this.getFavorite("favorite");
+    this.getCoffee("coffee");
+    this.getNonCoffee("non coffee");
+    this.getFoods("food");
   }
 
   render() {
@@ -117,10 +121,12 @@ class Product extends Component {
     } = this.state.eventKet;
 
     const { product } = this.state;
+    const { favorite, coffee, nonCoffee, foods } = product;
+    const category = this.props.match.params.category;
+
     return (
       <>
         <Header />
-
         <div className="row">
           <div className="col-lg-4 col-md-6 wrapper-left border">
             <div className="wrapper-title-promo">
@@ -178,24 +184,60 @@ class Product extends Component {
 
           <div className="col-lg-8 col-md-6">
             <ul className="wrapper-menu-category">
-              <li className="active-menu">
+              <li className={category === undefined ? "active-menu" : null}>
                 <NavLink to="/product">Favorite & Promo</NavLink>
               </li>
-              <li>
+              <li className={category === "coffee" ? "active-menu" : null}>
                 <NavLink to="/product/coffee">Coffee</NavLink>
               </li>
-              <li>
+              <li className={category === "non+coffee" ? "active-menu" : null}>
                 <NavLink to="/product/non+coffee">Non Coffee</NavLink>
               </li>
-              <li>
+              <li className={category === "food" ? "active-menu" : null}>
                 <NavLink to="/product/food">Foods</NavLink>
               </li>
               {/* <li>Add-on</li> */}
             </ul>
             <div className="col-lg-12 d-flex wrapper-card-product">
-              {product.map((data, index) => (
-                <CardProduct dataProduct={data} index={index} key={data.id} />
-              ))}
+              {category === "coffee"
+                ? coffee.map((data, index) => {
+                    return (
+                      <CardProduct
+                        dataProduct={data}
+                        index={index}
+                        key={data.id}
+                      />
+                    );
+                  })
+                : category === "non+coffee"
+                ? nonCoffee.map((data, index) => {
+                    return (
+                      <CardProduct
+                        dataProduct={data}
+                        index={index}
+                        key={data.id}
+                      />
+                    );
+                  })
+                : category === "food"
+                ? foods.map((data, index) => {
+                    return (
+                      <CardProduct
+                        dataProduct={data}
+                        index={index}
+                        key={data.id}
+                      />
+                    );
+                  })
+                : favorite.map((data, index) => {
+                    return (
+                      <CardProduct
+                        dataProduct={data}
+                        index={index}
+                        key={data.id}
+                      />
+                    );
+                  })}
             </div>
             {this.props.token ? (
               this.props.users.role === "admin" ? (
