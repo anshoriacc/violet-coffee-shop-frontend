@@ -250,10 +250,6 @@ input[typeof="email"] {
     height: 100vh;
   } */
 
-  .content-left {
-    /* display: none; */
-  }
-
   .content-right {
     padding: 20px;
     /* border: 1px solid black; */
