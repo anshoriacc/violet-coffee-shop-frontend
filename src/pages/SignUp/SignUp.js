@@ -5,7 +5,7 @@ import "./SignUp.scoped.css";
 import logo from "../../assets/icons/logo.png";
 import iconGoogle from "../../assets/icons/google-logo-min.png";
 import imageLeft from "../../assets/images/background-loginregister.jpg";
-// import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 import axios from "axios";
 
@@ -79,10 +79,10 @@ export class SignUp extends Component {
                     Coffee Shop
                   </p>
                 </div>
-                <div className="col-lg-6 col-md-6 justify-content-center d-flex">
-                  <button className="btn-signup" onClick={this.onCLickLogin}>
-                    Login
-                  </button>
+                <div className="col-lg-6 col-md-6 justify-content-end d-flex">
+                  <Link to="/login">
+                    <button className="btn-signup">Login</button>
+                  </Link>
                 </div>
                 <div className="col-lg-12 col-md-6 text-center ps-md-5 mt-lg-5 mb-lg-3 wrapper-title-login">
                   <p className="title-login">Sign Up</p>

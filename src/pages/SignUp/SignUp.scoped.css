@@ -21,6 +21,7 @@
   font-size: 16px;
   line-height: 19px;
   color: #6a4029;
+  margin-right: 20px;
 }
 
 .title-login {
@@ -49,6 +50,7 @@
   border: 1px solid #4f5665;
   box-sizing: border-box;
   border-radius: 20px;
+  padding: 20px;
 }
 
 .input-form::-webkit-input-placeholder {
@@ -58,7 +60,6 @@
   font-size: 20px;
   line-height: 24px;
   color: #9f9f9f;
-  padding-left: 20px;
 }
 
 input[typeof="email"] {
