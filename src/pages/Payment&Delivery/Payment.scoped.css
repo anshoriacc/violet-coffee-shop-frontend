@@ -23,7 +23,7 @@
 
 .order-card {
   width: 487px;
-  height: 737px;
+  min-height: 737px;
   border-radius: 20px;
   background-color: rgb(255, 255, 255);
   position: absolute;
@@ -41,11 +41,10 @@
   line-height: 53px;
   letter-spacing: 0em;
   width: 100%;
-  position: absolute;
-  top: 5%;
+  padding-top: 5%;
 }
 
-img {
+.product-image {
   width: 82px;
   height: 90px;
   border-radius: 20px;
@@ -54,79 +53,110 @@ img {
 .card-item {
   width: 80%;
   height: 90px;
-  position: absolute;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  margin: 5% auto 5% auto;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 20px;
+  /* position: absolute;
   left: 10%;
-  top: 20%;
+  top: 20%; */
 }
 
-.cards {
-  width: 80%;
-  height: 90px;
-  position: absolute;
-  left: 10%;
-  top: 35%;
+.card-item p {
+  margin-bottom: 0 !important;
 }
 
 .product-name {
-  position: absolute;
-  top: 0%;
-  left: 25%;
   font-family: Poppins;
   font-size: 20px;
   font-style: normal;
+  width: 200%;
   font-weight: 400;
-  line-height: 30px;
-  letter-spacing: 0em;
+  padding-left: 10%;
   text-align: left;
 }
 
 .product-order {
-  position: absolute;
-  top: 30%;
-  left: 25%;
   font-family: Poppins;
   font-size: 20px;
   font-style: normal;
+  width: 200%;
   font-weight: 400;
-  line-height: 30px;
-  letter-spacing: 0em;
+  padding-left: 10%;
   text-align: left;
 }
 
 .size-order {
-  position: absolute;
-  bottom: -15%;
-  left: 25%;
   font-family: Poppins;
   font-size: 20px;
+  width: 200%;
   font-style: normal;
+  padding-left: 10%;
   font-weight: 400;
-  line-height: 30px;
-  letter-spacing: 0em;
   text-align: left;
 }
 
 .product-price {
-  position: absolute;
-  bottom: 15%;
-  right: 0%;
   font-family: Poppins;
+  width: 100%;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: 30px;
-  letter-spacing: 0em;
   text-align: left;
+  position: absolute;
+  top: 30%;
+  left: 60%;
+  z-index: 1;
 }
 
 .order {
-  height: 294px;
+  /* height: 294px; */
   width: 80%;
-  position: absolute;
   border-top: 0.5px solid rgba(0, 0, 0, 1);
-  bottom: 0%;
-  left: 10%;
   color: rgba(54, 33, 21, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10% auto 3% auto;
+}
+
+.order p {
+  margin-bottom: 0 !important;
+}
+
+.subtotal {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 2%;
+}
+
+.tax-fees {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 2%;
+}
+
+.shipping {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 2%;
+}
+
+.total {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 2%;
 }
 
 .sub-total {
@@ -137,8 +167,6 @@ img {
   line-height: 30px;
   letter-spacing: 0em;
   text-align: left;
-  position: absolute;
-  top: 3%;
 }
 
 .sub-idr {
@@ -149,9 +177,6 @@ img {
   line-height: 30px;
   letter-spacing: 0em;
   text-align: left;
-  position: absolute;
-  top: 3%;
-  right: 0;
 }
 
 .tax {
@@ -162,8 +187,6 @@ img {
   line-height: 30px;
   letter-spacing: 0em;
   text-align: left;
-  position: absolute;
-  top: 15%;
 }
 
 .fees {
@@ -174,9 +197,6 @@ img {
   line-height: 30px;
   letter-spacing: 0em;
   text-align: left;
-  position: absolute;
-  top: 15%;
-  right: 0;
 }
 
 .ship {
@@ -187,8 +207,6 @@ img {
   line-height: 30px;
   letter-spacing: 0em;
   text-align: left;
-  position: absolute;
-  top: 27%;
 }
 
 .ship-idr {
@@ -199,9 +217,6 @@ img {
   line-height: 30px;
   letter-spacing: 0em;
   text-align: left;
-  position: absolute;
-  top: 27%;
-  right: 0%;
 }
 
 .total-order {
@@ -212,8 +227,6 @@ img {
   line-height: 45px;
   letter-spacing: 0em;
   text-align: left;
-  position: absolute;
-  bottom: 20%;
 }
 
 .total-idr {
@@ -224,9 +237,6 @@ img {
   line-height: 45px;
   letter-spacing: 0em;
   text-align: left;
-  position: absolute;
-  bottom: 20%;
-  right: 0%;
 }
 
 .detail-address {
