@@ -4,16 +4,23 @@ import "./Product_detail.scoped.css";
 // COMPONENT
 import Navbar from "../../components/Navbar/NavLog";
 import Footer from "../../components/Footer/Footer";
-
+import { connect } from "react-redux";
+import { setDeliveryItem } from "../../Redux/actions/delivery";
+import { bindActionCreators } from "redux";
 import { detailProduct } from "../../utils/product";
+import { formater } from "../../helpers/formatNumber";
 
-import Image from "../../assets/images/background-profile.jpg";
+// import Image from "../../assets/images/background-profile.jpg";
 
-export default class Product_detail extends Component {
+class Product_detail extends Component {
   constructor(props) {
     super(props);
     this.state = {
       dataProduct: {},
+      counter: 1,
+      size: "",
+      now: "",
+      deliveryOption: "",
     };
     this.inputFile = React.createRef();
   }
@@ -29,16 +36,45 @@ export default class Product_detail extends Component {
       });
   }
 
+  addCount = () => {
+    const counter = this.state.counter;
+    this.setState({ counter: counter + 1 });
+  };
+
+  minusCount = () => {
+    const counter = this.state.counter;
+    if (this.state.counter > 1) {
+      this.setState({ counter: counter - 1 });
+    } else {
+      return;
+    }
+  };
+
+  setDelivery = () => {
+    const body = [
+      ...this.props.delivery,
+      {
+        name: this.state.dataProduct.name,
+        image: this.state.dataProduct.image,
+        count: this.state.counter,
+        now: this.state.now,
+        totalPrice: this.state.dataProduct.price * this.state.counter,
+        devlieryOption: this.state.deliveryOption,
+        size: this.state.size,
+      },
+    ];
+    this.props.setDeliveryItem(body);
+  };
+
   render() {
     const { name, image, price, description } = this.state.dataProduct;
-
+    console.log("CHECKED", this.state.size);
     return (
       <div className="main">
         <Navbar />
         <div className="jumbotron">
           <a href="/" className="link">
-            <p className="pref">Product </p> ||{" "}
-            <p className="ProductName">{name}</p>
+            <p className="pref">Product </p> || <p className="ProductName">{name}</p>
           </a>
           <div className="wrapper">
             <div className="wrapper-left">
@@ -46,72 +82,38 @@ export default class Product_detail extends Component {
               <div className="flying-card">
                 <p>Delivery and time</p>
                 <div className="delivery-btn">
-                  <input
-                    type="radio"
-                    class="btn-check custom-control-input"
-                    name="options"
-                    id="option1"
-                    autocomplete="off"
-                  />
-                  <label class="btn btn-secondary dine-in" for="option1">
+                  <input type="checkbox" class="btn-check custom-control-input" value="Dine in" onChange={(e) => this.setState({ deliveryOption: e.target.value })} name="options" id="dine in" autocomplete="off" />
+                  <label class="btn btn-secondary dine-in" for="dine in">
                     Dine In
                   </label>
 
-                  <input
-                    type="radio"
-                    class="btn-check"
-                    name="options"
-                    id="option2"
-                    autocomplete="off"
-                  />
-                  <label class="btn btn-secondary door-delivery" for="option2">
+                  <input type="checkbox" class="btn-check" name="options" value="Door delivery" onChange={(e) => this.setState({ deliveryOption: e.target.value })} id="door delivery" autocomplete="off" />
+                  <label class="btn btn-secondary door-delivery" for="door delivery">
                     Door Delivery
                   </label>
 
-                  <input
-                    type="radio"
-                    class="btn-check"
-                    name="options"
-                    id="option3"
-                    autocomplete="off"
-                  />
-                  <label class="btn btn-secondary pick-up" for="option3">
+                  <input type="checkbox" class="btn-check" name="options" id="Pick Up" value="Pick up" onChange={(e) => this.setState({ deliveryOption: e.target.value })} autocomplete="off" />
+                  <label class="btn btn-secondary pick-up" for="Pick Up">
                     Pick Up
                   </label>
                 </div>
 
                 <div className="time">
                   <p>Now</p>
-                  <input
-                    type="radio"
-                    class="btn-check"
-                    name="options"
-                    id="option2"
-                    autocomplete="off"
-                  />
-                  <label class="btn btn-secondary yes" for="option2">
+                  <input type="checkbox" class="btn-check" name="options" id="yes" value="yes" onChange={(e) => this.setState({ now: e.target.value })} autocomplete="off" />
+                  <label class="btn btn-secondary yes" for="yes">
                     Yes
                   </label>
 
-                  <input
-                    type="radio"
-                    class="btn-check"
-                    name="options"
-                    id="option3"
-                    autocomplete="off"
-                  />
-                  <label class="btn btn-secondary no" for="option3">
+                  <input type="checkbox" class="btn-check" name="options" id="no" value="no" onChange={(e) => this.setState({ now: e.target.value })} autocomplete="off" />
+                  <label class="btn btn-secondary no" for="no">
                     No
                   </label>
                 </div>
+
                 <div className="set-time">
                   <p>Set time</p>
-                  <input
-                    class="form-control"
-                    type="text"
-                    placeholder="Default input"
-                    aria-label="default input example"
-                  />
+                  <input class="form-control shadow-none" type="text" placeholder="Enter time to reservation" aria-label="default input example" />
                 </div>
               </div>
             </div>
@@ -127,12 +129,18 @@ export default class Product_detail extends Component {
                 at <strong>1 - 7 pm</strong>
               </p>
               <div className="counter">
-                <button className="btn btn-primary plus">+</button>
-                <p className="count">1</p>
-                <button className="btn btn-primary minus">-</button>
+                <button className="btn btn-primary plus" onClick={this.minusCount}>
+                  -
+                </button>
+                <p className="count">{this.state.counter}</p>
+                <button className="btn btn-primary minus" onClick={this.addCount}>
+                  +
+                </button>
               </div>
-              <p className="price">{`IDR ${price}`}</p>
-              <button className="btn btn-success">Add to chart</button>
+              <p className="price">{`${formater.format(price)}`}</p>
+              <button className="btn btn-success" onClick={this.setDelivery}>
+                Add to chart
+              </button>
               <button className="btn btn-warning">Ask a staff</button>
             </div>
           </div>
@@ -141,36 +149,18 @@ export default class Product_detail extends Component {
               <p>Choose a size</p>
 
               <div className="size-btn">
-                <input
-                  type="radio"
-                  class="btn-check"
-                  name="options"
-                  id="option1"
-                  autocomplete="off"
-                />
-                <label class="btn btn-secondary" for="option1">
+                <input type="checkbox" class="btn-check" name="options" id="regular" value="R" onChange={(e) => this.setState({ size: e.target.value })} autocomplete="off" />
+                <label class="btn btn-secondary" for="regular">
                   R
                 </label>
 
-                <input
-                  type="radio"
-                  class="btn-check"
-                  name="options"
-                  id="option2"
-                  autocomplete="off"
-                />
-                <label class="btn btn-secondary" for="option2">
+                <input type="checkbox" class="btn-check" name="options" id="large" value="L" onChange={(e) => this.setState({ size: e.target.value })} autocomplete="off" />
+                <label class="btn btn-secondary" for="large">
                   L
                 </label>
 
-                <input
-                  type="radio"
-                  class="btn-check"
-                  name="options"
-                  id="option3"
-                  autocomplete="off"
-                />
-                <label class="btn btn-secondary" for="option3">
+                <input type="checkbox" class="btn-check" name="options" value="XL" onChange={(e) => this.setState({ size: e.target.value })} id="extra large" autocomplete="off" />
+                <label class="btn btn-secondary" for="extra large">
                   XL
                 </label>
               </div>
@@ -183,18 +173,34 @@ export default class Product_detail extends Component {
                 <li>x1 (Regular)</li>
               </ul>
               <p className="checkout">Checkout</p>
-              <button
-                className="btn btn-warning checkout-btn"
-                onClick={() => this.props.history.push("/product/payment")}
-              >
+              <button className="btn btn-warning checkout-btn" onClick={() => this.props.history.push("/product/payment")}>
                 {" "}
                 <i class="bi bi-arrow-right" />{" "}
               </button>
             </div>
           </div>
         </div>
-        <Footer />
+        <div className="footer">
+          <Footer />
+        </div>
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    delivery: state.delivery.item,
+  };
+};
+
+const mapDispatchToPropps = (dispatch) => {
+  return {
+    setDeliveryItem: bindActionCreators(setDeliveryItem, dispatch),
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToPropps
+)(Product_detail);
