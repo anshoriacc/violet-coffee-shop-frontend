@@ -95,7 +95,7 @@ class Login extends Component {
                     Coffee Shop
                   </p>
                 </div>
-                <div className="col-lg-6 col-md-6 justify-content-center d-flex">
+                <div className="col-lg-6 col-md-6 justify-content-end d-flex">
                   <Link to="/signup">
                     <button className="btn-signup">Sign Up</button>
                   </Link>
