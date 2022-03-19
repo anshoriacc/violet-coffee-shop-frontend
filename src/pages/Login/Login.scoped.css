@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&family=Rubik&display=swap");
 
+.content-right {
+  padding: 24px !important;
+  /* background-color: red; */
+}
+
 .title-coffee {
   font-family: Rubik;
   font-style: normal;
@@ -13,7 +18,7 @@
   width: 100px;
   height: 40px;
   background: #ffba33;
-  border-radius: 10px;
+  border-radius: 50px;
   font-family: Rubik;
   font-style: normal;
   font-weight: 500;
@@ -21,6 +26,7 @@
   line-height: 19px;
   color: #6a4029;
   border: none;
+  margin-right: 20px;
 }
 
 .title-login {
@@ -49,6 +55,7 @@
   border: 1px solid #4f5665;
   box-sizing: border-box;
   border-radius: 20px;
+  padding: 20px;
 }
 
 .input-form::-webkit-input-placeholder {
@@ -58,7 +65,6 @@
   font-size: 20px;
   line-height: 24px;
   color: #9f9f9f;
-  padding-left: 20px;
 }
 
 input[typeof="email"] {
@@ -68,7 +74,18 @@ input[typeof="email"] {
   font-size: 20px;
   line-height: 24px;
   color: #9f9f9f;
+  padding: 20px;
 }
+
+/* input[typeof="password"] {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  color: #9f9f9f;
+  padding: 20px;
+} */
 
 .link-forgot-password {
   font-family: Rubik;
@@ -95,6 +112,11 @@ input[typeof="email"] {
   line-height: 25px;
   color: #6a4029;
   border: none;
+}
+
+.btn-login:hover,
+.btn-google:hover {
+  border: 1px solid black;
 }
 
 .btn-google {
@@ -227,8 +249,11 @@ input[typeof="email"] {
   /* .img-left {
     height: 100vh;
   } */
+
   .content-right {
     padding: 20px;
+    /* border: 1px solid black; */
+    /* background-color: red; */
   }
 
   .title-coffee {
@@ -245,6 +270,7 @@ input[typeof="email"] {
     width: 400px;
     height: 40px;
     font-size: 20px;
+    margin-bottom: 20px;
   }
 
   .label-form,

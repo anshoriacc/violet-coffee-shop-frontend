@@ -21,6 +21,7 @@
   font-size: 16px;
   line-height: 19px;
   color: #6a4029;
+  margin-right: 20px;
 }
 
 .title-login {
@@ -49,6 +50,7 @@
   border: 1px solid #4f5665;
   box-sizing: border-box;
   border-radius: 20px;
+  padding: 20px;
 }
 
 .input-form::-webkit-input-placeholder {
@@ -58,7 +60,6 @@
   font-size: 20px;
   line-height: 24px;
   color: #9f9f9f;
-  padding-left: 20px;
 }
 
 input[typeof="email"] {
@@ -357,7 +358,36 @@ input[typeof="email"] {
   bottom: 30px;
 }
 
-#toast.show {
+#toast-success {
+  color: rgb(0, 146, 19);
+  font-family: Rubik;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 999;
+  left: 50%;
+  bottom: 30px;
+}
+
+#toast-failed {
+  color: rgb(255, 0, 0);
+  font-family: Rubik;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 999;
+  left: 50%;
+  bottom: 30px;
+}
+
+#toast.show,
+#toast-failed {
   visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
@@ -381,7 +411,8 @@ input[typeof="email"] {
   bottom: 30px;
 }
 
-#snackbar.show {
+#snackbar.show,
+#toast-failed {
   visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
