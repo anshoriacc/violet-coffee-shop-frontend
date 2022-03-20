@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar/NavLog";
 import Footer from "../../components/Footer/Footer";
 import { connect } from "react-redux";
 import { formater } from "../../helpers/formatNumber";
-
+import { userCheckOut } from "../../utils/checkout";
 import Image from "../../assets/images/background-profile.jpg";
 
 class Payment extends Component {
@@ -35,6 +35,22 @@ class Payment extends Component {
     this.subTotal();
     console.log("USER DATA", this.props.users);
   }
+
+  checkOut = async () => {
+    try {
+      const body = {
+        product: [...this.props.delivery],
+        delivery_method: "dine_in",
+        set_time: "13:00:00",
+        bank: "bca",
+      };
+      console.log("BODY", body);
+      const result = await userCheckOut(body, this.props.token);
+      console.log("DEBUG", result.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   render() {
     return (
@@ -112,7 +128,9 @@ class Payment extends Component {
             </div>
             <div className="payment-card">card</div>
           </div>
-          <button className="btn btn-primary confirm">Confirm and pay</button>
+          <button className="btn btn-primary confirm" onClick={this.checkOut}>
+            Confirm and pay
+          </button>
         </div>
         <Footer />
       </div>

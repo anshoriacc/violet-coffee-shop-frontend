@@ -5,7 +5,7 @@ import "./Product_detail.scoped.css";
 import Navbar from "../../components/Navbar/NavLog";
 import Footer from "../../components/Footer/Footer";
 import { connect } from "react-redux";
-import { setDeliveryItem } from "../../Redux/actions/delivery";
+import { deletDeliveryItem, setDeliveryItem } from "../../Redux/actions/delivery";
 import { bindActionCreators } from "redux";
 import { detailProduct } from "../../utils/product";
 import { formater } from "../../helpers/formatNumber";
@@ -56,19 +56,21 @@ class Product_detail extends Component {
       {
         name: this.state.dataProduct.name,
         image: this.state.dataProduct.image,
-        count: this.state.counter,
+        quantity: this.state.counter,
         now: this.state.now,
         totalPrice: this.state.dataProduct.price * this.state.counter,
-        devlieryOption: this.state.deliveryOption,
         size: this.state.size,
+        devlieryOption: this.state.deliveryOption,
+        product_id: this.state.dataProduct.id,
       },
     ];
     this.props.setDeliveryItem(body);
+    console.log("ITEMS", this.props.delivery);
   };
 
   render() {
     const { name, image, price, description } = this.state.dataProduct;
-    console.log("CHECKED", this.state.size);
+    console.log("CHECKED", this.props.delivery);
     return (
       <div className="main">
         <Navbar />
@@ -138,7 +140,12 @@ class Product_detail extends Component {
                 </button>
               </div>
               <p className="price">{`${formater.format(price)}`}</p>
-              <button className="btn btn-success" onClick={this.setDelivery}>
+              <button
+                className="btn btn-success"
+                onClick={() => {
+                  this.setDelivery();
+                }}
+              >
                 Add to chart
               </button>
               <button className="btn btn-warning">Ask a staff</button>
@@ -197,6 +204,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToPropps = (dispatch) => {
   return {
     setDeliveryItem: bindActionCreators(setDeliveryItem, dispatch),
+    delDeliveryItme: bindActionCreators(deletDeliveryItem, dispatch),
   };
 };
 
