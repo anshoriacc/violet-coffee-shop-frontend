@@ -20,7 +20,9 @@ class Payment extends Component {
   Edit = () => {
     this.setState({ isEdit: !this.state.isEdit });
     console.log(this.state.isEdit);
+
   };
+
 
   subTotal = () => {
     let total = 0;
@@ -36,19 +38,43 @@ class Payment extends Component {
     console.log("USER DATA", this.props.users);
   }
 
+  componentDidUpdate() {
+
+
+  }
+
   checkOut = async () => {
     try {
-      const body = {
-        product: [...this.props.delivery],
+      // const body = {
+      //   product: [...this.props.delivery],
+      //   delivery_method: "dine_in",
+      //   set_time: "13:00:00",
+      //   bank: "bca",
+      // };
+      // console.log("BODY", body);
+
+      let bodyNew = {}
+      const arrSendDeliv = []
+      const arrDeliv = this.props.delivery
+      Array.isArray(arrDeliv) && arrDeliv.forEach((data) => {
+        bodyNew = {
+          product_id: data.product_id,
+          size: data.size,
+          quantity: data.quantity
+        }
+        arrSendDeliv.push(bodyNew)
+      })
+
+      const send = {
+        products: arrSendDeliv,
         delivery_method: "dine_in",
         set_time: "13:00:00",
         bank: "bca",
-      };
-      console.log("BODY", body);
-      const result = await userCheckOut(body, this.props.token);
+      }
+      const result = await userCheckOut(send, this.props.token);
       console.log("DEBUG", result.data);
     } catch (error) {
-      console.log(error);
+      console.log({ ...error });
     }
   };
 
