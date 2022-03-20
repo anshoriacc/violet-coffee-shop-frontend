@@ -6,7 +6,7 @@ import Navbar from "../../components/Navbar/NavLog";
 import Footer from "../../components/Footer/Footer";
 import { connect } from "react-redux";
 import { deletDeliveryItem, setDeliveryItem } from "../../Redux/actions/delivery";
-import { setDeliveryItem } from "../../Redux/actions/delivery";
+// import { setDeliveryItem } from "../../Redux/actions/delivery";
 import { bindActionCreators } from "redux";
 import { detailProduct } from "../../utils/product";
 import { formater } from "../../helpers/formatNumber";
@@ -66,14 +66,14 @@ class Product_detail extends Component {
       },
     ];
     this.props.setDeliveryItem(body);
-    console.log("ITEMS", this.props.delivery);
-        count: this.state.counter,
-        now: this.state.now,
-        totalPrice: this.state.dataProduct.price * this.state.counter,
-        devlieryOption: this.state.deliveryOption,
-        size: this.state.size,
-      },
-    ];
+    // console.log("ITEMS", this.props.delivery);
+    //     count: this.state.counter,
+    //     now: this.state.now,
+    //     totalPrice: this.state.dataProduct.price * this.state.counter,
+    //     devlieryOption: this.state.deliveryOption,
+    //     size: this.state.size,
+    //   },
+    // ];
     this.props.setDeliveryItem(body);
   };
 
