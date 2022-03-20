@@ -4,9 +4,11 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "./ForgotPassword.scoped.css"
 import { useDispatch } from "react-redux";
 import {forgotPassword} from "../../Redux/actions/auth"
+import { doForgotPassword } from "../../utils/auth";
 
 function ForgotPassword() {
   const [email, setEmail]= useState("")
+  const [isResult,setIsResult]=useState(false)
   const dispatch = useDispatch();
 
   const handleChangeEmail = (event) =>{
@@ -14,8 +16,18 @@ function ForgotPassword() {
     setEmail(event.target.value);
   }
 
-  const handleForgot = () => {
-    dispatch(forgotPassword({email}));
+  const handleForgot = async () => {
+    const body ={
+      email
+    }
+    try {
+       const res = await doForgotPassword(body)
+      console.log(res);
+      setIsResult(true)
+    } catch (error) {
+      console.log(error);
+    }
+    
   };
   
   return (
@@ -35,16 +47,20 @@ function ForgotPassword() {
                 />
                 <button className="btn btn-send" onClick={handleForgot}>Send</button>
               </div>
-              <div className="col-lg-12  wrapper-resend">
+              {isResult?(<>
+                <div className="col-lg-12  wrapper-resend">
                 <div className="col-lg-5 col-md-8 col-sm-6">
                   <p className="title-resend-link">
-                    click here if you didn't receive any link in 2 minutes
+                    silahkan cek email anda
                   </p>
                 </div>
+                </div>
+              </>):null}
 
-                <button className="btn btn-resend-link">Resend Link</button>
-                <p className="minute">01:54</p>
-              </div>
+
+                {/* <button className="btn btn-resend-link">Resend Link</button>
+                <p className="minute">01:54</p> */}
+              
             </div>
           </div>
         </div>

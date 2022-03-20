@@ -26,6 +26,7 @@ export const editUser = (data, accessToken) => {
 };
 
 export const doForgotPassword = (body) => {
+  console.log(body);
   const URL = `${process.env.REACT_APP_HOST}/auth/forgotpassword`;
   return axios.post(URL, body);
 };
