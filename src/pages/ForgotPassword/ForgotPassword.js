@@ -26,6 +26,12 @@ function ForgotPassword() {
       setIsResult(true)
     } catch (error) {
       console.log(error);
+      var x = document.getElementById("snackbar");
+      console.log(x);
+        x.className = "show";
+        setTimeout(function() {
+          x.className = x.className.replace("show", "");
+        }, 3000);
     }
     
   };
@@ -67,6 +73,8 @@ function ForgotPassword() {
       </div>
 
       <Footer />
+      {/* TOAST */}
+      <div id="snackbar">Email Not Found</div>
     </>
   )
 }
