@@ -25,9 +25,6 @@ class Payment extends Component {
   handleShowModal = () => {
     this.setState({ isShowModal: true })
   }
-  handleCloseModal = () => {
-    this.setState({ isShowModal: false })
-  }
 
   Edit = () => {
     this.setState({ isEdit: !this.state.isEdit });
@@ -157,9 +154,7 @@ class Payment extends Component {
             </div>
             <div className="payment-card">card</div>
           </div>
-          {/* <button className="btn btn-primary confirm" onClick={this.handleShowModal}> */}
           <button className="btn btn-primary confirm" onClick={this.checkOut}>
-
             Confirm and pay
           </button>
         </div>
@@ -192,7 +187,6 @@ class Payment extends Component {
             </div>
           </Modal.Footer>
         </Modal>
-
         <Footer />
       </div>
     );
