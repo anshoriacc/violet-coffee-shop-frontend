@@ -6,6 +6,7 @@ import Footer from "../../components/Footer/Footer";
 import { connect } from "react-redux";
 import { formater } from "../../helpers/formatNumber";
 import { userCheckOut } from "../../utils/checkout";
+import { Modal } from "react-bootstrap";
 import Image from "../../assets/images/background-profile.jpg";
 
 class Payment extends Component {
@@ -14,7 +15,18 @@ class Payment extends Component {
     this.state = {
       isEdit: false,
       totalPrice: 0,
+      msgSuccess: '',
+      bank: '',
+      bankNumber: '',
+      isShowModal: false,
     };
+  }
+
+  handleShowModal = () => {
+    this.setState({ isShowModal: true })
+  }
+  handleCloseModal = () => {
+    this.setState({ isShowModal: false })
   }
 
   Edit = () => {
@@ -38,31 +50,18 @@ class Payment extends Component {
     console.log("USER DATA", this.props.users);
   }
 
-  componentDidUpdate() {
-
-
-  }
-
   checkOut = async () => {
     try {
-      // const body = {
-      //   product: [...this.props.delivery],
-      //   delivery_method: "dine_in",
-      //   set_time: "13:00:00",
-      //   bank: "bca",
-      // };
-      // console.log("BODY", body);
-
-      let bodyNew = {}
+      let body = {}
       const arrSendDeliv = []
       const arrDeliv = this.props.delivery
       Array.isArray(arrDeliv) && arrDeliv.forEach((data) => {
-        bodyNew = {
+        body = {
           product_id: data.product_id,
           size: data.size,
           quantity: data.quantity
         }
-        arrSendDeliv.push(bodyNew)
+        arrSendDeliv.push(body)
       })
 
       const send = {
@@ -72,13 +71,17 @@ class Payment extends Component {
         bank: "bca",
       }
       const result = await userCheckOut(send, this.props.token);
-      console.log("DEBUG", result.data);
+      this.setState({ msgSuccess: result.data.data.resMidtrans.status_message })
+      this.setState({ bank: result.data.data.resMidtrans.va_numbers[0].bank })
+      this.setState({ bankNumber: result.data.data.resMidtrans.va_numbers[0].va_number })
+      this.handleShowModal()
     } catch (error) {
       console.log({ ...error });
     }
   };
 
   render() {
+    console.log('ini hasil', this.props.bank)
     return (
       <div className="main">
         <Navbar />
@@ -154,10 +157,42 @@ class Payment extends Component {
             </div>
             <div className="payment-card">card</div>
           </div>
+          {/* <button className="btn btn-primary confirm" onClick={this.handleShowModal}> */}
           <button className="btn btn-primary confirm" onClick={this.checkOut}>
+
             Confirm and pay
           </button>
         </div>
+
+        {/* Modal */}
+        <Modal show={this.state.isShowModal} centered>
+          <Modal.Header>
+            <Modal.Title>
+              <h2 style={{ textAlign: 'center' }}>{this.state.msgSuccess}</h2>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p style={{
+              fontFamily: 'Rubik',
+              fontWeight: 300,
+              width: '100%',
+              textAlign: 'center',
+              fontSize: 20
+            }}>{`${this.state.bank} ${this.state.bankNumber}`}</p>
+          </Modal.Body>
+          <Modal.Footer>
+            <div style={{
+              position: 'relative',
+              width: '100%',
+              height: 50,
+              display: 'flex',
+              justifyContent: 'center'
+            }}>
+              <button className="btn btn-warning" onClick={() => { this.props.history.push("/") }}>Go Home</button>
+            </div>
+          </Modal.Footer>
+        </Modal>
+
         <Footer />
       </div>
     );
