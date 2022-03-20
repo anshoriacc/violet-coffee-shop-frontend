@@ -5,6 +5,7 @@ import "./Product_detail.scoped.css";
 import Navbar from "../../components/Navbar/NavLog";
 import Footer from "../../components/Footer/Footer";
 import { connect } from "react-redux";
+import { deletDeliveryItem, setDeliveryItem } from "../../Redux/actions/delivery";
 import { setDeliveryItem } from "../../Redux/actions/delivery";
 import { bindActionCreators } from "redux";
 import { detailProduct } from "../../utils/product";
@@ -56,6 +57,16 @@ class Product_detail extends Component {
       {
         name: this.state.dataProduct.name,
         image: this.state.dataProduct.image,
+        quantity: this.state.counter,
+        now: this.state.now,
+        totalPrice: this.state.dataProduct.price * this.state.counter,
+        size: this.state.size,
+        devlieryOption: this.state.deliveryOption,
+        product_id: this.state.dataProduct.id,
+      },
+    ];
+    this.props.setDeliveryItem(body);
+    console.log("ITEMS", this.props.delivery);
         count: this.state.counter,
         now: this.state.now,
         totalPrice: this.state.dataProduct.price * this.state.counter,
@@ -68,6 +79,7 @@ class Product_detail extends Component {
 
   render() {
     const { name, image, price, description } = this.state.dataProduct;
+    console.log("CHECKED", this.props.delivery);
     console.log("CHECKED", this.state.size);
     return (
       <div className="main">
@@ -197,6 +209,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToPropps = (dispatch) => {
   return {
     setDeliveryItem: bindActionCreators(setDeliveryItem, dispatch),
+    delDeliveryItme: bindActionCreators(deletDeliveryItem, dispatch),
   };
 };
 

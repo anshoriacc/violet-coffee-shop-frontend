@@ -13,7 +13,7 @@ const deliveryItem = (state = initialState, action) => {
     case "DEL_DELIVERY_FULFILLED":
       return {
         ...state,
-        item: {},
+        item: [],
       };
 
     default:
