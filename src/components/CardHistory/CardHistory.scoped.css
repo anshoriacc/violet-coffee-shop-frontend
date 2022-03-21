@@ -1,5 +1,5 @@
 p {
-  font-family: "Poppins";
+  font-family: 'Poppins';
   margin: 0;
 }
 
@@ -44,6 +44,17 @@ p {
 .delivery {
   color: #6a4029;
   /* font-size: 20px; */
+}
+
+i {
+  color: rgba(137, 85, 55, 1);
+  position: absolute;
+  bottom: 15%;
+  right: 5%;
+}
+
+i:hover {
+  cursor: pointer;
 }
 
 input {
