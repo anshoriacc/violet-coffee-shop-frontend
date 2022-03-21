@@ -18,6 +18,7 @@ import AddProduct from "./pages/Add_Product/Add_product";
 import Detail from "./pages/Product_Detail/Product_detail";
 import Product from "./pages/Product/Product";
 import addPromo from "./pages/Promo/addPromo";
+import EditProduct from "./pages/Edit_Product/Edit_Product";
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 
 export default class Main extends Component {
@@ -76,6 +77,14 @@ export default class Main extends Component {
                 if (!accessToken)
                   return <Redirect from="/product/detail/:id" to="/" />;
                 return <Detail {...routerProps} />;
+              }}
+            />
+            <Route
+              path="/product/edit"
+              render={(routerProps) => {
+                if (!accessToken)
+                  return <Redirect from="/product/edit" to="/" />;
+                return <EditProduct {...routerProps} />;
               }}
             />
             <Route
