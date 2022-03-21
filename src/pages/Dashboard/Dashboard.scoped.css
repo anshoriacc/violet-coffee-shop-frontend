@@ -7,20 +7,31 @@ h1 {
   font-weight: 700;
   font-size: calc(1.375rem + 0.75vw);
   color: #6a4029;
+  margin-bottom: 3rem;
 }
 
-.background {
-  font-family: "Poppins";
+h2 {
+  font-weight: 700;
+  font-size: calc(1.25rem + 0.5vw);
+  color: #000;
+}
+
+.dashboard-container {
+  font-family: 'Poppins';
   background-color: #fff;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #fff;
-  padding: 7.5vw;
+  padding: 2.5vw 7.5vw;
   border-bottom: 1px solid #9f9f9f;
 }
 
-.content {
+.report-wrapper {
+  margin-top: 1rem;
   width: 100%;
-  height: 100%;
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+  border-radius: 20px;
+  padding: 2rem;
 }

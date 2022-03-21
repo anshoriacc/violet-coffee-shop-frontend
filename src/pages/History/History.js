@@ -20,6 +20,8 @@ class History extends Component {
       userHistory: [],
       id: 0,
       modalVisibility: false,
+      page: 1,
+      nextPage: '',
     };
     // this.inputFile = React.createRef();
   }
@@ -36,29 +38,36 @@ class History extends Component {
     deleteHistory(this.props.token, this.state.id)
       .then((res) => {
         // console.log(res);
+        this.setState({id: 0});
         let x = document.getElementById('snackbar');
         x.className = 'show';
         setTimeout(function() {
           x.className = x.className.replace('show', '');
         }, 3000);
+        this.setState({modalVisibility: !this.state.modalVisibility});
       })
       .catch((err) => {
-        console.log({err});
+        console.log({...err});
       });
   };
 
   getHistoryUser = () => {
-    const token = this.props.token;
-    getHistory(token)
+    getHistory(this.props.token, this.state.page)
       .then((res) => {
         this.setState({userHistory: res.data.data});
+        this.setState({nextPage: res.data.next_link});
       })
       .catch((err) => {
-        console.log({err});
+        console.log({...err});
       });
   };
 
+  componentDidUpdate() {
+    this.getHistoryUser();
+  }
+
   componentDidMount() {
+    console.log(this.props);
     this.getHistoryUser();
   }
 
@@ -82,23 +91,36 @@ class History extends Component {
               )}
             </div>
             <div className="card-container">
-              {userHistory.map((val) => {
-                console.log(val.name);
-                return (
-                  <CardHistory
-                    image={Dumy}
-                    name={val.name}
-                    price={val.price}
-                    id={val.id}
-                    key={val.id}
-                    onClick={() => {
-                      this.setState({id: val.id});
-                      this.setState({modalVisibility: true});
-                    }}
-                  />
-                );
-              })}
+              {userHistory.map((val) => (
+                <CardHistory
+                  image={Dumy}
+                  name={val.name}
+                  price={val.price}
+                  id={val.id}
+                  key={val.id}
+                  onClick={() => {
+                    this.setState({id: val.id});
+                    this.setState({modalVisibility: true});
+                  }}
+                />
+              ))}
             </div>
+            {this.state.userHistory.length > 0 ? (
+              <div className="pagination-buttons">
+                <button
+                  className="btn btn-warning"
+                  onClick={() => this.setState({page: this.state.page - 1})}
+                  disabled={this.state.page < 2 ? true : false}
+                >{`<`}</button>
+                <button
+                  className="btn btn-warning"
+                  onClick={() => this.setState({page: this.state.page + 1})}
+                  disabled={this.state.nextPage === null ? true : false}
+                >{`>`}</button>
+              </div>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
         <Footer />

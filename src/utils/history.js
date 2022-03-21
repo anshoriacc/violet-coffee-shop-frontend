@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-export const getHistory = (accessToken) => {
+export const getHistory = (accessToken, page) => {
   const URL = `${
     process.env.REACT_APP_HOST
-  }/payment/payment-userId?per_page=15&page=1`;
+  }/payment/payment-userId?per_page=15&page=${page}`;
   return axios.get(URL, {headers: {'x-access-token': accessToken}});
 };
 

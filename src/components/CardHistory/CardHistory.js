@@ -7,7 +7,7 @@ export default class CardHistory extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: [],
+      isHovered: false,
     };
   }
 
@@ -35,7 +35,12 @@ export default class CardHistory extends Component {
           <p className="name">{this.props.name}</p>
           <p className="price">{this.props.price}</p>
           <p className="delivery">{this.props.delivery}</p>
-          <i class="bi bi-trash"  onClick={this.props.onClick}/>
+          <i
+            className={`bi ${this.state.isHovered ? 'bi-trash-fill' : 'bi-trash'}`}
+            onClick={this.props.onClick}
+            onMouseEnter={() => this.setState({isHovered: true})}
+            onMouseLeave={() => this.setState({isHovered: false})}
+          />
         </div>
       </div>
     );
