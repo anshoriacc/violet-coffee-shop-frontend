@@ -264,7 +264,7 @@ class Profile extends Component {
             </div>
           </Modal.Footer>
         </Modal>
-        <div id="snackbar">Berhasil Meng Update data</div>
+        <div id="snackbar">Berhasil update data</div>
       </div>
     );
   }

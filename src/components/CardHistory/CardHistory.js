@@ -1,6 +1,7 @@
-import "./CardHistory.scoped.css";
+import './CardHistory.scoped.css';
 
-import React, { Component } from "react";
+import React, {Component} from 'react';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export default class CardHistory extends Component {
   constructor(props) {
@@ -26,17 +27,17 @@ export default class CardHistory extends Component {
 
   render() {
     return (
-      <>
-        <div className="main">
-          <img src={this.props.image} alt="" />
-          <div className="detail">
-            <p className="name">{this.props.name}</p>
-            <p className="price">{this.props.price}</p>
-            <p className="delivery">{this.props.delivery}</p>
-            <input className="form-check-input" name="id" type="checkbox" value={this.props.id} />
-          </div>
+      // <>
+      // </>
+      <div className="main">
+        <img src={this.props.image} alt="" />
+        <div className="detail">
+          <p className="name">{this.props.name}</p>
+          <p className="price">{this.props.price}</p>
+          <p className="delivery">{this.props.delivery}</p>
+          <i class="bi bi-trash"  onClick={this.props.onClick}/>
         </div>
-      </>
+      </div>
     );
   }
 }
