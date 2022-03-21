@@ -90,8 +90,9 @@ a {
 }
 
 .pagination-buttons {
+  margin-top: 2rem;
   display: flex;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 /* MODAL */
