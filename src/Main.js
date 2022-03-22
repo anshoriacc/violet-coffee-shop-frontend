@@ -142,12 +142,11 @@ export default class Main extends Component {
             />
             <Route path="/promo/add" component={addPromo} />
             <Route
-              path="/promo/edit"
-              // render={(routerProps) => {
-              //   if (!accessToken) return <Redirect from='/promo/edit' to='/' />;
-              //   return <EditPromo {...routerProps} />;
-              // }}
-              component={EditPromo}
+              path="/promo/edit/:id"
+              render={(routerProps) => {
+                if (!accessToken) return <Redirect from='/promo/edit' to='/' />;
+                return <EditPromo {...routerProps} />;
+              }}
             />
             <Route path="*" component={NotFound} />
           </Switch>
