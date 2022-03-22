@@ -57,8 +57,8 @@ class History extends Component {
       .then((res) => {
         this.setState({
           userHistory: res.data.data,
-          prevPage: res.data.perv_link,
-          nextPage: res.data.next_link,
+          // prevPage: res.data.perv_link,
+          // nextPage: res.data.next_link,
         });
       })
       .catch((err) => {
@@ -66,8 +66,9 @@ class History extends Component {
       });
   };
 
-  componentDidUpdate() {
-    this.getHistoryUser(this.state.page);
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.page !== this.state.page)
+      this.getHistoryUser(this.state.page);
   }
 
   componentDidMount() {
