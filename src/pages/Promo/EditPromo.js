@@ -6,12 +6,13 @@ import Footer from '../../components/Footer/Footer'
 
 import noImg from '../../assets/images/no-image.jpg'
 import pencilIcon from '../../assets/icons/pencilIcon.png'
+import { connect } from 'react-redux'
 
 class EditPromo extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            dataProduct: {}
         }
     }
 
@@ -20,7 +21,6 @@ class EditPromo extends Component {
         for (let i = 5; i <= 100; i += 5) {
             arr.push(i)
         }
-        console.log(arr)
         return (
             <>
                 <Navbar />
@@ -137,4 +137,11 @@ class EditPromo extends Component {
     }
 }
 
-export default EditPromo
+const mapStateToProps = (state) => {
+    return {
+        user: state.auth
+    }
+}
+
+// export default EditPromo
+export default connect(mapStateToProps)(EditPromo)

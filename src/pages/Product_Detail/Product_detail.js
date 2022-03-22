@@ -9,6 +9,8 @@ import {
   deletDeliveryItem,
   setDeliveryItem
 } from "../../Redux/actions/delivery";
+
+import { Link } from "react-router-dom";
 // import { setDeliveryItem } from "../../Redux/actions/delivery";
 import { bindActionCreators } from "redux";
 import { detailProduct } from "../../utils/product";
@@ -190,9 +192,25 @@ class Product_detail extends Component {
                   />
                 </div>
               </div>
+
+
+
             </div>
             <div className="wrapper-right">
               <p className="title">{name}</p>
+
+              {role === 'admin' ? (
+                <Link to={`/promo/edit/${this.props.match.params.id}`} style={{ textDecoration: 'none' }}>
+                  <p style={{
+                    fontSize: 25,
+                    fontWeight: 'bold',
+                    color: '#6A4029',
+                  }}>Edit Promo</p>
+                </Link>
+              ) : (
+                <></>
+              )}
+
               <p className="describtion">{description}</p>
               <p className="delivery-time">
                 Delivery only on{" "}

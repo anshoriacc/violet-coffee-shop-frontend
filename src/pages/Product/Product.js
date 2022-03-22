@@ -201,16 +201,16 @@ class Product extends Component {
             <div className="col-lg-12 d-flex wrapper-card-product">
               {category === "coffee"
                 ? coffee.map((data, index) => {
-                    return (
-                      <CardProduct
-                        dataProduct={data}
-                        index={index}
-                        key={data.id}
-                      />
-                    );
-                  })
+                  return (
+                    <CardProduct
+                      dataProduct={data}
+                      index={index}
+                      key={data.id}
+                    />
+                  );
+                })
                 : category === "non+coffee"
-                ? nonCoffee.map((data, index) => {
+                  ? nonCoffee.map((data, index) => {
                     return (
                       <CardProduct
                         dataProduct={data}
@@ -219,25 +219,25 @@ class Product extends Component {
                       />
                     );
                   })
-                : category === "food"
-                ? foods.map((data, index) => {
-                    return (
-                      <CardProduct
-                        dataProduct={data}
-                        index={index}
-                        key={data.id}
-                      />
-                    );
-                  })
-                : favorite.map((data, index) => {
-                    return (
-                      <CardProduct
-                        dataProduct={data}
-                        index={index}
-                        key={data.id}
-                      />
-                    );
-                  })}
+                  : category === "food"
+                    ? foods.map((data, index) => {
+                      return (
+                        <CardProduct
+                          dataProduct={data}
+                          index={index}
+                          key={data.id}
+                        />
+                      );
+                    })
+                    : favorite.map((data, index) => {
+                      return (
+                        <CardProduct
+                          dataProduct={data}
+                          index={index}
+                          key={data.id}
+                        />
+                      );
+                    })}
             </div>
             {this.props.token ? (
               this.props.users.role === "admin" ? (
