@@ -21,6 +21,7 @@ class History extends Component {
       id: 0,
       modalVisibility: false,
       page: 1,
+      prevPage: '',
       nextPage: '',
     };
     // this.inputFile = React.createRef();
@@ -51,11 +52,14 @@ class History extends Component {
       });
   };
 
-  getHistoryUser = () => {
-    getHistory(this.props.token, this.state.page)
+  getHistoryUser = (page) => {
+    getHistory(this.props.token, page)
       .then((res) => {
-        this.setState({userHistory: res.data.data});
-        this.setState({nextPage: res.data.next_link});
+        this.setState({
+          userHistory: res.data.data,
+          prevPage: res.data.perv_link,
+          nextPage: res.data.next_link,
+        });
       })
       .catch((err) => {
         console.log({...err});
@@ -63,12 +67,12 @@ class History extends Component {
   };
 
   componentDidUpdate() {
-    this.getHistoryUser();
+    this.getHistoryUser(this.state.page);
   }
 
   componentDidMount() {
     console.log(this.props);
-    this.getHistoryUser();
+    this.getHistoryUser(this.state.page);
   }
 
   render() {
@@ -79,7 +83,7 @@ class History extends Component {
         <div className="background">
           <div className="content">
             <div className="section-title">
-              {this.state.userHistory.length > 0 ? (
+              {userHistory.length > 0 ? (
                 <>
                   <h1>Let's see what you have bought!</h1>
                   <p>Select item to delete</p>
@@ -105,12 +109,12 @@ class History extends Component {
                 />
               ))}
             </div>
-            {this.state.userHistory.length > 0 ? (
+            {userHistory.length > 0 ? (
               <div className="pagination-buttons">
                 <button
                   className="btn btn-warning"
                   onClick={() => this.setState({page: this.state.page - 1})}
-                  disabled={this.state.page < 2 ? true : false}
+                  disabled={this.state.prevPage === null ? true : false}
                 >{`<`}</button>
                 <button
                   className="btn btn-warning"

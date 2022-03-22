@@ -19,6 +19,7 @@ import Detail from "./pages/Product_Detail/Product_detail";
 import Product from "./pages/Product/Product";
 import addPromo from "./pages/Promo/addPromo";
 import EditProduct from "./pages/Edit_Product/Edit_Product";
+import EditPromo from './pages/Promo/EditPromo';
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 
 export default class Main extends Component {
@@ -140,6 +141,14 @@ export default class Main extends Component {
               }}
             />
             <Route path="/promo/add" component={addPromo} />
+            <Route
+              path="/promo/edit"
+              // render={(routerProps) => {
+              //   if (!accessToken) return <Redirect from='/promo/edit' to='/' />;
+              //   return <EditPromo {...routerProps} />;
+              // }}
+              component={EditPromo}
+            />
             <Route path="*" component={NotFound} />
           </Switch>
         </ReduxProvider>
