@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./addPromo.scoped.css";
+import { addPromoApi } from "../../utils/promo";
 
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
@@ -28,59 +29,59 @@ export class addPromo extends Component {
               <p className="ProductName"> Add new promo</p>
             </a>
           </div>
-          <div className="forms">
-            <div className="form-left border">
-              <div className="product-image">
-                <img src={Camera} alt="" />
-              </div>
-              <button className="btn btn-dark">Take a picture</button>
-              <input type="file" hidden ref={this.inputFile} />
-              <button
-                className="btn btn-warning chose"
-                onClick={this.handleFile}>
-                Choose from gallery
-              </button>
-              <div className="delivery-hour border">
-                <p className="title">Enter the discount :</p>
-                <select
-                  class="form-select start"
-                  aria-label="Default select example">
-                  <option selected>Input discount</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-              </div>
+          <form>
+            <div className="forms">
+              <div className="form-left">
+                <div className="product-image">
+                  <img src={Camera} alt="" />
+                </div>
+                <button className="btn btn-dark">Take a picture</button>
+                <input type="file" hidden ref={this.inputFile} />
+                <button
+                  className="btn btn-warning chose"
+                  onClick={this.handleFile}>
+                  Choose from gallery
+                </button>
+                <div className="delivery-hour ">
+                  <p className="title">Enter the discount :</p>
+                  <select
+                    class="form-select start"
+                    aria-label="Default select example">
+                    <option selected>Input discount</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
 
-              <div className="expire-date">
-                <p className="title-expired">Expired date :</p>
-                <input
-                  type="date"
-                  className="start-date"
-                  placeholder="Select start date"
-                />
-                <input
-                  type="date"
-                  className="end-date"
-                  placeholder="Select end date"
-                />
-              </div>
+                <div className="expire-date ">
+                  <p className="title-expired">Expired date :</p>
+                  <input
+                    type="date"
+                    className="start-date mb-3"
+                    placeholder="Select start date"
+                  />
+                  <input
+                    type="date"
+                    className="end-date"
+                    placeholder="Select end date"
+                  />
+                </div>
 
-              <div className="input-stock">
-                <p className="title">Input stock :</p>
-                <select
-                  class="form-select start"
-                  aria-label="Default select example">
-                  <option selected>Input stock</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
+                <div className="input-stock ">
+                  <p className="title">Input stock :</p>
+                  <select
+                    class="form-select start"
+                    aria-label="Default select example">
+                    <option selected>Input stock</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
               </div>
-            </div>
-            <div className="form-right">
-              <form>
-                <div class="mb-1">
+              <div className="form-right">
+                <div class="mb-5">
                   <label for="exampleInputEmail1" class="form-label">
                     Name :
                   </label>
@@ -92,7 +93,7 @@ export class addPromo extends Component {
                     placeholder="Type product name min. 50 characters"
                   />
                 </div>
-                <div class="mb-1">
+                <div class="mb-5">
                   <label for="exampleInputPassword1" class="form-label">
                     Price :
                   </label>
@@ -103,7 +104,7 @@ export class addPromo extends Component {
                     placeholder="Type the price"
                   />
                 </div>
-                <div class="mb-1">
+                <div class="mb-5">
                   <label for="exampleInputPassword1" class="form-label">
                     Description :
                   </label>
@@ -114,126 +115,130 @@ export class addPromo extends Component {
                     placeholder="Describe your product min. 150 characters"
                   />
                 </div>
-              </form>
-              <div className="input-size mb-5">
-                <label for="exampleInputPassword1" class="form-label mb-1">
-                  Input product size :
-                </label>
-                <p className="describtion">
-                  Click size you want to use for this product
-                </p>
-                <div className="btn-chose">
-                  <input
-                    type="radio"
-                    class="btn-check shadow-none"
-                    name="options1"
-                    id="option1"
-                    autocomplete="off"
-                  />
-                  <label class="btn btn-secondary" for="option1">
-                    R
-                  </label>
 
-                  <input
-                    type="radio"
-                    class="btn-check shadow-none"
-                    name="options2"
-                    id="option2"
-                    autocomplete="off"
-                  />
-                  <label class="btn btn-secondary" for="option2">
-                    L
+                <div className="input-size mb-5">
+                  <label for="exampleInputPassword1" class="form-label mb-1">
+                    Input product size :
                   </label>
+                  <p className="describtion">
+                    Click size you want to use for this product
+                  </p>
+                  <div className="btn-chose ">
+                    <input
+                      type="radio"
+                      class="btn-check shadow-none"
+                      name="options1"
+                      id="option1"
+                      autocomplete="off"
+                    />
+                    <label class="btn btn-secondary" for="option1">
+                      R
+                    </label>
 
-                  <input
-                    type="radio"
-                    class="btn-check shadow-none"
-                    name="options3"
-                    id="option3"
-                    autocomplete="off"
-                  />
-                  <label class="btn btn-secondary" for="option3">
-                    XL
-                  </label>
+                    <input
+                      type="radio"
+                      class="btn-check shadow-none"
+                      name="options2"
+                      id="option2"
+                      autocomplete="off"
+                    />
+                    <label class="btn btn-secondary" for="option2">
+                      L
+                    </label>
 
-                  <input
-                    type="radio"
-                    class="btn-check shadow-none"
-                    name="options4"
-                    id="option4"
-                    autocomplete="off"
-                  />
-                  <label class="btn btn-secondary" for="option4">
-                    250gr
-                  </label>
-                  <input
-                    type="radio"
-                    class="btn-check shadow-none"
-                    name="options5"
-                    id="option5"
-                    autocomplete="off"
-                  />
-                  <label class="btn btn-secondary" for="option5">
-                    300gr
-                  </label>
-                  <input
-                    type="radio"
-                    class="btn-check shadow-none"
-                    name="options6"
-                    id="option6"
-                    autocomplete="off"
-                  />
-                  <label class="btn btn-secondary" for="option6">
-                    500gr
-                  </label>
+                    <input
+                      type="radio"
+                      class="btn-check shadow-none"
+                      name="options3"
+                      id="option3"
+                      autocomplete="off"
+                    />
+                    <label class="btn btn-secondary" for="option3">
+                      XL
+                    </label>
+
+                    <input
+                      type="radio"
+                      class="btn-check shadow-none"
+                      name="options4"
+                      id="option4"
+                      autocomplete="off"
+                    />
+                    <label class="btn btn-secondary" for="option4">
+                      250gr
+                    </label>
+                    <input
+                      type="radio"
+                      class="btn-check shadow-none"
+                      name="options5"
+                      id="option5"
+                      autocomplete="off"
+                    />
+                    <label class="btn btn-secondary" for="option5">
+                      300gr
+                    </label>
+                    <input
+                      type="radio"
+                      class="btn-check shadow-none"
+                      name="options6"
+                      id="option6"
+                      autocomplete="off"
+                    />
+                    <label class="btn btn-secondary" for="option6">
+                      500gr
+                    </label>
+                  </div>
                 </div>
-              </div>
-              <div className="delivery-method">
-                <label for="exampleInputPassword1" class="form-label mb-1">
-                  Delivery method :
-                </label>
-                <p className="describtion">
-                  Click method you want to use for this product
-                </p>
-                <div className="btn-chose">
-                  <input
-                    type="radio"
-                    class="btn-check shadow-none"
-                    name="options7"
-                    id="option7"
-                    autocomplete="off"
-                  />
-                  <label class="btn btn-secondary" for="option7">
-                    Home Delivery
+                <div className="delivery-method mt-5">
+                  <label for="exampleInputPassword1" class="form-label mb-1">
+                    Delivery method :
                   </label>
-                  <input
-                    type="radio"
-                    class="btn-check shadow-none"
-                    name="options8"
-                    id="option8"
-                    autocomplete="off"
-                  />
-                  <label class="btn btn-secondary" for="option8">
-                    Dine in
-                  </label>
-                  <input
-                    type="radio"
-                    class="btn-check shadow-none"
-                    name="options9"
-                    id="option9"
-                    autocomplete="off"
-                  />
-                  <label class="btn btn-secondary" for="option9">
-                    Take away
-                  </label>
+                  <p className="describtion">
+                    Click method you want to use for this product
+                  </p>
+                  <div className="btn-chose">
+                    <input
+                      type="radio"
+                      class="btn-check shadow-none"
+                      name="options7"
+                      id="option7"
+                      autocomplete="off"
+                    />
+                    <label class="btn btn-secondary" for="option7">
+                      Home Delivery
+                    </label>
+                    <input
+                      type="radio"
+                      class="btn-check shadow-none"
+                      name="options8"
+                      id="option8"
+                      autocomplete="off"
+                    />
+                    <label class="btn btn-secondary" for="option8">
+                      Dine in
+                    </label>
+                    <input
+                      type="radio"
+                      class="btn-check shadow-none"
+                      name="options9"
+                      id="option9"
+                      autocomplete="off"
+                    />
+                    <label class="btn btn-secondary" for="option9">
+                      Take away
+                    </label>
+                  </div>
                 </div>
+                <button className="btn btn-primary save">Save Product</button>
+                <button className="btn btn-light cancel">Cancel</button>
               </div>
-              <button className="btn btn-primary save">Save Product</button>
-              <button className="btn btn-light cancel">Cancel</button>
             </div>
-          </div>
+          </form>
         </div>
         <Footer />
+        {/* TOAST */}
+        <div id="snackbar-success">Product berhasil ditambahkan!</div>
+        <div id="snackbar-fail">Terdapat kesalahan.</div>;
       </>
     );
   }
