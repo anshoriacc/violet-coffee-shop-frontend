@@ -1,0 +1,373 @@
+::-webkit-calendar-picker-indicator { 
+    position: relative;
+    background-image:url('../../assets/icons/backArrow.png');
+    transform: rotate(270deg);
+    bottom: 5px;
+
+    cursor: pointer;
+}
+
+.favProText{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #4F5665;
+}
+
+.edtPromoText{
+    color: #6A4029;
+}
+
+.cancelText{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 138.84%;
+
+    letter-spacing: 0.03em;
+    text-decoration-line: underline;
+    cursor: pointer;
+
+    color: #6A4029;
+}
+
+.cancelText:active{
+    color: #FFBA33;
+}
+
+.promo-bg{
+    height: 535px;
+
+    background: #FFCB65;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+
+    text-align: center;
+}
+
+.box-img{
+    display: inline-block;
+    position: relative;
+    top:22px;
+}
+.promo-img{
+    width: 186px;
+    height: 196px;
+    border-radius: 50%;
+    background-color: #4F5665;
+}
+
+.pencil-bg{
+    position: relative;
+    height: 40px;
+    width: 40px;
+    background-color: #6A4029;
+    border-radius: 50%;
+    left: 128px;
+    bottom: 42px;
+
+    cursor: pointer;
+}
+.pencil-icon{
+    position: relative;
+    top:5px;
+}
+
+.promo-name-txt{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+
+    text-align: center;
+
+    color: #000000;
+}
+
+.desc-text{
+    font-family: 'Poppins';
+    font-style: normal;
+
+    text-align: center;
+    margin-bottom: 23px;
+    color: #000000;
+}
+.line-dashed{
+    border-bottom: 1px dashed #000000;
+}
+
+.box-coupon{
+    position: relative;
+    top: 27px;
+}
+
+.coupon-txt{
+    font-family: 'Poppins';
+    font-style: normal;
+
+    text-align: center;
+    margin-bottom: 23px;
+    color: #000000;
+}
+
+.code-txt{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 101.34%;
+
+    text-align: center;
+
+    color: #000000;
+}
+
+.valid-txt{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 101.34%;
+
+    text-align: center;
+
+    color: #000000;
+}
+
+.label{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    
+    color: #6A4029;
+}
+
+.date{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-box{
+    width: auto;
+    height: 43px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 138.84%;
+
+    letter-spacing: 0.03em;
+
+    color: #000000;
+
+    background: #FFFFFF;
+    border: 1px solid #9F9F9F;
+    box-sizing: border-box;
+    border-radius: 20px;
+
+    border-radius: 10px;
+    padding-left: 23px;
+    padding-right: 18px;
+}
+
+.input-line{
+    width: 100%;
+
+    padding-bottom: 13px;
+    
+    outline: 0;
+    border-width: 0 0 1px;
+    border-color: #000000;
+}
+
+.form-edit{
+    margin-top: 90px;
+}
+
+.click-text{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #9F9F9F;
+}
+
+/* size product */
+.btn-check {
+    background-color: rgba(244, 244, 248, 1);
+}
+.size-btn {
+    display: flex;
+    /* width: 100%; */
+    justify-content: space-between;
+}
+.size-btn .rxl {
+    padding-top: 4%;
+    font-family: "Poppins";
+    font-weight: 700;
+    font-size: 10px;
+}
+.size-btn .gr {
+    /* padding-top: 4%; */
+    font-family: "Poppins";
+    font-weight: 700;
+    font-size: 8px;
+}
+.btn-secondary {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+.btn-check:checked + .btn-secondary {
+    background-color: rgba(255, 186, 51, 1) !important;
+    color: white;
+    border: none;
+}
+.btn-secondary {
+    background: rgba(186, 186, 186, 0.35);
+    color: black;
+    border: none;
+}
+
+/* method deliv */
+.btn-rectangle{
+    width: 30%;
+    border-radius: 10px;
+    background: rgba(186, 186, 186, 0.35);
+    color: black;
+    border: none;
+}
+.btn-check:checked + .btn-rectangle {
+    background-color: rgba(255, 186, 51, 1) !important;
+    color: white;
+    border: none;
+}
+
+.size-btn .method {
+    padding-top: 2%;
+    width: auto;
+    font-family: "Poppins";
+    font-weight: 700;
+}
+
+.select{
+    cursor: pointer;
+}
+
+.btn-save{
+    width: auto;
+    height: 43px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 138.84%;
+
+    padding: 2%;
+
+    background: rgba(186, 186, 186, 0.35);
+    color: #000000;
+
+    border: none;
+    box-shadow: 0px 6px 20px rgba(106, 64, 41, 0.4);
+    border-radius: 10px;
+}
+
+.btn-save:active{
+    color: #FFFFFF;
+    background-color: #6A4029;
+}
+
+/* tablet */
+@media(min-width:768px){
+    .flex-between {
+        display: flex;
+        justify-content: space-between;
+    }
+    .promo-bg{
+        width: 326px;
+        height: 771px;
+    }
+    .promo-name-txt{
+        padding: 50px;
+        font-size: 40px;
+        line-height: 101.34%;
+    }
+    .valid-txt{
+        position: relative;
+        font-size: 20px;
+        top: 32px;
+    }
+    .input-box{
+        width: 291px;
+    }
+    .form-edit{
+        margin-top: 0;
+        width: 50%;
+    }
+    .btn-save{
+        width: 100%;
+    }
+}
+
+/* laptop kecil */
+@media(min-width:1024px){
+    .promo-bg{
+        width: 426px;
+    }
+    .box-img{
+        top:52px;
+    }
+    .desc-text{
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 101.34%;
+        padding-left: 30px;
+        padding-right: 30px;
+        margin-bottom: 63px;
+    }
+    .input-box{
+        width: 391px;
+        height: 83px;
+    }
+    .btn-save{
+        height: 83px;
+    }
+    .size-btn .rxl {
+        padding-top: 3%;
+        font-family: "Poppins";
+        font-weight: 700;
+        font-size: 27px;
+    }
+    .size-btn .gr {
+        padding-top: 2%;
+        font-size: 17px;
+    }
+    .btn-secondary {
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+    }
+    .btn-rectangle{
+    height: 72px;
+    }
+    .size-btn .method{
+        padding: 5%;
+    }
+}
+
+@media(min-width:1280px){
+    .size-btn .method{
+        padding: 2%;
+        font-size: 28px;
+        }
+}
