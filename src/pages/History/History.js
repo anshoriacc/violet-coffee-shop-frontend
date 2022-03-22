@@ -67,7 +67,10 @@ class History extends Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.page !== this.state.page)
+    if (
+      prevState.page !== this.state.page ||
+      prevState.modalVisibility !== this.state.modalVisibility
+    )
       this.getHistoryUser(this.state.page);
   }
 
