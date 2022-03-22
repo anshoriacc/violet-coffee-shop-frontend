@@ -64,3 +64,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+## Deployment
+<https://violet-coffee-shop.netlify.app/>
+
+## Related Projects
+`Violet Coffee Shop - Backend` <https://github.com/anshoriacc/violet-coffee-shop-backend>
