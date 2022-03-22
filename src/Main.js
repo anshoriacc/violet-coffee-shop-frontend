@@ -81,10 +81,10 @@ export default class Main extends Component {
               }}
             />
             <Route
-              path="/product/edit"
+              path="/product/edit/:id"
               render={(routerProps) => {
                 if (!accessToken)
-                  return <Redirect from="/product/edit" to="/" />;
+                  return <Redirect from="/product/edit/:id" to="/" />;
                 return <EditProduct {...routerProps} />;
               }}
             />

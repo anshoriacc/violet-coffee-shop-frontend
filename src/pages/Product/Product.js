@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./Product.scoped.css";
-import Header from "../../components/Navbar/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import CardProduct from "../../components/CardProduct/CardProduct";
 import CardCoupon from "../../components/CardCoupon/CardCoupon";
@@ -126,7 +126,7 @@ class Product extends Component {
 
     return (
       <>
-        <Header />
+        <Navbar />
         <div className="row">
           <div className="col-lg-4 col-md-6 wrapper-left border">
             <div className="wrapper-title-promo">
@@ -176,7 +176,7 @@ class Product extends Component {
               <Link to="/" className="link">
                 Edit Promo
               </Link>
-              <Link to="/" className="link">
+              <Link to="/promo/add" className="link">
                 Add Promo
               </Link>
             </div>

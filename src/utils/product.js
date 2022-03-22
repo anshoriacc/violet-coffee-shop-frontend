@@ -23,3 +23,13 @@ export const detailProduct = (id) => {
   const URL = `${process.env.REACT_APP_HOST}/product/${id}`;
   return axios.get(URL);
 };
+
+export const deleteProduct = (id, token) => {
+  const url = `${process.env.REACT_APP_HOST}/product/${id}`;
+  return axios.delete(url, { headers: { "x-access-token": token } });
+};
+
+export const updateProduct = (id, token, body) => {
+  const url = `${process.env.REACT_APP_HOST}/product/${id}`;
+  return axios.patch(url, body, { headers: { "x-access-token": token } });
+};
