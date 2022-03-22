@@ -66,8 +66,9 @@ class History extends Component {
       });
   };
 
-  componentDidUpdate() {
-    this.getHistoryUser(this.state.page);
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.page !== this.state.page)
+      this.getHistoryUser(this.state.page);
   }
 
   componentDidMount() {
