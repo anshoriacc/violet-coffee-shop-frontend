@@ -1,0 +1,82 @@
+.wrapper-modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+}
+
+.modal-content {
+  width: 500px;
+  background-color: #fff;
+}
+
+.modal-header,
+.modal-footer {
+  padding: 10px;
+}
+
+.modal-title {
+  margin: 0;
+}
+
+.modal-body {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  font-family: Poppins;
+  font-size: 25px;
+  font-weight: 400;
+  /* background-color: rebeccapurple; */
+  text-align: center;
+}
+
+.modal-footer {
+  justify-content: space-around;
+}
+
+.btn-tutup,
+.btn-delete {
+  border-radius: 20px;
+  width: 160px;
+  height: 60px;
+}
+
+.btn-delete:hover,
+.btn-tutup:hover {
+  box-shadow: 0px 5px 10px 0px;
+}
+
+.btn-tutup {
+  border: 1px solid #6a4029;
+  background-color: #fff;
+}
+
+.btn-delete {
+  background-color: #6a4029;
+}
+
+.title-delete {
+  color: #fff;
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.title-close {
+  color: #6a4029;
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}

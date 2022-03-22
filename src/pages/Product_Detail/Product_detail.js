@@ -5,7 +5,10 @@ import "./Product_detail.scoped.css";
 import Navbar from "../../components/Navbar/NavLog";
 import Footer from "../../components/Footer/Footer";
 import { connect } from "react-redux";
-import { deletDeliveryItem, setDeliveryItem } from "../../Redux/actions/delivery";
+import {
+  deletDeliveryItem,
+  setDeliveryItem
+} from "../../Redux/actions/delivery";
 // import { setDeliveryItem } from "../../Redux/actions/delivery";
 import { bindActionCreators } from "redux";
 import { detailProduct } from "../../utils/product";
@@ -21,7 +24,7 @@ class Product_detail extends Component {
       counter: 1,
       size: "",
       now: "",
-      deliveryOption: "",
+      deliveryOption: ""
     };
     this.inputFile = React.createRef();
   }
@@ -62,8 +65,8 @@ class Product_detail extends Component {
         totalPrice: this.state.dataProduct.price * this.state.counter,
         size: this.state.size,
         devlieryOption: this.state.deliveryOption,
-        product_id: this.state.dataProduct.id,
-      },
+        product_id: this.state.dataProduct.id
+      }
     ];
     this.props.setDeliveryItem(body);
     // console.log("ITEMS", this.props.delivery);
@@ -79,14 +82,20 @@ class Product_detail extends Component {
 
   render() {
     const { name, image, price, description } = this.state.dataProduct;
-    console.log("CHECKED", this.props.delivery);
-    console.log("CHECKED", this.state.size);
+    // console.log("CHECKED", this.props.delivery);
+    // console.log("CHECKED", this.state.size);
+    const user = this.props.user.userData;
+    const { role } = user;
+    const id = this.props.match.params.id;
+    console.log("ROLE", role);
+    console.log("ID PRODUCT", id);
     return (
       <div className="main">
         <Navbar />
         <div className="jumbotron">
           <a href="/" className="link">
-            <p className="pref">Product </p> || <p className="ProductName">{name}</p>
+            <p className="pref">Product </p> ||{" "}
+            <p className="ProductName">{name}</p>
           </a>
           <div className="wrapper">
             <div className="wrapper-left">
@@ -94,17 +103,49 @@ class Product_detail extends Component {
               <div className="flying-card">
                 <p>Delivery and time</p>
                 <div className="delivery-btn">
-                  <input type="checkbox" class="btn-check custom-control-input" value="Dine in" onChange={(e) => this.setState({ deliveryOption: e.target.value })} name="options" id="dine in" autocomplete="off" />
+                  <input
+                    type="checkbox"
+                    class="btn-check custom-control-input"
+                    value="Dine in"
+                    onChange={(e) =>
+                      this.setState({ deliveryOption: e.target.value })
+                    }
+                    name="options"
+                    id="dine in"
+                    autocomplete="off"
+                  />
                   <label class="btn btn-secondary dine-in" for="dine in">
                     Dine In
                   </label>
 
-                  <input type="checkbox" class="btn-check" name="options" value="Door delivery" onChange={(e) => this.setState({ deliveryOption: e.target.value })} id="door delivery" autocomplete="off" />
-                  <label class="btn btn-secondary door-delivery" for="door delivery">
+                  <input
+                    type="checkbox"
+                    class="btn-check"
+                    name="options"
+                    value="Door delivery"
+                    onChange={(e) =>
+                      this.setState({ deliveryOption: e.target.value })
+                    }
+                    id="door delivery"
+                    autocomplete="off"
+                  />
+                  <label
+                    class="btn btn-secondary door-delivery"
+                    for="door delivery">
                     Door Delivery
                   </label>
 
-                  <input type="checkbox" class="btn-check" name="options" id="Pick Up" value="Pick up" onChange={(e) => this.setState({ deliveryOption: e.target.value })} autocomplete="off" />
+                  <input
+                    type="checkbox"
+                    class="btn-check"
+                    name="options"
+                    id="Pick Up"
+                    value="Pick up"
+                    onChange={(e) =>
+                      this.setState({ deliveryOption: e.target.value })
+                    }
+                    autocomplete="off"
+                  />
                   <label class="btn btn-secondary pick-up" for="Pick Up">
                     Pick Up
                   </label>
@@ -112,12 +153,28 @@ class Product_detail extends Component {
 
                 <div className="time">
                   <p>Now</p>
-                  <input type="checkbox" class="btn-check" name="options" id="yes" value="yes" onChange={(e) => this.setState({ now: e.target.value })} autocomplete="off" />
+                  <input
+                    type="checkbox"
+                    class="btn-check"
+                    name="options"
+                    id="yes"
+                    value="yes"
+                    onChange={(e) => this.setState({ now: e.target.value })}
+                    autocomplete="off"
+                  />
                   <label class="btn btn-secondary yes" for="yes">
                     Yes
                   </label>
 
-                  <input type="checkbox" class="btn-check" name="options" id="no" value="no" onChange={(e) => this.setState({ now: e.target.value })} autocomplete="off" />
+                  <input
+                    type="checkbox"
+                    class="btn-check"
+                    name="options"
+                    id="no"
+                    value="no"
+                    onChange={(e) => this.setState({ now: e.target.value })}
+                    autocomplete="off"
+                  />
                   <label class="btn btn-secondary no" for="no">
                     No
                   </label>
@@ -125,7 +182,12 @@ class Product_detail extends Component {
 
                 <div className="set-time">
                   <p>Set time</p>
-                  <input class="form-control shadow-none" type="text" placeholder="Enter time to reservation" aria-label="default input example" />
+                  <input
+                    class="form-control shadow-none"
+                    type="text"
+                    placeholder="Enter time to reservation"
+                    aria-label="default input example"
+                  />
                 </div>
               </div>
             </div>
@@ -141,11 +203,15 @@ class Product_detail extends Component {
                 at <strong>1 - 7 pm</strong>
               </p>
               <div className="counter">
-                <button className="btn btn-primary plus" onClick={this.minusCount}>
+                <button
+                  className="btn btn-primary plus"
+                  onClick={this.minusCount}>
                   -
                 </button>
                 <p className="count">{this.state.counter}</p>
-                <button className="btn btn-primary minus" onClick={this.addCount}>
+                <button
+                  className="btn btn-primary minus"
+                  onClick={this.addCount}>
                   +
                 </button>
               </div>
@@ -153,7 +219,17 @@ class Product_detail extends Component {
               <button className="btn btn-success" onClick={this.setDelivery}>
                 Add to chart
               </button>
-              <button className="btn btn-warning">Ask a staff</button>
+              {role !== "admin" ? (
+                <button className="btn btn-warning">Ask a staff</button>
+              ) : (
+                <button
+                  className="btn btn-warning"
+                  onClick={() => {
+                    this.props.history.push(`/product/edit/${id}`);
+                  }}>
+                  Edit Product
+                </button>
+              )}
             </div>
           </div>
           <div className="second-wrapper">
@@ -161,17 +237,41 @@ class Product_detail extends Component {
               <p>Choose a size</p>
 
               <div className="size-btn">
-                <input type="checkbox" class="btn-check" name="options" id="regular" value="R" onChange={(e) => this.setState({ size: e.target.value })} autocomplete="off" />
+                <input
+                  type="checkbox"
+                  class="btn-check"
+                  name="options"
+                  id="regular"
+                  value="R"
+                  onChange={(e) => this.setState({ size: e.target.value })}
+                  autocomplete="off"
+                />
                 <label class="btn btn-secondary" for="regular">
                   R
                 </label>
 
-                <input type="checkbox" class="btn-check" name="options" id="large" value="L" onChange={(e) => this.setState({ size: e.target.value })} autocomplete="off" />
+                <input
+                  type="checkbox"
+                  class="btn-check"
+                  name="options"
+                  id="large"
+                  value="L"
+                  onChange={(e) => this.setState({ size: e.target.value })}
+                  autocomplete="off"
+                />
                 <label class="btn btn-secondary" for="large">
                   L
                 </label>
 
-                <input type="checkbox" class="btn-check" name="options" value="XL" onChange={(e) => this.setState({ size: e.target.value })} id="extra large" autocomplete="off" />
+                <input
+                  type="checkbox"
+                  class="btn-check"
+                  name="options"
+                  value="XL"
+                  onChange={(e) => this.setState({ size: e.target.value })}
+                  id="extra large"
+                  autocomplete="off"
+                />
                 <label class="btn btn-secondary" for="extra large">
                   XL
                 </label>
@@ -185,7 +285,9 @@ class Product_detail extends Component {
                 <li>x1 (Regular)</li>
               </ul>
               <p className="checkout">Checkout</p>
-              <button className="btn btn-warning checkout-btn" onClick={() => this.props.history.push("/product/payment")}>
+              <button
+                className="btn btn-warning checkout-btn"
+                onClick={() => this.props.history.push("/product/payment")}>
                 {" "}
                 <i class="bi bi-arrow-right" />{" "}
               </button>
@@ -203,13 +305,14 @@ class Product_detail extends Component {
 const mapStateToProps = (state) => {
   return {
     delivery: state.delivery.item,
+    user: state.auth
   };
 };
 
 const mapDispatchToPropps = (dispatch) => {
   return {
     setDeliveryItem: bindActionCreators(setDeliveryItem, dispatch),
-    delDeliveryItme: bindActionCreators(deletDeliveryItem, dispatch),
+    delDeliveryItme: bindActionCreators(deletDeliveryItem, dispatch)
   };
 };
 

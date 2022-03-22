@@ -14,7 +14,7 @@ export class Navbar extends Component {
     };
   }
   componentDidMount() {
-    console.log("COMPONENT DID MOUNT");
+    // console.log("COMPONENT DID MOUNT");
     if (this.props.auth.token) {
       this.setState({
         isLogin: true
@@ -23,12 +23,13 @@ export class Navbar extends Component {
   }
 
   componentDidUpdate() {
-    console.log("COMPONENT DID UPDATE");
+    // console.log("COMPONENT DID UPDATE");
   }
   render() {
     const isLogin = this.state.isLogin;
     const profilepic =
       this.props.user.image !== null ? this.props.user.image : Default;
+    console.log(this.props.user.image);
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">

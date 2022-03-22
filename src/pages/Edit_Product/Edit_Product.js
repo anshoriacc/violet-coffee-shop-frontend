@@ -5,8 +5,15 @@ import "./Edit_Product.scoped.css";
 import Navbar from "../../components/Navbar/NavLog";
 import Footer from "../../components/Footer/Footer";
 import { formater } from "../../helpers/formatNumber";
-import { detailProduct } from "../../utils/product";
+import {
+  detailProduct,
+  deleteProduct,
+  updateProduct
+} from "../../utils/product";
 import imageDefault from "../../assets/images/no-image.jpg";
+import ModalDelete from "../../components/Modal/ModalDelete";
+import ModalEdit from "../../components/Modal/ModalEdit";
+import ModalErrorEditProduct from "../../components/Modal/ModalErrorEditProduct";
 
 class Edit_Product extends Component {
   constructor(props) {
@@ -19,19 +26,62 @@ class Edit_Product extends Component {
       selectedFile: null,
       imageProduct: imageDefault,
       editMode: false,
-      counter: 1
+      counter: 1,
+      editSuccess: false,
+      updateFailed: false,
+      notNull: false,
+      showModal: false,
+      onDelete: false,
+      deleteSuccess: false,
+      inputName: "",
+      inputPrice: "",
+      inputDescription: ""
     };
   }
 
   componentDidMount() {
-    detailProduct(3)
+    detailProduct(this.props.match.params.id)
       .then((res) => {
         // console.log(res);
+        // if (res.data.data)
+        const photo = res.data.data.image;
+        if (photo !== null && typeof photo !== "undefined" && photo !== "")
+          this.setState({
+            imageProduct: photo
+          });
         this.setState({ dataProduct: { ...res.data.data } });
       })
       .catch((err) => {
         console.log(err);
       });
+  }
+
+  componentDidUpdate() {
+    const id = this.state.dataProduct.id;
+    const token = this.props.token;
+    // console.log("ID >>>", id);
+    // console.log("TOKEN >>>", token);
+    if (this.state.onDelete) {
+      deleteProduct(id, token)
+        .then((res) => {
+          console.log(res);
+          if (res.status === 200) {
+            this.setState({ deleteSuccess: true });
+            setTimeout(() => {
+              this.setState({
+                deleteSuccess: false,
+                showModal: false
+              });
+              this.props.history.push("/product");
+            }, 2500);
+          }
+        })
+        .catch((err) => console.log(err.response));
+    }
+
+    // if (this.state.editMode) {
+    //   this.handleSave();
+    // }
   }
 
   addCount = () => {
@@ -71,23 +121,78 @@ class Edit_Product extends Component {
     this.inputFileRef.current.click();
   };
 
+  handleSave = () => {
+    const id = this.state.dataProduct.id !== null && this.state.dataProduct.id;
+    const token = this.props.token;
+    // console.log(id, token);
+    const body = new FormData();
+    if (this.state.selectedFile !== null) {
+      console.log("HANDLE SAVE", this.state.selectedFile);
+      body.append(
+        "image",
+        this.state.selectedFile,
+        this.state.selectedFile.name
+      );
+    }
+    if (this.state.inputName !== null && this.state.inputName !== "") {
+      body.append("name", this.state.inputName);
+    }
+    // console.log("NOT NULL", this.state.inputName);
+    if (this.state.inputPrice !== null) {
+      body.append("price", this.state.inputPrice);
+    }
+    body.append("stock", this.state.counter);
+    if (this.state.inputDescription !== null) {
+      body.append("description", this.state.inputDescription);
+    }
+    // console.log("BODY", body.get("image"));
+
+    updateProduct(id, token, body)
+      .then((res) => {
+        // console.log("RESPONSE UPDATE", res);
+        this.setState({ editSuccess: true });
+
+        setTimeout(() => {
+          this.setState({
+            editSuccess: false
+          });
+          this.props.history.push("/product");
+        }, 2500);
+      })
+      .catch((err) => {
+        console.log("RESPONSE ERROR UPDATE", err);
+        this.setState({ updateFailed: true });
+      });
+  };
+
   render() {
-    console.log("PRODUCT >>>", this.state.dataProduct);
-    const {
-      name,
-      category,
-      image,
-      id,
-      price,
-      stock,
-      description
-    } = this.state.dataProduct;
-    const role = this.props.users.role;
-    console.log("ROLE", role);
-    console.log("SELECTED IMAGE", this.state.selectedFile);
+    // console.log("PRODUCT >>>", this.state.dataProduct);
+    const { name, category, price, description } = this.state.dataProduct;
+
+    // console.log("DELETE SUCCESS", this.state.deleteSuccess);
+    // console.log("INPUT NAME", this.state.inputName);
+    // console.log("INPUT PRICE", this.state.inputPrice);
+    // console.log("INPUT DESCRIPTION", this.state.inputDescription);
     return (
       <>
+        <ModalDelete
+          show={this.state.showModal}
+          onClose={() => this.setState({ showModal: false, onDelete: false })}
+          onDelete={() => this.setState({ onDelete: true })}
+        />
+        <ModalEdit show={this.state.editSuccess} />
+        <ModalErrorEditProduct
+          show={this.state.updateFailed}
+          onClose={() => this.setState({ updateFailed: false })}
+        />
         <Navbar />
+        <div className={this.state.deleteSuccess ? "toast2-success" : "toast2"}>
+          Delete Product Success
+        </div>
+        <div className={this.state.notNull ? "toast2-success" : "toast2"}>
+          Tidak boleh kosong
+        </div>
+
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-12  mt-5 mb-5 d-lg-flex align-items-center ps-lg-5 pe-lg-0">
@@ -134,18 +239,19 @@ class Edit_Product extends Component {
                 <div
                   className="wrapper-icon-delete"
                   onClick={() => {
-                    alert("DELETE PRODUCT");
+                    this.setState({ showModal: true });
                   }}>
                   <div className="icon-delete">
-                    <i class="bi bi-trash3-fill icon-delete2" />
+                    <i className="bi bi-trash3-fill icon-delete2" />
                   </div>
                 </div>
-                <div className="wrapper-image">
+                <div
+                  className="wrapper-image"
+                  onClick={this.state.editMode ? this.inputImage : null}>
                   <img
                     src={this.state.imageProduct}
                     alt="Img Product"
                     className="image-product"
-                    onClick={this.inputImage}
                   />
                   <input
                     type="file"
@@ -161,9 +267,62 @@ class Edit_Product extends Component {
               <div className="col-lg-7 ps-lg-5  wrapper-form">
                 {Object.keys(this.state.dataProduct).length !== 0 ? (
                   <>
-                    <p className="name-product">{name}</p>
-                    <p className="price-product">{formater.format(price)}</p>
-                    <p className="description-product">{description}</p>
+                    <p
+                      className={
+                        !this.state.editMode ? "name-product" : "toast2"
+                      }>
+                      {name}
+                    </p>
+                    <div
+                      className={
+                        this.state.editMode ? "wrapper-input" : "toast2"
+                      }>
+                      <input
+                        className="input-name"
+                        placeholder="Name Product"
+                        onChange={(e) => {
+                          this.setState({ inputName: e.target.value });
+                        }}
+                      />
+                    </div>
+                    <p
+                      className={
+                        !this.state.editMode ? "price-product" : "toast2"
+                      }>
+                      {formater.format(price)}
+                    </p>
+                    <div
+                      className={
+                        this.state.editMode ? "wrapper-input" : "toast2"
+                      }>
+                      <input
+                        className="input-price"
+                        placeholder="Price Product"
+                        onChange={(e) => {
+                          this.setState({ inputPrice: e.target.value });
+                        }}
+                      />
+                    </div>
+                    <p
+                      className={
+                        !this.state.editMode ? "description-product" : "toast2"
+                      }>
+                      {description}
+                    </p>
+                    <div
+                      className={
+                        this.state.editMode ? "wrapper-input" : "toast2"
+                      }>
+                      <input
+                        className="input-description"
+                        placeholder="Description Product"
+                        onChange={(e) => {
+                          this.setState({
+                            inputDescription: e.target.value
+                          });
+                        }}
+                      />
+                    </div>
                   </>
                 ) : (
                   <p className="isLoading">Loading ...</p>
@@ -195,12 +354,14 @@ class Edit_Product extends Component {
                   <div className="col-lg-3">
                     <div className="counter">
                       <div className="minus" onClick={this.minusCount}>
-                        {/* <i class="bi bi-dash-lg" /> */}
                         <p className="icon-minus">-</p>
                       </div>
-                      <p className="count">{this.state.counter}</p>
+                      <p className="count">
+                        {this.state.editMode
+                          ? this.state.counter
+                          : this.state.dataProduct.stock}
+                      </p>
                       <div className="plus" onClick={this.addCount}>
-                        {/* <i class="bi bi-plus-lg" /> */}
                         <p className="icon-plus">+</p>
                       </div>
                     </div>
@@ -222,9 +383,23 @@ class Edit_Product extends Component {
                 </p>
               </div>
               <div className="col-lg-7 ps-lg-5 wrapper-btn-editProduct">
-                <div className="btn-editProduct ">
-                  <p className="title-btn-editProduct">Edit Product</p>
-                </div>
+                {!this.state.editMode ? (
+                  <div
+                    className="btn-editProduct "
+                    onClick={() => {
+                      this.setState({ editMode: !this.state.editMode });
+                    }}>
+                    <p className="title-btn-editProduct">Edit Product</p>
+                  </div>
+                ) : (
+                  <div
+                    className="btn-editProduct"
+                    onClick={() => {
+                      this.handleSave();
+                    }}>
+                    <p className="title-btn-editProduct">Save Changes</p>
+                  </div>
+                )}
               </div>
             </div>
           </form>
