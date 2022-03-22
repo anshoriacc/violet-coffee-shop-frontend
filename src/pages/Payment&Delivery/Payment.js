@@ -1,13 +1,15 @@
-import React, { Component } from "react";
-import "./Payment.scoped.css";
+import React, {Component} from 'react';
+import './Payment.scoped.css';
 
-import Navbar from "../../components/Navbar/NavLog";
-import Footer from "../../components/Footer/Footer";
-import { connect } from "react-redux";
-import { formater } from "../../helpers/formatNumber";
-import { userCheckOut } from "../../utils/checkout";
-import { Modal } from "react-bootstrap";
-import Image from "../../assets/images/background-profile.jpg";
+import Navbar from '../../components/Navbar/NavLog';
+import Footer from '../../components/Footer/Footer';
+import {connect} from 'react-redux';
+import {formater} from '../../helpers/formatNumber';
+import {userCheckOut} from '../../utils/checkout';
+import {Modal} from 'react-bootstrap';
+import Image from '../../assets/images/background-profile.jpg';
+import {bindActionCreators} from 'redux';
+import {deletDeliveryItem} from '../../Redux/actions/delivery';
 
 class Payment extends Component {
   constructor(props) {
@@ -23,62 +25,71 @@ class Payment extends Component {
   }
 
   handleShowModal = () => {
-    this.setState({ isShowModal: true })
-  }
-
-  Edit = () => {
-    this.setState({ isEdit: !this.state.isEdit });
-    console.log(this.state.isEdit);
-
+    this.setState({isShowModal: true});
   };
 
+  Edit = () => {
+    this.setState({isEdit: !this.state.isEdit});
+    console.log(this.state.isEdit);
+  };
 
   subTotal = () => {
     let total = 0;
     for (let i = 0; i < this.props.delivery.length; i++) {
       total += this.props.delivery[i].totalPrice;
     }
-    console.log("TOTAL BRO", total);
-    this.setState({ totalPrice: total });
+    console.log('TOTAL BRO', total);
+    this.setState({totalPrice: total});
   };
 
   componentDidMount() {
     this.subTotal();
-    console.log("USER DATA", this.props.users);
+    console.log('USER DATA', this.props.users);
   }
 
   checkOut = async () => {
     try {
-      let body = {}
-      const arrSendDeliv = []
-      const arrDeliv = this.props.delivery
-      Array.isArray(arrDeliv) && arrDeliv.forEach((data) => {
-        body = {
-          product_id: data.product_id,
-          size: data.size,
-          quantity: data.quantity
-        }
-        arrSendDeliv.push(body)
-      })
+      let body = {};
+      const arrSendDeliv = [];
+      const arrDeliv = this.props.delivery;
+      Array.isArray(arrDeliv) &&
+        arrDeliv.forEach((data) => {
+          body = {
+            product_id: data.product_id,
+            size: data.size,
+            quantity: data.quantity,
+          };
+          arrSendDeliv.push(body);
+        });
 
       const send = {
         products: arrSendDeliv,
-        delivery_method: "dine_in",
-        set_time: "13:00:00",
-        bank: "bca",
-      }
+        delivery_method: 'dine_in',
+        set_time: '13:00:00',
+        bank: 'bca',
+      };
       const result = await userCheckOut(send, this.props.token);
-      this.setState({ msgSuccess: result.data.data.resMidtrans.status_message })
-      this.setState({ bank: result.data.data.resMidtrans.va_numbers[0].bank })
-      this.setState({ bankNumber: result.data.data.resMidtrans.va_numbers[0].va_number })
-      this.handleShowModal()
+      this.setState({msgSuccess: result.data.data.resMidtrans.status_message});
+      this.setState({bank: result.data.data.resMidtrans.va_numbers[0].bank});
+      this.setState({
+        bankNumber: result.data.data.resMidtrans.va_numbers[0].va_number,
+      });
+      this.handleShowModal();
+      this.props.delDeliveryItme();
+      setTimeout(function() {
+        window.open(
+          'https://simulator.sandbox.midtrans.com/bca/va/index',
+          '_blank'
+        );
+      }, 2000);
     } catch (error) {
-      console.log({ ...error });
+      console.log({...error});
+      this.props.delDeliveryItme();
     }
   };
 
   render() {
-    console.log('ini hasil', this.props.bank)
+    console.log('ini hasil', this.props.bank);
     return (
       <div className="main">
         <Navbar />
@@ -96,7 +107,9 @@ class Payment extends Component {
                     <p className="product-name">{val.name}</p>
                     <p className="product-order">x{val.count}</p>
                     <p className="size-order">{val.size}</p>
-                    <p className="product-price">{formater.format(val.totalPrice)}</p>
+                    <p className="product-price">
+                      {formater.format(val.totalPrice)}
+                    </p>
                   </div>
                 </div>
               );
@@ -111,7 +124,9 @@ class Payment extends Component {
             <div className="order">
               <div className="subtotal">
                 <p className="sub-total">SUBTOTAL</p>
-                <p className="sub-idr">{formater.format(this.state.totalPrice)}</p>
+                <p className="sub-idr">
+                  {formater.format(this.state.totalPrice)}
+                </p>
               </div>
               <div className="tax-fees">
                 <p className="tax">TAX & FEES</p>
@@ -123,7 +138,9 @@ class Payment extends Component {
               </div>
               <div className="total">
                 <p className="total-order">TOTAL</p>
-                <p className="total-idr">{formater.format(this.state.totalPrice + 5000 + 10000)}</p>
+                <p className="total-idr">
+                  {formater.format(this.state.totalPrice + 5000 + 10000)}
+                </p>
               </div>
             </div>
           </div>
@@ -137,13 +154,34 @@ class Payment extends Component {
             <div className="address-card">
               <form>
                 <div class="mb-0">
-                  <input type="email" class="form-control shadow-none" placeholder={`Delivery To ${this.props.users.delivery_adress}`} id="exampleInputEmail1" aria-describedby="emailHelp" disabled={this.state.isEdit} />
+                  <input
+                    type="email"
+                    class="form-control shadow-none"
+                    placeholder={`Delivery To ${
+                      this.props.users.delivery_adress
+                    }`}
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    disabled={this.state.isEdit}
+                  />
                 </div>
                 <div class="mb-0">
-                  <input type="text" class="form-control shadow-none" placeholder={this.props.users.delivery_adress} id="exampleInputPassword1" disabled={this.state.isEdit} />
+                  <input
+                    type="text"
+                    class="form-control shadow-none"
+                    placeholder={this.props.users.delivery_adress}
+                    id="exampleInputPassword1"
+                    disabled={this.state.isEdit}
+                  />
                 </div>
                 <div class="mb-0">
-                  <input type="text" class="form-control shadow-none" placeholder={`+62 ${this.props.users.phone}`} id="exampleInputPassword1" disabled={this.state.isEdit} />
+                  <input
+                    type="text"
+                    class="form-control shadow-none"
+                    placeholder={`+62 ${this.props.users.phone}`}
+                    id="exampleInputPassword1"
+                    disabled={this.state.isEdit}
+                  />
                 </div>
               </form>
             </div>
@@ -163,27 +201,41 @@ class Payment extends Component {
         <Modal show={this.state.isShowModal} centered>
           <Modal.Header>
             <Modal.Title>
-              <h2 style={{ textAlign: 'center' }}>{this.state.msgSuccess}</h2>
+              <h2 style={{textAlign: 'center'}}>{this.state.msgSuccess}</h2>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <p style={{
-              fontFamily: 'Rubik',
-              fontWeight: 300,
-              width: '100%',
-              textAlign: 'center',
-              fontSize: 20
-            }}>{`${this.state.bank} ${this.state.bankNumber}`}</p>
+            <p
+              style={{
+                fontFamily: 'Rubik',
+                fontWeight: 300,
+                width: '100%',
+                textAlign: 'center',
+                fontSize: 20,
+              }}
+            >{`${this.state.bank} ${this.state.bankNumber}`}</p>
           </Modal.Body>
           <Modal.Footer>
-            <div style={{
-              position: 'relative',
-              width: '100%',
-              height: 50,
-              display: 'flex',
-              justifyContent: 'center'
-            }}>
-              <button className="btn btn-warning" onClick={() => { this.props.history.push("/") }}>Go Home</button>
+            <div
+              style={{
+                position: 'relative',
+                width: '100%',
+                height: 50,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <p>Redirecting to payment...</p>
+              <button
+                className="btn btn-warning"
+                onClick={() => {
+                  this.props.history.push('/');
+                }}
+              >
+                Go Home
+              </button>
             </div>
           </Modal.Footer>
         </Modal>
@@ -201,4 +253,13 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Payment);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    delDeliveryItme: bindActionCreators(deletDeliveryItem, dispatch),
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Payment);
