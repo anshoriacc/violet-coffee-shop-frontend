@@ -57,8 +57,8 @@ class History extends Component {
       .then((res) => {
         this.setState({
           userHistory: res.data.data,
-          // prevPage: res.data.perv_link,
-          // nextPage: res.data.next_link,
+          prevPage: res.data.perv_link,
+          nextPage: res.data.next_link,
         });
       })
       .catch((err) => {
