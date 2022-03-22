@@ -19,13 +19,14 @@
 
 .forms {
   width: 90%;
-  height: 100vh;
+  height: 150vh;
   margin: 5% auto 5% auto;
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-gap: 5%;
   grid-template-areas: "left right";
   position: relative;
+  /* background-color: green; */
 }
 
 .form-left {
@@ -76,17 +77,22 @@ button:hover {
 
 .form-left .btn-dark {
   position: absolute;
-  top: 30%;
+  top: 23%;
   left: 22%;
   width: 250px;
   height: 68px;
   border-radius: 20px;
   background-color: rgba(11, 19, 42, 1);
+  /* margin-bottom: 10px; */
 }
 
 .btn-warning {
   background-color: rgba(255, 186, 51, 1);
   color: rgba(106, 64, 41, 1);
+  /* margin-top: 10px; */
+  position: absolute;
+  top: 33% !important;
+  left: 22%;
 }
 
 .btn-warning:hover {
@@ -105,7 +111,7 @@ button:hover {
 
 .delivery-hour {
   position: absolute;
-  top: 53%;
+  top: 45%;
   left: 23%;
   font-family: Rubik;
   font-size: 22px;
@@ -119,7 +125,7 @@ button:hover {
 
 .expire-date {
   position: absolute;
-  top: 68%;
+  top: 60%;
   left: 23%;
   font-family: Rubik;
   font-size: 22px;
@@ -143,7 +149,7 @@ button:hover {
 
 .input-stock {
   position: absolute;
-  bottom: -5%;
+  bottom: 7%;
   left: 23%;
   font-family: Rubik;
   font-size: 22px;
@@ -254,7 +260,7 @@ button:hover {
   height: 72px;
   width: 180px;
   left: 896px;
-  top: 1105px;
+  top: 1120px;
   border-radius: 20px;
   font-family: Rubik;
   font-size: 20px;
@@ -276,7 +282,7 @@ button:hover {
 
 .save {
   position: absolute;
-  bottom: 10%;
+  bottom: 15%;
   left: 20%;
   height: 58px;
   width: 494px;
@@ -286,9 +292,9 @@ button:hover {
 }
 
 .save:hover {
-  position: absolute;
+  /* position: absolute;
   bottom: 10%;
-  left: 20%;
+  left: 20%; */
   height: 58px;
   width: 494px;
   border-radius: 20px;
@@ -298,7 +304,7 @@ button:hover {
 
 .cancel {
   position: absolute;
-  bottom: 0%;
+  bottom: 7%;
   left: 20%;
   height: 58px;
   width: 494px;
@@ -309,13 +315,63 @@ button:hover {
 }
 
 .cancel:hover {
-  position: absolute;
+  /* position: absolute;
   bottom: 0%;
-  left: 20%;
+  left: 20%; */
   height: 58px;
   width: 494px;
   border-radius: 20px;
   background-color: rgba(186, 186, 186, 0.35);
   color: rgba(79, 86, 101, 1);
   border: none;
+}
+
+/* TOAST */
+
+#snackbar-fail {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(255, 0, 0);
+  font-family: Rubik;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 999;
+  left: 50%;
+  bottom: 30px;
+}
+
+#snackbar-fail.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#snackbar-success {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 146, 19);
+  font-family: Rubik;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 999;
+  left: 50%;
+  bottom: 30px;
+}
+
+#snackbar-success.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
