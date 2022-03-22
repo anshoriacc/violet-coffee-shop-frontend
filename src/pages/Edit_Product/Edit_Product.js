@@ -105,7 +105,7 @@ class Edit_Product extends Component {
         imageProduct: reader.result
       });
     };
-    reader.onerror = function(error) {
+    reader.onerror = function (error) {
       console.log("Error: ", error);
     };
   }
@@ -204,21 +204,21 @@ class Edit_Product extends Component {
                       category === "food"
                         ? "/product/food"
                         : category === "non coffee"
-                        ? "/product/non+coffee"
-                        : category === "coffee"
-                        ? "/product/coffee"
-                        : "/product"
+                          ? "/product/non+coffee"
+                          : category === "coffee"
+                            ? "/product/coffee"
+                            : "/product"
                     }>
                     <p className="category-breadcrumb">
                       {category === null
                         ? "Favorite & Promo"
                         : category === "coffee"
-                        ? "Coffee"
-                        : category === "non coffee"
-                        ? "Non Coffee"
-                        : category === "food"
-                        ? "Food"
-                        : null}
+                          ? "Coffee"
+                          : category === "non coffee"
+                            ? "Non Coffee"
+                            : category === "food"
+                              ? "Food"
+                              : null}
                     </p>
                   </Link>
 
