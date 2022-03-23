@@ -62,7 +62,7 @@ Download all dependency packages needed for the application in [Packages used](#
 ### 3. Configure .env file
 
 Configure .env file by create file named .env inside project folder and add this line to the file:
-`REACT_APP_HOST = "https://coffee-shop-back-end.herokuapp.com/api"`
+```REACT_APP_HOST = "https://coffee-shop-back-end.herokuapp.com/api"```
 
 ### 4. Run `npm start`
 
