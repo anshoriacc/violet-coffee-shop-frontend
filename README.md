@@ -57,7 +57,11 @@ Violet coffee shop is a web application that can make it easier for customer to 
 
 ### 1. Clone this repository
 
-Clone this repository by run `$ git clone <this-repo-url>`.
+Clone this repository by run
+
+```
+$ git clone <this-repo-url>
+```
 
 ### 2. Download all packages
 
