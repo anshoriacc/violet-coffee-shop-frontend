@@ -1,15 +1,29 @@
 # Violet Coffee Shop - Frontend
 
-## ☕
+<br/>
 
-![Banner](public/github-banner.png)
+<div align="center">
+	<img height="200" src="https://raw.githubusercontent.com/anshoriacc/violet-coffee-shop-backend/master/public/github-banner.png" alt="VioletCoffeeShop">
+
+[![react-router-dom](https://img.shields.io/npm/v/react-router-dom?label=react-router-dom)](https://www.npmjs.com/package/react-router-dom)
+[![axios](https://img.shields.io/npm/v/axios?label=axios)](https://www.npmjs.com/package/axios)
+[![chart.js](https://img.shields.io/npm/v/chart.js?label=chart.js)](https://www.npmjs.com/package/chart.js)
+[![craco](https://img.shields.io/npm/v/craco?label=craco)](https://www.npmjs.com/package/craco)
+[![lottie-redux](https://img.shields.io/npm/v/lottie-redux?label=lottie-redux)](https://www.npmjs.com/package/lottie-redux)
+[![moment](https://img.shields.io/npm/v/moment?label=moment)](https://www.npmjs.com/package/moment)
+[![redux](https://img.shields.io/npm/v/redux?label=redux)](https://www.npmjs.com/package/redux)
+
+<br/>
+
+</div>
+
+<br/>
 
 Violet coffee shop is a web application that can make it easier for customer to order food and beverages from coffee shop. Customer can simply register, login, see products, order, see order history, edit their profile, etc.
 
 ## Contents
 
 - [Features](#features)
-- [Packages Used](#packages-used)
 - [Run Application](#run-application)
 - [Deployment](#deployment)
 - [Related Projects](#related-projects)
@@ -62,6 +76,7 @@ Download all dependency packages needed for the application in [Packages used](#
 ### 3. Configure .env file
 
 Configure .env file by create file named .env inside project folder and add this line to the file:
+
 ```
 REACT_APP_HOST = "https://coffee-shop-back-end.herokuapp.com/api"
 ```
