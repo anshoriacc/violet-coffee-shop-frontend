@@ -63,9 +63,13 @@ Clone this repository by run
 $ git clone <this-repo-url>
 ```
 
-### 2. Download all packages
+### 2. Install dependency packages
 
-Download all dependency packages needed for the application in [Packages used](#packages-used)
+Install dependency packages by run the following code inside project folder:
+
+```
+$ npm install
+```
 
 ### 3. Configure .env file
 
