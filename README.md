@@ -1,7 +1,5 @@
 # Violet Coffee Shop - Frontend
 
-<br/>
-
 <div align="center">
 	<img height="200" src="https://raw.githubusercontent.com/anshoriacc/violet-coffee-shop-backend/master/public/github-banner.png" alt="VioletCoffeeShop">
 
@@ -16,8 +14,6 @@
 <br/>
 
 </div>
-
-<br/>
 
 Violet coffee shop is a web application that can make it easier for customer to order food and beverages from coffee shop. Customer can simply register, login, see products, order, see order history, edit their profile, etc.
 
