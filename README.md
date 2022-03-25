@@ -58,7 +58,7 @@ Violet coffee shop is a web application that can make it easier for customer to 
 
 ### 1. Clone this repository
 
-Clone this repository by run
+Clone this repository by run the following code:
 
 ```
 $ git clone <this-repo-url>
@@ -80,9 +80,15 @@ Configure .env file by create file named .env inside project folder and add this
 REACT_APP_HOST = "https://coffee-shop-back-end.herokuapp.com/api"
 ```
 
-### 4. Run `npm start`
+### 4. Run projects
 
-Runs the app in the development mode.\
+Run this projects by run the following code:
+
+```
+$ npm start
+```
+
+It runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
