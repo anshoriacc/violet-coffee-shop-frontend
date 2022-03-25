@@ -24,8 +24,9 @@ Violet coffee shop is a web application that can make it easier for customer to 
 ## Contents
 
 - [Features](#features)
-- [Run Application](#run-application)
+- [Run Application](#how-to-run-the-application)
 - [Deployment](#deployment)
+- [Screenshots](#screenshots)
 - [Related Projects](#related-projects)
 - [Contributors](#contributors)
 
@@ -89,11 +90,17 @@ You may also see any lint errors in the console.
 
 ## Deployment
 
-<https://violet-coffee-shop.netlify.app/>
+[Netlify deploy link](https://violet-coffee-shop.netlify.app)
+
+## Screenshots
+
+![home page](public/github-ss1.png)
+
+![login page](public/github-ss2.png)
 
 ## Related Projects
 
-`Violet Coffee Shop - Backend` <https://github.com/anshoriacc/violet-coffee-shop-backend>
+[Violet Coffee Shop - Backend](https://github.com/anshoriacc/violet-coffee-shop-backend)
 
 ## Contributors
 
