@@ -96,9 +96,9 @@ You may also see any lint errors in the console.
 
 ## Screenshots
 
-![home page](public/github-ss1.png)
-
-![login page](public/github-ss2.png)
+<img width="500" src="https://raw.githubusercontent.com/anshoriacc/violet-coffee-shop-frontend/master/public/github-ss1.png" alt="Home page">
+<div width="50"></div>
+<img width="500" src="https://raw.githubusercontent.com/anshoriacc/violet-coffee-shop-frontend/master/public/github-ss2.png" alt="Login page">
 
 ## Related Projects
 
