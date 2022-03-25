@@ -98,7 +98,7 @@ You may also see any lint errors in the console.
 
 <div align="center">
 <img width="500" src="https://raw.githubusercontent.com/anshoriacc/violet-coffee-shop-frontend/master/public/github-ss1.png" alt="Home page">
-<br/>
+
 <img width="500" src="https://raw.githubusercontent.com/anshoriacc/violet-coffee-shop-frontend/master/public/github-ss2.png" alt="Login page">
 </div>
 
